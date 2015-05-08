@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Wbprime
-subtitle: Home of wbprime
-description: In test
-author: Elvis Wang
+title: Hexo
+subtitle:
+description:
+author: John Doe
 language:
 timezone:
 
@@ -25,7 +25,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -62,11 +62,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: pacman  
+theme: landscape
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/wbprime/wbprime.github.io.git
+  repo: git@github.com:wbprime/wbprime.github.io.git
   branch: master
