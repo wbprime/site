@@ -1,2 +1,3 @@
-# site
-Main page powered by Hexo
+# Homepage of wbprime
+
+[wbprime](http://www.wbprime.me)
