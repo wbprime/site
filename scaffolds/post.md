@@ -2,6 +2,6 @@ title: {{ title }}
 date: {{ date }}
 updated: {{ date }}
 categories: 
-tags:
-description: Brief description.
+tags: 
+description: 
 ---
