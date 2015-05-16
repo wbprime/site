@@ -1,9 +1,9 @@
 title: "记怀柔烧烤"
 date: 2015-05-14 08:23:02
-updated: 2015-05-16 00:59:57
-categories: Life 
-tags: trip
-description: A trip to Huairou
+updated: 2015-05-16 15:59:57
+categories: life 
+tags: [trip ,happy]
+description: A trip to Huairou District.
 ---
 
 # 一 缘起

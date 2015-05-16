@@ -15,7 +15,7 @@
 {% endif %}
 
 {% if theme.fancybox %}
-  <link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors) }}/fancybox/fancybox.css?v=2.1.5"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors) }}/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 {% endif %}
 
 <link rel="stylesheet" type="text/css" href="{{ url_for(theme.css) }}/main.css?v={{ theme.version }}"/>

@@ -2,6 +2,8 @@
 menu:
   Home: /
   Archives: /archives
+  Categories: /categories
+  Tags: /tags
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
 ## set `front-matter`as
@@ -12,7 +14,7 @@ menu:
 #### Widgets
 widgets: 
 - category
-- tag
+- tagcloud
 #- rss
 ## provide six widgets:category,tag,rss,archive,tagcloud,links.
 ## modify links in `/layout/_widget/links.ejs`.
@@ -38,13 +40,13 @@ author_img: /img/logo220.png ## size:220px*220px.
 ## if the picture's format is `.png` or `.jpg`  instead of dataURI,you should set the `dataURI` value to false.
 
 #### Font
-ShowCustomFont: false  
+ShowCustomFont: true  
 ## you can change custom font in `variable.styl` and `font.styl` which in the theme folder `/pacman/source/css`.
 
 #### Toc
 toc:
-  article: false   ## show contents in article.
-  aside: false     ## show contents in aside.
+  article: true   ## show contents in article.
+  aside: true     ## show contents in aside.
 ## you can set both of the value to true of neither of them.
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
 
@@ -58,7 +60,7 @@ fancybox: false
 author:
     intro_line1: "Hello, I'm Elvis Wang."
     intro_line2: "Enjoy you journey"
-#    github: wbprime    ## e.g. A-limon for https://github.com/A-limon
+    github: wbprime    ## e.g. A-limon for https://github.com/A-limon
 #  google_plus:    ## eg:116338260303228776998 for https://plus.google.com/u/0/116338260303228776998
 #  intro_line1: "" ## eg: "Hello ,I'm Larry Page in Google."
 #  intro_line2: "" ## eg: "This is my blog,believe it or not."

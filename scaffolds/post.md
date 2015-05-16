@@ -3,4 +3,5 @@ date: {{ date }}
 updated: {{ date }}
 categories: 
 tags:
+description: Brief description.
 ---

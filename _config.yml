@@ -14,7 +14,7 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.wbprime.me
 root: /
-permalink: :year/:month/:day/
+permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
@@ -43,7 +43,7 @@ highlight:
   tab_replace: true
 
 # Category & Tag
-default_category: thoughts
+default_category: tech
 category_map:
 tag_map:
 
