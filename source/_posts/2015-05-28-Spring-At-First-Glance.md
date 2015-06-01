@@ -35,22 +35,202 @@ Spring framework provides a tool to help start your application using [Spring Bo
 
 2. For [Gradle](http://www.gradle.org), include the appropriate URL in the repositories section.
 
-repositories {
-    mavenCentral()
-        // and optionally...
+        repositories {
+            mavenCentral()
+            // and optionally...
             maven { url "http://repo.spring.io/release" }
-            }
+        }
 
 3. For [Ivy](http://ant.apache.org/ivy), the following resolver to your ivysettings.xml.
 
-<resolvers>
-    <ibiblio name="io.spring.repo.maven.release"
+        <resolvers>
+            <ibiblio name="io.spring.repo.maven.release"
                 m2compatible="true"
-                            root="http://repo.spring.io/release/"/>
-                            </resolvers>
+                root="http://repo.spring.io/release/"/>
+        </resolvers>
 
 4. Last but most important, for regular use without each of the three, you can download Spring distribution zip file from <http://repo.spring.io/release/org/springframework/spring>, and add separated jar files into you CLASSPATH.
 
-# Try it out
+# Make it run
 
+At the very first, I would like to direct into spring without any dependency handling apps.  Maven and its counterparts are useful and convienent for development, but may not be helpful for studying at the very beginning.
+
+To make it clear, I will start my Spring journey in a special directory `/home/wb/projects/`.  Now you can guess my user name is wb, hahaha.
+
+To handle dependency manually, I need to download [Spring libraries](http://repo.spring.io/release/org/springframework/spring).
+
+Now let's start by creating a project using Intellij Idea named `Spring`.
+
+Now the filesystem hierachy may look like (produced by `tree -F`):
+
+    /home/wb/projects/Spring/
+    ├── Spring.iml
+    └── src/
+
+Add spring library dependencies for `Spring` project.
+
+1. Open `Project structure` setting dialog by clicking `File|Project Structure...`.  Then add library in `Library` tab.
+
+    Following jar files need be added:
+
+        spring-core-4.1.6.RELEASE.jar
+        spring-beans-4.1.6.RELEASE.jar
+        spring-context-4.1.6.RELEASE.jar
+
+2. Create a test class named `First`
+
+    Now the filesystem hierachy may look like (produced by `tree -F`):
+
+        /home/wb/projects/Spring/
+        ├── Spring.iml
+        └── src/
+            └── First.java
+
+3. Add a private field named `prop` in `First`, and add setter and getter.
+
+    Here is what `First.java` contains:
+
+        public class First {
+
+            private String prop;
+
+            public First() {}
+
+            public String getProp() {
+                return prop;
+            }
+
+            public void setProp(String prop) {
+                this.prop = prop;
+            }
+
+            public void print() {
+                System.out.println(prop);
+            }
+
+            public static void main(String [] _args) {
+                First aFirst = new First();
+
+                aFirst.setProp("Hello world");
+                aFirst.print();
+            }
+        }
+
+    Run it.
+
+        Hello world
+        
+4. Now create a new file named `first.xml`.
+
+        /home/wb/projects/Spring/
+        ├── Spring.iml
+        └── src/
+            ├── First.java
+            └── first.xml
+
+    In `first.xml`:
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <beans xmlns="http://www.springframework.org/schema/beans"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+            <bean id="aFirst" class="First">
+                <property name="prop" value="I'm first" />
+            </bean>
+
+        </beans>
+
+5. Add Spring specific code in `First.java`.
+
+    In `First.java`:
+
+        import org.springframework.context.ApplicationContext;
+        import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+        public class First {
+
+            private String prop;
+
+            public First() {}
+
+            public String getProp() {
+                return prop;
+            }
+
+            public void setProp(String prop) {
+                this.prop = prop;
+            }
+
+            public void print() {
+                System.out.println(prop);
+            }
+
+            public static void main(String [] _args) {
+                ApplicationContext con = new ClassPathXmlApplicationContext(new String [] {"first.xml"});
+
+                First aFirst = con.getBean("aFirst", First.class);
+                aFirst.print();
+            }
+        }
+
+    Run it:
+
+        Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory
+            at org.springframework.context.support.AbstractApplicationContext.<init>(AbstractApplicationContext.java:154)
+            at org.springframework.context.support.AbstractApplicationContext.<init>(AbstractApplicationContext.java:215)
+            at org.springframework.context.support.AbstractRefreshableApplicationContext.<init>(AbstractRefreshableApplicationContext.java:88)
+            at org.springframework.context.support.AbstractRefreshableConfigApplicationContext.<init>(AbstractRefreshableConfigApplicationContext.java:58)
+            at org.springframework.context.support.AbstractXmlApplicationContext.<init>(AbstractXmlApplicationContext.java:61)
+            at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:136)
+            at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+            ...
+
+    Oh, exceptions!
+
+6. Add `common-logging` dependency.
+
+    According to [Spring guide](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/index.html#overview-logging), Spring (explicitly spring-core) depends on [Apache Commons Logging](http://commons.apache.org/proper/commons-logging/).  So I need to download [it](http://commons.apache.org/proper/commons-logging/download_logging.cgi) and add it to project library path.
+
+    Now run it:
+
+        Jun 01, 2015 7:27:19 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+        INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@71933d6c: startup date [Mon Jun 01 19:27:19 CST 2015]; root of context hierarchy
+        Jun 01, 2015 7:27:19 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+        INFO: Loading XML bean definitions from class path resource [first.xml]
+        Exception in thread "main" java.lang.NoClassDefFoundError: org/springframework/expression/ParserContext
+            at org.springframework.context.support.AbstractApplicationContext.prepareBeanFactory(AbstractApplicationContext.java:553)
+            at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:455)
+            at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+            at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+            at First.main(First.java:23)
+            at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+            at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+            at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+            at java.lang.reflect.Method.invoke(Method.java:606)
+            at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
+            Caused by: java.lang.ClassNotFoundException: org.springframework.expression.ParserContext
+            at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+            at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+            at java.security.AccessController.doPrivileged(Native Method)
+            at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+            at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+            at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+            at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+            ... 10 more
+
+    Wow, another exception!
+
+7. Indeed, I surpress this exception by adding another dependency `spring-expression-4.1.6.RELEASE.jar`.  I dont know why, it just works.
+
+    Run it:
+
+        Jun 01, 2015 7:30:16 PM org.springframework.context.support.ClassPathXmlApplicationContext prepareRefresh
+        INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6ebfc8d0: startup date [Mon Jun 01 19:30:16 CST 2015]; root of context hierarchy
+        Jun 01, 2015 7:30:16 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+        INFO: Loading XML bean definitions from class path resource [first.xml]
+        I'm first
+
+8. Finally it works.
 
