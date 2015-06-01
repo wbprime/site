@@ -11,10 +11,8 @@ menu:
 favicon: /img/favicon.ico
 avatar: /img/logo220.png
 
-creative_commons: by-nc
-
 # Set default keywords (Use a comma to separate)
-keywords: "wbprime,wangbo"
+keywords: "wbprime"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -24,15 +22,15 @@ rss: false
 # Icon fonts
 # Place your font into next/source/fonts, specify directory-name and font-name here
 # Avialable: default | linecons | fifty-shades | feather
-#icon_font: default
-icon_font: fifty-shades
+icon_font: default
+#icon_font: fifty-shades
 #icon_font: feather
 #icon_font: linecons
 
 # Code Highlight theme
 # Available value: normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: "normal"
+highlight_theme: night blue
 
 
 # MathJax Support
@@ -72,7 +70,8 @@ fancybox: true
 # Static files
 vendors: vendors
 css: css
+js: js
 images: images
 
 # Theme version
-version: 0.4.2
+version: 0.4.3

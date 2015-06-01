@@ -3,7 +3,7 @@ date: 2015-05-28 19:11:56
 updated: 2015-05-28 19:11:56
 categories: Tech
 tags: [Java, Spring]
-description:
+description: The Springframework is famous for IOC and DI features.  What exactly does a Spring based Java application look like? And how to produce a Spring based app without learning a lot of teches and apps like maven and gradle.  Ok, let's start step by step.
 ---
 
 [Spring](http://spring.io) is a world famous Java developing framework.
