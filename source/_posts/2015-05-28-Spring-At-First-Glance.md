@@ -1,7 +1,7 @@
 title: Spring - At First Glance
 date: 2015-05-28 19:11:56
 updated: 2015-05-28 19:11:56
-categories: Tech
+categories: tech
 tags: [Java, Spring]
 description: The Springframework is famous for IOC and DI features.  What exactly does a Spring based Java application look like? And how to produce a Spring based app without learning a lot of teches and apps like maven and gradle.  Ok, let's start step by step.
 ---
