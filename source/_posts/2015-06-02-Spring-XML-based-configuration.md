@@ -1,14 +1,14 @@
 title: 'Spring: XML based configuration'
 date: 2015-06-02 10:12:47
-updated: 2015-06-02 10:12:47
+updated: 2015-06-10 13:12:47
 categories: Tech
-tags: Spring
+tags: [Spring, configuration, Java]
 description: The Springframework XML-based metadata configuration guide.
 ---
 
 # Overview
 
-## Spring configuration
+## Spring Configuration
 
 The Springframework supports 3 kinds of configuration methods, including XML-based configuration, annotation-based configuration and Java-based configuration.
 
@@ -66,7 +66,7 @@ Typical usage of `ApplicationContext` to load xml configuration metadata:
 
 # XML file format
 
-## beans element
+## `beans` 
 
 An xml configuration file is, of cource, a regular xml file with a top-level `<beans />` element and some springframework specific definitions.
 
@@ -77,7 +77,7 @@ An xml configuration file is, of cource, a regular xml file with a top-level `<b
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     </beans>
 
-## bean element
+## `bean` 
 
 An xml file consists of at least one bean definition through `<bean />` element inside a top-level `<beans />` element.  A `<bean />` element represents a bean object; a bean object can be anything whatever you want it to be: a service layer object, a data access object (DAO), a presentation object and so forth, only if it is a standard BEAN object.
 
@@ -96,7 +96,7 @@ An xml file consists of at least one bean definition through `<bean />` element 
 
     </beans>
 
-## alias element
+## `alias` 
 
 Spring supports alias for a bean which is valid in the `ApplicationContext` scope.
 
@@ -138,7 +138,7 @@ In file `app.xml`:
         <bean id="appSession" class="me.wbprime.java.MySession" />
     </beans>
 
-## import element
+## `import` 
 
 It can be useful to have bean definitions span multiple XML files. Often each individual XML configuration file represents a logical layer or module in your architecture.  
 
@@ -159,7 +159,7 @@ Thus loading `app.xml` means loading configuration data from three files: `a.xml
 
 Note that the contents of the files being imported, including the top level <beans/> element, must be valid XML bean definitions according to the Spring Schema.
 
-# Bean
+# Bean Configuration
 
 Spring container manages one or more beans by `<bean />` definitions.  A `<bean />` element can provide the following metadata for a target `Bean` object:
 
@@ -194,7 +194,7 @@ The object type is specified by `class` attribute for a bean.  The `class` attri
 
         <bean class="ClassA" ... />
 
-## Instantiating a bean
+## Instantiating a Bean
 
 Spring provides 3 ways to instantiating a bean.
 
@@ -315,7 +315,7 @@ You can control the bean scope by specifying an additional `scope` attribute to 
 | global session | Scopes a single bean definition to the lifecycle of a global HTTP Session. Web-aware.           |
 | application    | Scopes a single bean definition to the lifecycle of a ServletContext. Web-aware.                |
 
-### singleton
+### `singleton`
 
 The Spring container creates only one instance of that object if you specify singleton scope to a bean by adding a `scope` attribute.
 
@@ -323,7 +323,7 @@ The Spring container creates only one instance of that object if you specify sin
 
 Note that this is the default value for `scope` attribute, if not specified explicitly.
 
-### prototype
+### `prototype`
 
 In contrast to singleton, prototype scope means that the Spring container creates an instance each time a request for that bean is made. As a rule, use the prototype scope for all stateful beans and the singleton scope for stateless beans.
 
@@ -331,15 +331,15 @@ In contrast to singleton, prototype scope means that the Spring container create
 
 If you use a singleton-scoped bean which referenced a prototype-scoped bean, all dependencies are injected at instantiation time and injected once.
 
-### resuest, session and global session
+### `request`, `session` and `global session`
 
 The request, session, and global session scopes are web-aware (using `ApplicationContext` such as `XmlWebApplicationContext`). If you use these scopes with regular `ApplicationContext` such as the `ClassPathXmlApplicationContext`, you get an `IllegalStateException` complaining about an unknown bean scope.
 
-### application
+### `application`
 
 The application scope is similar to singleton for a entire web application, but differs in 2 ways: It is a singleton per `ServletContext`, not per Spring `ApplicationContext`, and it is actually exposed and therefore visible as a `ServletContext` attribute.
 
-### Custom scope
+### Custom Scope
 
 To do.
 
@@ -351,9 +351,9 @@ By default, the Spring container creates and configures all singleton dependenci
 
 Now `lazyBean` bean will not be pre-instantiated when the Spring container is starting up.  However, if a lazy-initialized bean is referenced by another singleton bean that is not lazy-initialized, the lazy-initialized bean will still be created and initialized when starting up.
 
-## Lifecycle callbacks
+## Lifecycle Callbacks
 
-### init-method
+### `init-method`
 
 The Spring provides `init-method` attribute to allow a bean performing initialization work after instantiating and all necessary properties been set.
 
@@ -361,7 +361,7 @@ The Spring provides `init-method` attribute to allow a bean performing initializ
 
 `init` is a name of method in `examples.ExampleBean` with a `public void init() {..}` like implementation.
 
-### destroy-method
+### `destroy-method`
 
 The Spring provides `destroy-method` attribute to allow a bean performing cleaning up work before destroyed.
 
@@ -369,7 +369,7 @@ The Spring provides `destroy-method` attribute to allow a bean performing cleani
 
 `cleanup` is a name of method in `examples.ExampleBean` with a `public void cleanup() {...}` like implementation.
 
-### default init/destroy method
+### Default `init/destroy` Method
 
 The fact is that init methods in your project keep the same name such as `init()`, `initialize()` and so on.  Adding it to each bean seems stupid.  To avoid this, you can set `default-init-method` attribute for `beans` element.
 
@@ -381,7 +381,7 @@ Similarly, you can set `default-destroy-method` attribute for destroy methods.
 
 The `init-method`/`destroy-method` attribute for `bean` element will override the default values set to `beans`.
 
-## Dependency injection
+## Dependency Injection
 
 Dependency injection (DI) is a process that bean objects define their dependencies, while the dependencies are handled by the container.  DI can be fulfilled by 1) interface, 2) constructor and 3) setters.
 
@@ -413,7 +413,7 @@ Setter-based DI can be done via `property` sub-element.
         <property name="prop3" value="1"/>
     </bean>
 
-### DI values
+### DI Values
 
 The Spring supports constructor-based DI via `<constructor-arg />` element and setter-based DI via `<property />` element.  Values for these two elements can be specified inline (via attribute) or via sub element.  And values can be Java primitives (int, boolean and so on), String (java.lang.String) and reference to other beans.
 
@@ -509,7 +509,7 @@ The Spring supports constructor-based DI via `<constructor-arg />` element and s
             </property>
         </bean>
 
-### p-namespace
+### `p-namespace`
 
 The Spring p-namespace (property namespace ?) is introduced to describe straight values and bean references as a shorcut/replacement for `<property />` element.
 
@@ -544,7 +544,7 @@ is the same as
 
 Spring p-namespace provide inline attribute for `<property />` element, using `p:PROPERRY` to set straight values and `p:PROPERTY-ref` to set bean references, of which `PROPERTY` is the actual property name.
 
-### c-namespace
+### `c-namespace`
 
 The Spring c-namespace (constructor namespace ?) is introduced to describe straight values and bean references as a shorcut/replacement for `<constructor-arg />` element.
 
@@ -581,7 +581,7 @@ Of course the name of constructor parameters should be available (compiled with 
 
     <bean id="foo" class="Foo" c:_0="foo@bar.com" c:_1-ref="jane"/>
 
-### compound property
+### Compound Property
 
 You can use compound property to simplify property injection.
 
