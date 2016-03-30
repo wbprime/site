@@ -1,7 +1,7 @@
 title: "生命有一种绝对"
 date: 2013-05-16 21:04:55
 updated: 2015-05-16 21:04:55
-categories: life
+categories: Mayday
 tags: [calm, Mayday]
 description: 你跳不出这个世界，是因为你不知道这个世界有多大，一旦你知道了，你就超出了它。
 ---

@@ -1,7 +1,7 @@
 title: "疯狂世界"
 date: 2013-05-16 21:01:44
 updated: 2015-05-16 21:01:44
-categories: life
+categories: Mayday
 tags: [calm, Mayday]
 description: 五月天的歌曲，早期的代表作之一，疯狂世界。
 ---

@@ -1,7 +1,7 @@
 title: "后青春期的诗"
 date: 2013-05-16 20:46:59
 updated: 2015-05-16 20:46:59
-categories: life
+categories: Mayday
 tags: [calm, Mayday]
 description: 谁说不能让我此生唯一自传，如同诗一般？
 ---
