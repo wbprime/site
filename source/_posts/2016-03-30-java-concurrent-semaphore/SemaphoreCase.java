@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * Class: SemaphoreCase
  * Date: 2016/03/30 18:15
  *
- * @author Elvis Wang [bo.wang35@renren-inc.com]
+ * @author Elvis Wang [mail@wbprime.me]
  */
 public final class SemaphoreCase {
     private static class Item {

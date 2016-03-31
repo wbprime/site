@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * Class: CyclicBarrierCase
  * Date: 2016/03/30 13:35
  *
- * @author Elvis Wang [bo.wang35@renren-inc.com]
+ * @author Elvis Wang [mail@wbprime.me]
  */
 public final class CyclicBarrierCase {
     private static class Employee implements Runnable {
