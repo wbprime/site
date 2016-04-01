@@ -2,7 +2,6 @@ package me.wbprime.showcase.concurrent;
 
 
 import com.google.common.collect.ImmutableList;
-import org.joda.time.LocalDate;
 
 import java.util.List;
 import java.util.Random;
@@ -18,12 +17,12 @@ import java.util.concurrent.Executors;
  * @author Elvis Wang [mail@wbprime.me]
  */
 public final class CyclicBarrierCase {
-    private static class Employee implements Runnable {
+    private static class Interviewee implements Runnable {
 
         private CyclicBarrier barrier;
         private List<String>  jobs;
 
-        public Employee(final List<String> dt, final CyclicBarrier b) {
+        public Interviewee(final List<String> dt, final CyclicBarrier b) {
             barrier = b;
             jobs = dt;
         }
@@ -78,7 +77,7 @@ public final class CyclicBarrierCase {
         final ExecutorService executor = Executors.newCachedThreadPool();
 
         for (int i = 0; i < memberCount; i ++) {
-            executor.execute(new Employee(workflow, barrier));
+            executor.execute(new Interviewee(workflow, barrier));
         }
 
         executor.shutdown();
