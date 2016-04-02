@@ -1,4 +1,4 @@
-title: Java concurrency - content
+title: "Learning Java concurrency - Content"
 date: 2016-03-31 10:10:46
 updated: 2016-03-31 10:10:46
 categories: "Learning Java Concurrency"
