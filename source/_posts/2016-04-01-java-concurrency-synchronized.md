@@ -244,6 +244,21 @@ class Singleton8 {
 
 局部变量`var`的引入是为了效率考虑，减少对`volatile`变量的读取次数。按照[Double-checked locking](https://en.wikipedia.org/wiki/Double-checked_locking)的说法，可以提升25%的效率。
 
+# 同步器的释放
+
+同一时间同一个对象只允许一个线程持有同步器，其他请求同步器的线程会被阻塞。当前线程超出了同步器约束的作用域（方法体或者代码块）或者当前线程调用了同一个对象的`wait()`方法。
+
+具体来说，就是：
+
+1. 当前线程正常退出作用域。
+2. 当前线程作用域内出现了未处理的Error或者Exception。
+3. 当前线程在作用域内执行了同步器锁定对象的`wait()`方法。
+
+特别的，以下两种情况可能会有迷惑性，当前执行线程是不会释放同步器的。
+
+1. 当前线程在作用域内调用`Thread.sleep()`或`Thread.yield()`暂停执行。
+2. 当前线程在作用域内时，其他线程调用了当前线程的`suspend()`方法。
+
 # 与 ReentrantLock 的比较
 
 synchronized和java.util.concurrency包中的ReentrantLock在作用和用法上具有很高的相似性。前者是Java语法层面的多线程同步器，后者是API层面的互斥锁。
