@@ -16,6 +16,7 @@ Java Concurrency是学习Java的过程中绕不过去的一道坎。既然绕不
 
 1. [Learning Java Concurrency - synchronized](/2016/04/01/java-concurrency-synchronized/)
 2. [Learning Java Concurrency - wait & notify](/2016/04/06/learning-java-concurrency-wait-notify/)
-3. [Learning Java Concurrency - CountDownLatch](/2016/03/30/java-concurrency-countdownlatch/)
-4. [Learning Java Concurrency - CyclicBarrier](/2016/03/30/java-concurrency-cyclicbarrier/)
-5. [Learning Java Concurrency - Semaphore](/2016/03/30/java-concurrent-semaphore/)
+3. [Learning Java Concurrency - ReentrantLock & Condition](/2016/04/07/learning-java-concurrency-reentrantlock-condition/)
+4. [Learning Java Concurrency - CountDownLatch](/2016/03/30/java-concurrency-countdownlatch/)
+5. [Learning Java Concurrency - CyclicBarrier](/2016/03/30/java-concurrency-cyclicbarrier/)
+6. [Learning Java Concurrency - Semaphore](/2016/03/30/java-concurrent-semaphore/)
