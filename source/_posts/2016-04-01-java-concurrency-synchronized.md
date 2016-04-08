@@ -12,7 +12,7 @@ synchronized在语义上等同于一个独占锁。synchronized可以用来修�
 
 synchronized可以使用在普通方法里，也可以使用在静态方法里。
 
-```
+```java
 class Synchronized {
 
     public synchronized void method1(final String val) {
@@ -51,7 +51,7 @@ synchronized的学习最好结合单例模式来进行。
 
 最简单的单例模式，可以表示如下：
 
-```
+```java
 class Singleton0 {
      
     private static Singleton0 instance_ = new Singleton0(); // init while class loaded
@@ -70,7 +70,7 @@ class Singleton0 {
 
 如果想延迟初始化，可以使用下面的方案。
 
-```
+```java
 class Singleton1 {
 
     private static Singleton1 instance_;
@@ -91,7 +91,7 @@ class Singleton1 {
 
 ## Version 2
 
-```
+```java
 class Singleton2 {
 
     private static Singleton2 instance_;
@@ -112,7 +112,7 @@ class Singleton2 {
 
 然而上面的版本还可以进行改进。可以只在实例化的时候才加以同步控制，如果已经实例化了，就不需要同步控制代码。
 
-```
+```java
 class Singleton3 {
 
     private static Singleton3 instance_;
@@ -137,7 +137,7 @@ class Singleton3 {
 
 这个时候需要使用到双重检锁机制：在获取同步器之前和之后都需要进行条件判断。
 
-```
+```java
 class Singleton4 {
 
     private static Singleton4 instance_; // variable visibility
@@ -166,7 +166,7 @@ class Singleton4 {
 
 双重检锁的推荐实现是使用synchronized来保证多线程同步，使用volatile来保证变量的多线程可见性：
 
-```
+```java
 class Singleton5 {
 
     private static volatile Singleton5 instance_; // Add volatile to keep variable memory visibility
@@ -193,7 +193,7 @@ class Singleton5 {
 
 事实上，随着Java版本的提升，目前公认的比较好的Java单例模式实现是使用enum。
 
-```
+```java
 enum Singleton6 {
     INSTANCE;
 
@@ -203,7 +203,7 @@ enum Singleton6 {
 
 如果不想使用enum关键字，也可以使用[Initialization-on-demand holder idiom](https://en.wikipedia.org/wiki/Initialization_on_demand_holder_idiom)。
 
-```
+```java
 class Singleton7 {
 
     private static class SingletonHolder {
@@ -220,7 +220,7 @@ class Singleton7 {
 
 当然也可以使用双检锁版本，或者其改进版本：
 
-```
+```java
 class Singleton8 {
     private static volatile Singleton8 instance_;
 

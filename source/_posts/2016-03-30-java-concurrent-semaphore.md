@@ -61,7 +61,7 @@ Semaphore，信号量。信号量可以理解为令牌掌牌使，负责令牌�
 
 Semaphore内部有一个静态类Sync来实现公平策略，NonFairSync来实现非公平策略。
 
-```
+```java
 static class Sync extends AbstractQueuedSynchronizer
 
 ...
@@ -75,7 +75,7 @@ static final class NonfairSync extends Sync
 
 # 示例代码
 
-```
+```java
 package me.wbprime.showcase.concurrent;
 
 

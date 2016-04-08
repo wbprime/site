@@ -45,7 +45,7 @@ CountDownLatch 是一种比较有意思的线程同步方法，主要用于需�
 
 CountDownLatch内部有一个静态类Sync。CountDownLatch的所有方法都委托到内部一个Sync实例。
 
-```
+```java
 private static final class Sync extends AbstractQueuedSynchronizer
 ```
 
@@ -53,7 +53,7 @@ Sync可以理解为一个共享锁，主要使用AbstractQueuedSynchronizer的�
 
 # 示例代码
 
-```
+```java
 package me.wbprime.showcase.concurrent;
 
 

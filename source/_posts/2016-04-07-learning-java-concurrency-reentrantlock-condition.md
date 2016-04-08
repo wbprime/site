@@ -10,7 +10,7 @@ tags: [Java, Concurrency]
 
 仿[`synchronized`](/2016/04/01/java-concurrency-synchronized/)，用`ReentrantLock`实现单例模式的代码如下：
 
-```
+```java
 private static class Singleton {
     private static volatile Singleton INSTANCE;
     private static ReentrantLock lock = new ReentrantLock();
@@ -38,7 +38,7 @@ private static class Singleton {
 
 仿[`wait & notify`](/2016/04/06/learning-java-concurrency-wait-notify/)，用`Condition`来实现父子通知汇款的代码如下：
 
-```
+```java
 private static class DepositAccount {
     private int money;
 
@@ -97,7 +97,7 @@ private static class DepositAccount {
 
 `ReentrantLock`的实现是委托给内部静态类`FairSync`和`NonfairSync`，这两个类又继承自`AbstractQueuedSynchronizer`。
 
-```
+```java
 abstract static class Sync extends AbstractQueuedSynchronizer {
     ...
 }
@@ -115,7 +115,7 @@ static final class FairSync extends Sync {
 
 `FairSync`和`NonfairSync`即所谓的公平锁和非公平锁。对比一下两个锁版本对于`lock`方法的实现，就能明白公平和非公平的区别在哪里了。
 
-```
+```java
 final void lock() { // NonfairSync
     if (compareAndSetState(0, 1))
         setExclusiveOwnerThread(Thread.currentThread());

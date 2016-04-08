@@ -47,7 +47,7 @@ CyclicBarrier是来做多线程同步的，首先需要确定有多少个线程�
 
 CyclicBarrier内部是通过一个ReentrantLock实例来进行同步的，用该实例的一个Condition实例来控制是否达到放行状态。
 
-```
+```java
 /** The lock for guarding barrier entry */
 private final ReentrantLock lock = new ReentrantLock();
 /** Condition to wait on until tripped */
@@ -56,7 +56,7 @@ private final Condition trip = lock.newCondition();
 
 # 示例代码
 
-```
+```java
 package me.wbprime.showcase.concurrent;
 
 

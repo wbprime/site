@@ -10,7 +10,7 @@ tags: [Java, Concurrency]
 
 `wait()`、`notify()`和`notifyAll()`是Object类的方法，与synchronized配套使用。
 
-```
+```java
 public class Object {
     ...
 
@@ -41,7 +41,7 @@ public class Object {
 
 ## 代码
 
-```
+```java
 package me.wbprime.showcase.concurrent;
 
 
@@ -195,7 +195,7 @@ public class DepositCase {
 
 ## 代码
 
-```
+```java
 package me.wbprime.showcase.concurrent;
 
 
