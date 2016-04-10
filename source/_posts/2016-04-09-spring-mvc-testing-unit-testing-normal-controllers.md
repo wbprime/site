@@ -191,7 +191,8 @@ public class TodoControllerTest {
     //The setUp() method is omitted.
  
     @Test
-    public void findAll_ShouldAddTodoEntriesToModelAndRenderTodoListView() throws Exception {
+    public void 
+    findAll_ShouldAddTodoEntriesToModelAndRenderTodoListView() throws Exception {
         Todo first = new TodoBuilder()
                 .id(1L)
                 .description("Lorem ipsum")
@@ -241,7 +242,7 @@ public class TodoControllerTest {
 预期的接口应该做以下几件事：
 
 1. 接收到"/todo/{id}"上的GET请求，{id}是`Todo`的id值，开始处理流程
-2. 调用`TodoService`的`findById()`方法获取到目标`Todo`对象的列表
+2. 调用`TodoService`的`findById()`方法获取到目标`Todo`对象
 3. 将获取到的`Todo`项加入到model中
 4. 返回对应的view名称
 
@@ -267,7 +268,10 @@ public SimpleMappingExceptionResolver exceptionResolver() {
  
     Properties exceptionMappings = new Properties();
  
-    exceptionMappings.put("net.petrikainulainen.spring.testmvc.todo.exception.TodoNotFoundException", "error/404");
+    exceptionMappings.put(
+        "net.petrikainulainen.spring.testmvc.todo.exception.TodoNotFoundException",
+        "error/404"
+    );
     exceptionMappings.put("java.lang.Exception", "error/error");
     exceptionMappings.put("java.lang.RuntimeException", "error/error");
  
@@ -297,13 +301,13 @@ public SimpleMappingExceptionResolver exceptionResolver() {
 
 该测试用例主要工作如下：
 
-2. 配置mock的`TodoService`实例在`findById()`方法被调用的时候抛出`TodoNotFoundException`
-3. 执行一个'/todo/1'的GET请求
-4. 对响应作断言：HTTP返回码是404
-5. 对响应作断言：view的名称是"error/404"
-6. 对响应作断言：请求拿到的是'/WEB-INF/jsp/error/404.jsp'页面
-7. 检查请求执行过程中mock的`TodoService`实例执行了`findById()`方法有且仅1次
-8. 检查请求执行过程中mock的`TodoService`实例未执行其他方法
+1. 配置mock的`TodoService`实例在`findById()`方法被调用的时候抛出`TodoNotFoundException`
+2. 执行一个'/todo/1'的GET请求
+3. 对响应作断言：HTTP返回码是404
+4. 对响应作断言：view的名称是"error/404"
+5. 对响应作断言：请求拿到的是'/WEB-INF/jsp/error/404.jsp'页面
+6. 检查请求执行过程中mock的`TodoService`实例执行了`findById()`方法有且仅1次
+7. 检查请求执行过程中mock的`TodoService`实例未执行其他方法
 
 代码如下：
 
@@ -403,7 +407,8 @@ public class TodoControllerTest {
     //The setUp() method is omitted.
  
     @Test
-    public void findById_TodoEntryFound_ShouldAddTodoEntryToModelAndRenderViewTodoEntryView() throws Exception {
+    public void 
+    findById_TodoEntryFound_ShouldAddTodoEntryToModelAndRenderViewTodoEntryView() throws Exception {
         Todo found = new TodoBuilder()
                 .id(1L)
                 .description("Lorem ipsum")
@@ -462,7 +467,11 @@ public class TodoController {
     private final MessageSource messageSource;
  
     @RequestMapping(value = "/todo/add", method = RequestMethod.POST)
-    public String add(@Valid @ModelAttribute("todo") TodoDTO dto, BindingResult result, RedirectAttributes attributes) {
+    public String add(
+        @Valid @ModelAttribute("todo") TodoDTO dto,
+        BindingResult result,
+        RedirectAttributes attributes
+    ) {
         if (result.hasErrors()) {
             return "todo/add";
         }
@@ -475,7 +484,11 @@ public class TodoController {
         return createRedirectViewPath("todo/view");
     }
  
-    private void addFeedbackMessage(RedirectAttributes attributes, String messageCode, Object... messageParameters) {
+    private void addFeedbackMessage(
+        RedirectAttributes attributes,
+        String messageCode,
+        Object... messageParameters
+    ) {
         String localizedFeedbackMessage = getMessage(messageCode, messageParameters);
         attributes.addFlashAttribute("feedbackMessage", localizedFeedbackMessage);
     }
@@ -573,7 +586,9 @@ public class TodoControllerTest {
     //The setUp() method is omitted.
  
     @Test
-    public void add_DescriptionAndTitleAreTooLong_ShouldRenderFormViewAndReturnValidationErrorsForTitleAndDescription() throws Exception {
+    public void 
+    add_DescriptionAndTitleAreTooLong_ShouldRenderFormViewAndReturnValidationErrorsForTitleAndDescription()
+    throws Exception {
         String title = TestUtil.createStringWithLength(101);
         String description = TestUtil.createStringWithLength(501);
  
