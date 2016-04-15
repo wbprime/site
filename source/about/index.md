@@ -2,6 +2,8 @@ title: "about"
 date: 2015-05-16 15:05:08
 updated: 2016-04-13 15:05:08
 type: "about"
+comments: false
+
 ---
 
 # Elvis Wang
