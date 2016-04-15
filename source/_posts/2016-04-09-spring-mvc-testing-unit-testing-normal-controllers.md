@@ -123,7 +123,6 @@ import java.util.List;
  
 @Controller
 public class TodoController {
- 
     private final TodoService service;
      
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -251,9 +250,9 @@ public class TodoControllerTest {
 ```java
 @RequestMapping(value = "/todo/{id}", method = RequestMethod.GET)
 public String findById(@PathVariable("id") Long id, Model model) throws TodoNotFoundException {
-	Todo found = service.findById(id);
-	model.addAttribute("todo", found);
-	return "todo/view";
+    Todo found = service.findById(id);
+    model.addAttribute("todo", found);
+    return "todo/view";
 }
 ```
 
