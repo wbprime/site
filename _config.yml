@@ -17,6 +17,9 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
+# Disqus
+disqus_shortname: wbprime
+
 # Directory
 source_dir: source
 public_dir: public
