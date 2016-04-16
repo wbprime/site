@@ -32,5 +32,3 @@ Spring MVC 集成测试：
 2. [Integration Testing - Controllers](/2016/04/09/spring-mvc-testing-integration-testing-controllers/)
 3. [Integration Testing - Forms](/2016/04/09/spring-mvc-testing-integration-testing-forms/)
 4. [Integration Testing - REST API](/2016/04/09/spring-mvc-testing-integration-testing-rest-api/)
-5. [Integration Testing - Security](/2016/04/09/spring-mvc-testing-integration-testing-security/)
-6. [Integration Testing - JsonPath](/2016/04/09/spring-mvc-testing-integration-testing-jsonpath/)
