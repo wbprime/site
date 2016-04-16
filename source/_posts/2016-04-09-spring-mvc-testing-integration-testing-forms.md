@@ -274,7 +274,7 @@ public class ITTodoControllerTest {
 
 ## POST 添加Todo项表单处理接口
 
-处理一个添加Todo项的表单请求，可能会有三种处理结果：
+处理一个添加Todo项的表单请求，可能会有3种处理结果：
 
 - 表单提交的Todo项为空，添加失败，返回错误提示
 - 表单提交的Todo项的title/description字段值长度不合法，添加失败，返回错误提示
