@@ -6,7 +6,7 @@ tags: ["Spring MVC", "Test", "Java"]
 
 ---
 
-本文是[Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/)集成测试系列的第1篇，原文链接：[Integration Testing of Spring MVC Applications: Configuration](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-configuration/)。
+本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 集成测试系列的第1篇，原文链接：[Integration Testing of Spring MVC Applications: Configuration](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-configuration/)。
 
 没有人会否认集成测试的重要性，它是验证我们开发的组件能够正常协同工作的重要手段。不幸的是，对使用Spring MVC开发的web应用程序作集成测试有一点麻烦。
 

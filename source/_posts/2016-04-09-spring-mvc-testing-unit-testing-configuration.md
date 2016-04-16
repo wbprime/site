@@ -6,7 +6,7 @@ tags: ["Spring MVC", "Test", "Java"]
 
 ---
 
-本文是[Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/)单元测试系列的第1篇，原文链接：[Unit Testing of Spring MVC Controllers: Configuration](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-configuration/)。
+本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第1篇，原文链接：[Unit Testing of Spring MVC Controllers: Configuration](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-configuration/)。
 
 一直以来，为Spring MVC的Controller写单元测试的工作既简单又问题多多。简单体现在单元测试可以很简单地写个测试用例调用一下目标Controller的方法；问题在于这种单元测试完全没有用（不是HTTP的请求），比如说，这种单元测试的方法没办法测试请求映射、参数验证和异常映射等。
 

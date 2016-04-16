@@ -6,7 +6,7 @@ tags: ["Spring MVC", "Test", "Java"]
 
 ---
 
-本文是[Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/)单元测试系列的第2篇，原文链接：[Unit Testing of Spring MVC Controllers: "Normal" Controllers](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/)。
+本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第2篇，原文链接：[Unit Testing of Spring MVC Controllers: "Normal" Controllers](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/)。
 
 本系列的第1部分讲述了使用Spring MVC Test应如何进行单元测试的[配置](/2016/04/09/spring-mvc-testing-unit-testing-configuration/)，现在可以开始实战一下如何对标准controller编写单元测试。
 

@@ -6,7 +6,7 @@ tags: ["Spring MVC", "Test", "Java"]
 
 ---
 
-本文是[Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/)单元测试系列的第3篇，原文链接：[Unit Testing of Spring MVC Controllers: REST API](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)。
+本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第3篇，原文链接：[Unit Testing of Spring MVC Controllers: REST API](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)。
 
 使用Spring MVC可以很方便第创建REST风格的接口，但是编写REST风格接口的单元测试并不是那么方便。幸运的是，Spring MVC Test极大地简化了我们为REST风格controller编写单元测试的工作。
 
