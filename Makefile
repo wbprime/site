@@ -32,7 +32,7 @@ IMG_OUTPUT_FILE_LIST := $(addprefix $(OUTPUT_DIR)/,$(IMG_SOURCE_FILE_LIST))
 CSS_OUTPUT_DIR := $(OUTPUT_DIR)/$(CSS_DIR)
 CSS_OUTPUT_FILE_LIST := $(addprefix $(CSS_OUTPUT_DIR)/,$(CSS_LIST))
 
-CSS_FILES_OPTIONS := $(addprefix -c /_css/,$(CSS_LIST))
+CSS_FILES_OPTIONS := $(addprefix -c /$(CSS_DIR)/,$(CSS_LIST))
 
 all: update
 #all: update
@@ -81,6 +81,6 @@ $(NGINX_PID_FILE):
 	$(NGINX_CMD) -p $(NGINX_PREFIX_DIR) -c $(NGINX_CONFIG_FILE)
 
 clean:
-	rm -rf $(OUTPUT_DIR) $(LOGS_DIR) $(NGINX_TMP_DIR)
+	rm -rf $(LOGS_DIR) $(NGINX_TMP_DIR)
 
 .PHONY: all update prepare_output_dirs copy_posts_rc copy_css copy_images generate_posts serve start_nginx clean
