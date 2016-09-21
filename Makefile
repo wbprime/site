@@ -7,6 +7,14 @@ OUTPUT_DIR := html
 CSS_DIR := css
 IMG_DIR := images
 POSTS_DIR := posts
+CONF_DIR := conf
+LOGS_DIR := logs
+
+NGINX_CMD := /opt/openresty/bin/openresty
+NGINX_PREFIX_DIR := $(shell pwd)
+NGINX_TMP_DIR := client_body_temp proxy_temp
+NGINX_CONFIG_FILE := $(NGINX_PREFIX_DIR)/$(CONF_DIR)/nginx.conf
+NGINX_PID_FILE := $(NGINX_PREFIX_DIR)/$(LOGS_DIR)/nginx.pid
 
 CSS_LIST := panam.css
 MARKDOWN_TO_HTML_CMD := pandoc --highlight-style=tango --toc -f markdown -t html5
@@ -61,7 +69,18 @@ copy_images: $(IMG_OUTPUT_FILE_LIST)
 $(IMG_OUTPUT_FILE_LIST): $(IMG_OUTPUT_DIR)/%: $(IMG_DIR)/%
 	cp -f $< $@
 
-clean:
-	rm -rf $(OUTPUT_DIR)
+serve: update $(LOGS_DIR) start_nginx
+	$(NGINX_CMD) -p $(NGINX_PREFIX_DIR) -c $(NGINX_CONFIG_FILE) -s reload
 
-.PHONY: all update prepare_output_dirs copy_posts_rc copy_css copy_images generate_posts clean
+start_nginx: $(NGINX_PID_FILE) ;
+
+$(LOGS_DIR):
+	mkdir -p $@
+
+$(NGINX_PID_FILE):
+	$(NGINX_CMD) -p $(NGINX_PREFIX_DIR) -c $(NGINX_CONFIG_FILE)
+
+clean:
+	rm -rf $(OUTPUT_DIR) $(LOGS_DIR) $(NGINX_TMP_DIR)
+
+.PHONY: all update prepare_output_dirs copy_posts_rc copy_css copy_images generate_posts serve start_nginx clean
