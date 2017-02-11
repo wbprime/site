@@ -2,8 +2,6 @@
 # Author: Elvis Wang <mail#wbprime#me>
 #
 
-OUTPUT_ROOT_DIR := htmls
-
 #
 # Markdown to html
 #

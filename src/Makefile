@@ -4,6 +4,8 @@
 
 SUBDIRS = css js icons pages posts
 
+export PROJECT_RELATIVE_DIR := $(PROJECT_RELATIVE_DIR)src/
+
 all: subdirs
 	echo $(SUBDIRS)
 	echo $(INSTALL_SUBDIRS)

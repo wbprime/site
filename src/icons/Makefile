@@ -4,12 +4,25 @@
 
 SUBDIRS = # No subdirs
 
-export MARKDOWN_TO_HTML_OPTS := $(MARKDOWN_TO_HTML_OPTS) -c $(WORKING_DIR)/css/panam.css
+export PROJECT_RELATIVE_DIR := $(PROJECT_RELATIVE_DIR)icons
 
-all: subdirs
+ALL_LIST := favicon.ico logo220.png
 
-clean: clean_subdirs
+all: 
+	echo All in icons
 
-install: install_subdirs
+clean: 
+	echo Clean in icons
+
+INSTALL_ALL = $(addprefix install_, $(ALL_LIST))
+.PHONY: install mk_dest_dir $(INSTALL_ALL)
+install: mk_dest_dir $(INSTALL_ALL)
+	echo Install in src/css
+
+mk_dest_dir:
+	mkdir -p $(OUTPUT_ROOT_DIR)/$(PROJECT_RELATIVE_DIR)
+
+$(INSTALL_ALL):
+	cp -f $(subst install_,,$@) $(OUTPUT_ROOT_DIR)/$(PROJECT_RELATIVE_DIR)
 
 include $(MAKEINCLUDE)
