@@ -5,6 +5,9 @@
 SUBDIRS = css js icons pages posts
 
 all: subdirs
+	echo $(SUBDIRS)
+	echo $(INSTALL_SUBDIRS)
+	echo $(CLEAN_SUBDIRS)
 
 clean: clean_subdirs
 
