@@ -1,3 +1,4 @@
+---
 title: 'Spring DI: At First Glance'
 date: 2015-05-28 19:11:56
 updated: 2015-06-10 13:11:56

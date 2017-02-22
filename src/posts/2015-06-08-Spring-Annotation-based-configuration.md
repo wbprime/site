@@ -1,3 +1,4 @@
+---
 title: 'Spring: Annotation based configuration'
 date: 2015-06-08 10:45:49
 updated: 2015-06-10 13:45:49
