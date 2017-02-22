@@ -2,17 +2,6 @@
 # Author: Elvis Wang <mail#wbprime#me>
 #
 
-#
-# Markdown to html
-#
-# Currently use pandoc to generate htmls from markdown files
-# See http://pandoc.org for more details
-MARKDOWN_TO_HTML_CMD   := /usr/bin/pandoc
-MARKDOWN_TO_HTML_OPTS  := --highlight-style=tango --toc -f markdown -t html5
-
-%.html: %.md
-	$(MARKDOWN_TO_HTML_CMD) $(MARKDOWN_TO_HTML_OPTS) -o $@ $<
-
 .PHONY: subdirs $(SUBDIRS)
 subdirs: $(SUBDIRS)
 $(SUBDIRS): 
