@@ -6,7 +6,8 @@ SUBDIRS = # No subdirs
 
 export PROJECT_RELATIVE_DIR := $(PROJECT_RELATIVE_DIR)posts
 
-ALL_LIST := \
+HTML_LIST = $(subst .md,.html,$(SRC_LIST))
+SRC_LIST := \
 	2013-05-16-2012.md \
 	2013-05-16-cangjie.md \
 	2013-05-16-chunzhen.md \
@@ -65,13 +66,29 @@ ALL_LIST := \
 	2016-04-13-learning-java-concurrency-futuretask-callable.md \
 	2016-04-15-learning-java-concurrency-executors-1-executorservice.md \
 
-all: 
-	echo All in src/posts
+DIR_LIST = \
+	2016-03-30-java-concurrency-countdownlatch.dir \
+	2016-03-30-java-concurrency-cyclicbarrier.dir \
+	2016-03-30-java-concurrent-semaphore.dir \
+	2016-04-06-learning-java-concurrency-wait-notify.dir \
+	2016-04-07-learning-java-concurrency-reentrantlock-condition.dir \
+	2016-04-07-learning-java-concurrency-reentrantreadwritelock.dir \
+	2016-04-11-learning-java-concurrency-thread-runnable.dir \
+	2016-04-13-learning-java-concurrency-futuretask-callable.dir \
 
-clean:
+all: $(HTML_LIST)
+
+CLEAN_PREFIX := clean_
+CLEAN_ALL = $(addprefix $(CLEAN_PREFIX), $(SRC_LIST))
+.PHONY: clean $(CLEAN_ALL)
+clean: $(CLEAN_ALL)
 	echo Clean in src/posts
 
-INSTALL_ALL = $(addprefix install_, $(ALL_LIST))
+$(CLEAN_ALL): $(CLEAN_PREFIX)%.md : %.md
+	rm -rf $*.html
+
+INSTALL_PREFIX := install_
+INSTALL_ALL = $(addprefix $(INSTALL_PREFIX), $(SRC_LIST))
 .PHONY: install mk_dest_dir $(INSTALL_ALL)
 install: mk_dest_dir $(INSTALL_ALL)
 	echo Install in src/css
@@ -79,7 +96,10 @@ install: mk_dest_dir $(INSTALL_ALL)
 mk_dest_dir:
 	mkdir -p $(OUTPUT_ROOT_DIR)/$(PROJECT_RELATIVE_DIR)
 
-$(INSTALL_ALL):
-	cp -f $(subst install_,,$@) $(OUTPUT_ROOT_DIR)/$(PROJECT_RELATIVE_DIR)
+$(INSTALL_ALL): $(INSTALL_PREFIX)%.md : %.html
+	cp -f $< $(OUTPUT_ROOT_DIR)/$(PROJECT_RELATIVE_DIR)
+
+$(HTML_LIST): %.html: %.md
+	$(MARKDOWN_TO_HTML_CMD) $(MARKDOWN_TO_HTML_OPTS) -o $@ $<
 
 include $(MAKEINCLUDE)
