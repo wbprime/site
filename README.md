@@ -1,3 +1,2 @@
-# Site
-
-Use pandoc to generate htmls from markdowns.
+# site
+Main page powered by Hexo
