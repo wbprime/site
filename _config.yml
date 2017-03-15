@@ -7,7 +7,7 @@ title: wbprime
 subtitle: Bloging for learning
 description: Why bloging ?
 author: Elvis Wang 
-language: zh-CN
+language: zh-Hans
 timezone: Asia/Shanghai
 
 # URL
@@ -58,8 +58,6 @@ tag_map:
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
-since: 2015
-
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 15
@@ -70,10 +68,34 @@ search:
     path: search.xml
     field: post
 
+# hexo-all-minifier
+html_minifier:
+  enable: true
+  ignore_error: false
+  exclude:
+css_minifier:
+  enable: true
+  exclude: 
+    - '*.min.css'
+js_minifier:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude: 
+    - '*.min.js'
+image_minifier:
+  enable: false
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: material 
+#theme: material 
+theme: next 
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
