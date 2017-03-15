@@ -122,20 +122,20 @@ sidebar:
         use: true
         icon: home
         divider: false
-    archives:
-        use: true
-        icon: inbox
-        divider: false
     categories:
         use: true
         icon: chrome_reader_mode
+        divider: false
+    archives:
+        use: true
+        icon: inbox
         divider: false
     pages:
         #Tags:
             #link: "/tags"
             #icon: loyalty
             #divider: false
-        About:
+        关于:
             link: "/about"
             icon: person
             divider: false
