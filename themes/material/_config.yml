@@ -4,9 +4,9 @@
 
 # Head info
 head:
-    favicon: "/img/favicon.png"
-    high_res_favicon: "/img/favicon.png"
-    apple_touch_icon: "/img/favicon.png"
+    favicon: "/images/favicon.png"
+    high_res_favicon: "/images/favicon.png"
+    apple_touch_icon: "/images/favicon.png"
     keywords: wbprime
 
 # Jump Links Settings
@@ -63,10 +63,12 @@ background:
 
 # Images Settings
 img:
-    logo: "/img/logo.png"
-    avatar: "/img/logo.png"
-    daily_pic: "/img/logo.png"
-    sidebar_header: "/img/logo.png"
+    #logo: "/img/logo.png"
+    logo: "/images/logo.png"
+    #avatar: "/img/avatar.png"
+    avatar: "/images/avatar.png"
+    daily_pic: "/img/daily_pic.png"
+    sidebar_header: "/img/sidebar_header.png"
     footerico: "/img/footer/footer_ico-"
     random_thumbnail: "/img/random/material-"
     footer_image:

@@ -65,6 +65,11 @@ since: 2015
 per_page: 15
 pagination_dir: page
 
+# hexo-generator-search
+search:
+    path: search.xml
+    field: post
+
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
