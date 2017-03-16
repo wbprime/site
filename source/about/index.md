@@ -1,4 +1,4 @@
-title: "about"
+title: "About me"
 date: 2015-05-16 15:05:08
 updated: 2016-04-13 15:05:08
 type: "about"
@@ -6,9 +6,7 @@ comments: false
 
 ---
 
-# Elvis Wang
-
-## C++ version
+# C++ version
 
 ```c++
 class Person {
@@ -71,7 +69,7 @@ private:
 int main(int argc, char *argv[]) {
     Person elvisWang("Elvis Wang", "Male");
 
-    elvisWang.workFor("Renren inc.")
+    elvisWang.workFor("58ganji inc.")
              .location("Beijing, Beijing, P.R. China")
              .from("Anqing, Anhui, P.R. China")
              .email("mail@wbprime.me");
@@ -82,7 +80,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-## Java version
+# Java version
 
 ```java
 public final class Person {
@@ -139,7 +137,7 @@ public final class Person {
     public static void main(String [] _args) {
         final Person elvisWang = new Person("Elvis Wang", "Male");
 
-        elvisWang.workFor("Renren inc.")
+        elvisWang.workFor("58ganji inc.")
                  .location("Beijing, Beijing, P.R. China")
                  .from("Anqing, Anhui, P.R. China")
                  .email("mail@wbprime.me");
