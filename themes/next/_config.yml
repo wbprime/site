@@ -20,7 +20,8 @@ since: 2015
 authoricon: heart
 
 # Footer `powered-by` and `theme-info` copyright
-copyright: true
+#copyright: true
+copyright: false
 
 
 # Canonical, set a canonical link tag in your hexo, you could use it for your SEO of blog.
@@ -94,7 +95,7 @@ font:
   global:
     # external: true will load this font family from host.
     external: true
-    family: Lato
+    family: 
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6)
   # Fallback to `global` font settings.
