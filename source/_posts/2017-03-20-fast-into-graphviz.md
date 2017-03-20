@@ -5,8 +5,7 @@ categories: "Graphviz"
 tags: ["graphviz", "tech"]
 ---
 
-[Graphviz - Graph Visualization Software](http://www.graphviz.org) 由 AT&T
-出品， 是一种结构化信息的可视化方式，也是一套开放源代码软件，可以被广泛地使用于网络拓扑、软件工程、数据库设计、机器学习等方向的图表展示。
+[Graphviz - Graph Visualization Software](http://www.graphviz.org) 由 AT&T 出品， 是一种结构化信息的可视化方式，也是一套开放源代码软件，可以被广泛地使用于网络拓扑、软件工程、数据库设计、机器学习等方向的图表展示。
 
 Graphviz 1.2D 及之前的版本使用了 AT&T 代码许可证 (the AT&T Source Code Agreement)，之后的版本使用了EPL (The Eclipse Public License) 。
 
@@ -328,5 +327,5 @@ subgraph {
 
 # 参考
 
-<http://www.graphviz.org/content/dot-language>
-<http://www.cnblogs.com/sld666666/archive/2010/06/25/1765510.html>
+- <http://www.graphviz.org/content/dot-language>
+- <http://www.cnblogs.com/sld666666/archive/2010/06/25/1765510.html>
