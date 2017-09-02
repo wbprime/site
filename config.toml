@@ -1,14 +1,14 @@
 baseURL = "http://www.wbprime.me/"
 languageCode = "zh"
-title = "My Minimal"
+title = "wbprime"
 theme = "minimal"
 #disqusShortname = "username" # delete this to disable disqus comments
 
 [params]
     author = "Elvis Wang"
-    description = "Personal wbprime theme powered by Hugo"
+    description = "wbprime's home & blogs"
     githubUsername = "#wbprime"
-    accent = "blue"
+    accent = "lightseagreen"
     showBorder = false
     backgroundColor = "white"
     font = "Raleway" # should match the name on Google Fonts!
