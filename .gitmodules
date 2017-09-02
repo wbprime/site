@@ -1,6 +1,6 @@
-[submodule "html"]
-	path = html
-	url = git@github.com:wbprime/wbprime.github.io.git
 [submodule "themes/minimal"]
 	path = themes/minimal
 	url = https://github.com/calintat/minimal.git
+[submodule "public"]
+	path = public
+	url = git@github.com:wbprime/wbprime.github.io.git
