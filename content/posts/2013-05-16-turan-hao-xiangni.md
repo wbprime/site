@@ -3,7 +3,7 @@ title: "突然好想你"
 date: 2013-05-16 20:25:07
 updated: 2015-05-16 20:25:07
 categories: Mayday
-tags: [calm, Mayday]
+tags: [calm, mayday]
 description: 为了那些不能放弃的，我们究竟放弃了什么啊？ 为了那些想要放弃的，我们究竟放弃了什么啊？ 也许没有什么，也不会有什么。 只是有点，突然好想你。
 ---
 

@@ -3,7 +3,7 @@ title: "所办趣事"
 date: 2015-05-16 19:01:57
 updated: 2015-05-16 19:01:57
 categories: Life 
-tags: calm
+tags: [calm]
 description: 离职手续需要所长书记签字。 十分钟之事，拖累两日还不完。两日之事，如之奈何。 所办趣事，记之。
 ---
 

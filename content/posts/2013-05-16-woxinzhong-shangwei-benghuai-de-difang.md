@@ -3,7 +3,7 @@ title: "我心中尚未崩坏的地方"
 date: 2013-05-16 20:29:10
 updated: 2015-05-16 20:29:10
 categories: Mayday
-tags: [calm, Mayday]
+tags: [calm, mayday]
 description: 五月天大声呐喊，我心中不肯腐烂的土壤，孩子一样！ 伟大和伪装，灰尘或辉煌，那是一线之隔，或是一线曙光 ？
 ---
 
