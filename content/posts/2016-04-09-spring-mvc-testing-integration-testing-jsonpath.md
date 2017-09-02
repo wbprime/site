@@ -3,7 +3,7 @@ title: 'Spring MVC Integration Testing - JsonPath'
 date: 2016-04-09 23:09:10
 updated: 2016-04-09 23:09:10
 categories: "Spring MVC Testing"
-tags: ["Spring MVC", "Test", "Java"]
+tags: ["Spring MVC", "testing", "java"]
 
 ---
 

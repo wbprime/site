@@ -3,7 +3,7 @@ title: 'Spring MVC Unit Testing - REST API'
 date: 2016-04-09 23:07:22
 updated: 2016-04-09 23:07:22
 categories: "Spring MVC Testing"
-tags: ["Spring MVC", "Test", "Java"]
+tags: ["Spring MVC", "testing", "java"]
 
 ---
 

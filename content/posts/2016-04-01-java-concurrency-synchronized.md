@@ -3,7 +3,7 @@ title: "Learning Java Concurrency - synchronized"
 date: 2016-04-01 16:39:24
 updated: 2016-04-01 16:39:24
 categories: "Learning Java Concurrency"
-tags: [Java, Concurrency]
+tags: [java, concurrency]
 
 ---
 

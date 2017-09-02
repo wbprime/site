@@ -3,7 +3,7 @@ title: 'Learning Java Concurrency - Thread & Runnable'
 date: 2016-04-11 10:04:31
 updated: 2016-04-11 10:04:31
 categories: "Learning Java Concurrency"
-tags: [Java, Concurrency]
+tags: [java, concurrency]
 
 ---
 

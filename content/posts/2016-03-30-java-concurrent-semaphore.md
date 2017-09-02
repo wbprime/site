@@ -3,7 +3,7 @@ title: 'Learning Java Concurrency - Semaphore'
 date: 2016-03-30 20:33:17
 updated: 2016-04-01 11:03:17
 categories: "Learning Java Concurrency"
-tags: [Java, Concurrency]
+tags: [java, concurrency]
 
 ---
 

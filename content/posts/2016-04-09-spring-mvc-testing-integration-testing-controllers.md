@@ -3,7 +3,7 @@ title: 'Spring MVC Integration Testing - Controllers'
 date: 2016-04-09 23:08:01
 updated: 2016-04-09 23:08:01
 categories: "Spring MVC Testing"
-tags: ["Spring MVC", "Test", "Java"]
+tags: ["Spring MVC", "testing", "java"]
 
 ---
 

@@ -3,7 +3,7 @@ title: 'Spring MVC Integration Testing - Security'
 date: 2016-04-09 23:08:58
 updated: 2016-04-09 23:08:58
 categories: "Spring MVC Testing"
-tags: ["Spring MVC", "Test", "Java"]
+tags: ["Spring MVC", "testing", "java"]
 
 ---
 
