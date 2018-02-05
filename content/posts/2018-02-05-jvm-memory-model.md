@@ -9,6 +9,6 @@ draft: false
 
 JVM 的内存模型，从网上整理的图片：
 
-![jvm memory model 1](2018-02-05-jvm-memory-model.dir/jvm_model_en.jpg)
+![jvm memory model 1](/posts/2018-02-05-jvm-memory-model.dir/jvm_model_en.jpg)
 
-![jvm memory model 2](2018-02-05-jvm-memory-model.dir/jvm_model_zh.gif)
+![jvm memory model 2](/posts/2018-02-05-jvm-memory-model.dir/jvm_model_zh.gif)
