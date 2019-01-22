@@ -1,46 +1,56 @@
-baseURL = "http://www.wbprime.me/"
-languageCode = "zh"
-title = "wbprime"
-theme = "minimal"
-disqusShortname = "wbprime" # delete this to disable disqus comments
+# The URL the site will be built for
+base_url = "http://www.wangbo.im"
 
-[params]
-    author = "Elvis Wang"
-    description = "wbprime's home & blogs"
-    githubUsername = "#wbprime"
-    accent = "lightseagreen"
-    showBorder = false
-    backgroundColor = "white"
-    font = "Raleway" # should match the name on Google Fonts!
-    highlight = true
-    highlightStyle = "solarized-dark"
-    highlightLanguages = ["java", "c++", "go", "haskell", "kotlin", "scala", "swift"]
+# Used in RSS by default
+title = "Wbprime"
+description = "wbprime’s home & blogs"
+# the default language, used in RSS and coming i18n
+default_language = "en"
 
-[[menu.main]]
-    url = "/"
-    name = "Home"
-    weight = 1
+# Theme name to use
+theme = "even"
 
-[[menu.main]]
-    url = "/posts/"
-    name = "Posts"
-    weight = 2
+# Whether to generate a RSS feed automatically
+generate_rss = false
 
-[[menu.main]]
-    url = "/categories/"
-    name = "Categories"
-    weight = 3
+# The number of articles to include in the RSS feed. Will include all items if
+# not set (the default).
+# rss_limit = 20
 
-[[menu.main]]
-    url = "/tags/"
-    name = "Tags"
-    weight = 4
+# The taxonomies to be rendered for that site and their configuration
+# Example:
+#     taxonomies = [
+#       {name = "tags", rss = true}, # each tag will have its own RSS feed
+#       {name = "categories", paginate_by = 5},  # 5 items per page for a term
+#       {name = "authors"}, # Basic definition: no RSS or pagination
+#     ]
+#
+taxonomies = [
+    {name = "categories", rss = false},
+    {name = "tags", rss = false},
+]
 
-# Social icons to be shown on the right-hand side of the navigation bar
-# The "name" field should match the name of the icon to be used
-# The list of available icons can be found at http://fontawesome.io/icons/
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = false
 
-[[menu.icon]]
-    url = "https://github.com/wbprime/"
-    name = "github"
-    weight = 1
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# Which theme to use for the code highlighting.
+# See below for list of accepted values
+highlight_theme = "base16-ocean-dark"
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+[extra]
+# For even theme
+even_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/categories", name = "Categories"},
+    {url = "$BASE_URL/tags", name = "Tags"},
+    {url = "$BASE_URL/about", name = "About"},
+]
+
+even_title = "Wbprime"
