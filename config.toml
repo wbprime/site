@@ -2,7 +2,7 @@ baseURL = "http://www.wbprime.me/"
 languageCode = "zh"
 title = "wbprime"
 theme = "minimal"
-#disqusShortname = "username" # delete this to disable disqus comments
+disqusShortname = "wbprime" # delete this to disable disqus comments
 
 [params]
     author = "Elvis Wang"
