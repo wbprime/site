@@ -2,7 +2,7 @@
 title: "Ansi Colors"
 date: 2018-01-08T10:45:11+08:00
 categories: ["Notes"]
-tags: [ansi_color]
+tags: ["ansi_color"]
 draft: true
 ---
 
