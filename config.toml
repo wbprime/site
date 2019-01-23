@@ -45,6 +45,8 @@ highlight_theme = "base16-ocean-dark"
 build_search_index = true
 
 [extra]
+author = "Elvis Wang"
+
 # For even theme
 even_menu = [
     {url = "$BASE_URL", name = "Home"},
