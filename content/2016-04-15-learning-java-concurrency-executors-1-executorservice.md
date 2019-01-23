@@ -14,7 +14,7 @@ tags = ["java", "concurrency"]
 
 Java提供了另一个接口`Executor`来真正地抽象任务执行者这个概念：线程池。怎么理解呢，看一下`Executor`接口的代码就好了。
 
-<!-- More -->
+<!-- more -->
 
 # Executor
 

@@ -10,7 +10,7 @@ tags = ["HTTP", "Status Code"]
 
 Notes about HTTP response status code.
 
-<!--more-->
+<!-- more -->
 
 # Status Code Definitions
 

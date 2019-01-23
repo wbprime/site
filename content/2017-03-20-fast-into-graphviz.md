@@ -14,7 +14,7 @@ Graphviz 1.2D 及之前的版本使用了 AT&T 代码许可证 (the AT&T Source 
 
 Graphviz 是一款面向程序员的绘图软件，不仅体现在其设计和使用方式上，还体现在其文档上 :)
 
-<!-- More --> 
+<!-- more --> 
 
 # Demos
 

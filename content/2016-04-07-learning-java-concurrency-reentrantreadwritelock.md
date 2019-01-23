@@ -82,7 +82,7 @@ ReadWrittatic class ReadWriteLockStack {
 }
 ```
 
-<!-- More -->
+<!-- more -->
 
 `ReentrantReadWriteLock`虽然看起来像一个Lock，但却并不是真正的Lock，没有去实现`java.util.concurrent.locks.Lock`接口，而是去实现了一个`ReadWriteLock`的接口。
 

@@ -20,7 +20,7 @@ tags = ["Spring MVC", "testing", "java"]
 - 添加新Todo项接口的集成测试
 - 更新Todo项接口的集成测试
 
-<!-- More -->
+<!-- more -->
 
 # 示例web应用结构
 

@@ -43,7 +43,7 @@ class Synchronized {
 }
 ```
 
-<!-- More -->
+<!-- more -->
 
 # 单例模式
 

@@ -14,7 +14,7 @@ tags = ["Spring MVC", "testing", "java"]
 
 本文将通过为`Todo`项的增删改查（CRUD）的REST风格接口操作编写单元测试的方式，一步一步地讲解如何使用Spring MVC Test来进行单元测试。OK，我们快点进入正文吧！
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 

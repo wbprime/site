@@ -12,7 +12,7 @@ Java Concurrency是学习Java的过程中绕不过去的一道坎。既然绕不
 
 本系列主要参考[《深入浅出Java Concurrency》](http://www.blogjava.net/xylz/archive/2010/07/08/325587.html)系列。
 
-<!-- More -->
+<!-- more -->
 
 # 目录
 

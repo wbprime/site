@@ -81,7 +81,7 @@ private static class DepositAccount {
 }
 ```
 
-<!-- More -->
+<!-- more -->
 
 # ReentrantLock's API
 

@@ -18,7 +18,7 @@ tags = ["Spring MVC", "testing", "java"]
 
 下面进入正题。
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 

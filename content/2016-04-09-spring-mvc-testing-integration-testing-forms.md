@@ -14,7 +14,7 @@ tags = ["Spring MVC", "testing", "java"]
 
 本文紧接着上一篇 [Spring MVC Integration Testing - Controllers](/2016/04/09/spring-mvc-testing-integration-testing-controllers/) 的内容，主要涉及到两个接口：创建新的Todo项和更新指定的Todo项。
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 

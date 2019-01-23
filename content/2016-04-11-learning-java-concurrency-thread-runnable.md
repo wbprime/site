@@ -65,7 +65,7 @@ public class ThreadCase {
 - 线程的启动入口是`Thread.start()`方法，不要直接运行`Thread.run()`方法
 - `Thread`类是一个`class`（与`interface`相对应），意味着自定义线程类不能继承别的父类
 
-<!-- More -->
+<!-- more -->
 
 # Thread
 

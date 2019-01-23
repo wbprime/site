@@ -14,7 +14,7 @@ tags = ["Spring MVC", "testing", "java"]
 
 同样地，本文还是一步一步地为我们的TodoApplication编写集成测试。该程序提供Todo项的增删改查（CRUD）接口，本文主要关注其中的3个接口：获取Todo项列表；查看单个Todo项的详情；以及删除某个Todo项。
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 

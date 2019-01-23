@@ -20,7 +20,7 @@ Springframework自3.2版本以后，提供了[Spring MVC Test Framework](http://
 
 需要注意的是，虽然这个系列将Spring MVC Test Framework分为单元测试和集成测试两个部分，但是对于Spring本身来说，其内部实现都是一样的。单元测试和集成测试的区分，是从开发者的角度进行的区分。
 
-<!-- More -->
+<!-- more -->
 
 Spring MVC 单元测试：
 

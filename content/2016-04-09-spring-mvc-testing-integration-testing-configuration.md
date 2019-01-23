@@ -28,7 +28,7 @@ tags = ["Spring MVC", "testing", "java"]
 
 我们一起来开始进入Spring MVC Test的世界吧！
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 
