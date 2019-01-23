@@ -3,7 +3,7 @@ title: "Learning Java Concurrency - Content"
 date: 2016-03-31 10:10:46
 updated: 2016-04-15 19:10:46
 categories: ["Learning Java Concurrency"]
-tags: ['java', concurrency]
+tags: ["'java'", "concurrency"]
 
 ---
 

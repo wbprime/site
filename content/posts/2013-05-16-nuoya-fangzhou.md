@@ -3,7 +3,7 @@ title: "诺亚方舟"
 date: 2013-05-16 20:20:46
 updated: 2015-05-16 20:20:46
 categories: ["Mayday"]
-tags: [calm, mayday]
+tags: ["calm", "mayday"]
 description: "诺亚方舟里面，是否会有一个人为我占座呢？ 或者，有没有那么一个人，让我冲动到去为她占座？"
 ---
 
