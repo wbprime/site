@@ -1,10 +1,10 @@
 ---
-title: "Spring DI: At First Glance"
-date: 2015-05-28 19:11:56
+title : "Spring DI: At First Glance"
+date : 2015-05-28T19:11:56+08:00
 updated: 2015-06-10 13:11:56
-categories: ["Spring DI"]
-tags: ["java", "Spring"]
-description: "The Springframework is famous for IOC and DI features.  What exactly does a Spring based Java application look like? And how to produce a Spring based app without learning a lot of teches and apps like maven and gradle.  Ok, let's start step by step."
+categories : ["Spring DI"]
+tags : ["java", "Spring"]
+description : "The Springframework is famous for IOC and DI features.  What exactly does a Spring based Java application look like? And how to produce a Spring based app without learning a lot of teches and apps like maven and gradle.  Ok, let's start step by step."
 ---
 
 [Spring](http://spring.io) is a world famous Java developing framework.

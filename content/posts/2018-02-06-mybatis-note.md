@@ -1,10 +1,10 @@
 ---
-title: "Mybatis Note"
-date: 2018-02-06T11:40:06+08:00
-categories: ["Notes"]
-tags: ["mybatis"]
-description: "Note on mybatis"
-draft: false
+title : "Mybatis Note"
+date : 2018-02-06T11:40:06+08:00
+categories : ["Notes"]
+tags : ["mybatis"]
+description : "Note on mybatis"
+draft : false
 ---
 
 # "select" 

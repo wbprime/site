@@ -1,9 +1,9 @@
 ---
-title: "Learning Java Concurrency - FutureTask & Callable"
-date: 2016-04-13 10:17:57
+title : "Learning Java Concurrency - FutureTask & Callable"
+date : 2016-04-13T10:17:57+08:00
 updated: 2016-04-13 10:17:57
-categories: ["Learning Java Concurrency"]
-tags: ["java", "concurrency"]
+categories : ["Learning Java Concurrency"]
+tags : ["java", "concurrency"]
 
 ---
 

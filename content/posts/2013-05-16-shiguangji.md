@@ -1,10 +1,10 @@
 ---
-title: "时光机"
-date: 2013-05-16 20:32:58
+title : "时光机"
+date : 2013-05-16T20:32:58+08:00
 updated: 2015-05-16 20:32:58
-categories: ["Mayday"]
-tags: ["calm", "mayday"]
-description: "青春就是挽不回的水，用力地浪费，再用力地后悔。 浪费，再后悔，之后继续浪费。 这就是人生！"
+categories : ["Mayday"]
+tags : ["calm", "mayday"]
+description : "青春就是挽不回的水，用力地浪费，再用力地后悔。 浪费，再后悔，之后继续浪费。 这就是人生！"
 ---
 
 其实，这应该不是一首情歌。

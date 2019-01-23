@@ -1,10 +1,10 @@
 ---
-title: "Nginx Note - Signal Handling"
-date: 2018-02-06T16:25:24+08:00
-categories: ["Notes"]
-tags: ["nginx"]
-description: "Note of signal handling for Nginx"
-draft: false
+title : "Nginx Note - Signal Handling"
+date : 2018-02-06T16:25:24+08:00
+categories : ["Notes"]
+tags : ["nginx"]
+description : "Note of signal handling for Nginx"
+draft : false
 ---
 
 转载自[Nginx 的信号管理](http://www.lenky.info/archives/2011/09/60)

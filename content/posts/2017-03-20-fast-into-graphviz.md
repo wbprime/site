@@ -1,9 +1,9 @@
 ---
-title: "Fast into Graphviz"
-date: 2017-03-20 11:55:45
+title : "Fast into Graphviz"
+date : 2017-03-20T11:55:45+08:00
 updated: 2017-03-20 11:55:45
-categories: ["Graphviz"]
-tags: ["graphviz", "tech"]
+categories : ["Graphviz"]
+tags : ["graphviz", "tech"]
 ---
 
 [Graphviz - Graph Visualization Software](http://www.graphviz.org) 由 AT&T 出品， 是一种结构化信息的可视化方式，也是一套开放源代码软件，可以被广泛地使用于网络拓扑、软件工程、数据库设计、机器学习等方向的图表展示。

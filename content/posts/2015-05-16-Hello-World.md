@@ -1,10 +1,10 @@
 ---
-title: "Hello World"
-date: 2015-05-13 12:30:23
+title : "Hello World"
+date : 2015-05-13T12:30:23+08:00
 updated: 2015-05-16 15:30:23
-categories: ["Life "]
-tags: ["Hexo"]
-description: "On May 13 2015, I started my new blog.  As a brand new trip, I bought my domain and host a page on Github.  This is a `Hello world` post inited by Hexo project."
+categories : ["Life "]
+tags : ["Hexo"]
+description : "On May 13 2015, I started my new blog.  As a brand new trip, I bought my domain and host a page on Github.  This is a `Hello world` post inited by Hexo project."
 ---
 
 Welcome to [Hexo](http://hexo.io/)! This is your very first post. Check [documentation](http://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](http://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).

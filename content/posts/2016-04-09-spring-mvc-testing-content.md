@@ -1,9 +1,9 @@
 ---
-title: "Spring MVC Testing: Content"
-date: 2016-04-09 23:03:35
+title : "Spring MVC Testing: Content"
+date : 2016-04-09T23:03:35+08:00
 updated: 2016-04-09 23:03:35
-categories: ["Spring MVC Testing"]
-tags: ["Spring MVC", "testing", "java"]
+categories : ["Spring MVC Testing"]
+tags : ["Spring MVC", "testing", "java"]
 
 ---
 

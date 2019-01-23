@@ -1,10 +1,10 @@
 ---
-title: "一颗苹果"
-date: 2013-05-16 21:03:17
+title : "一颗苹果"
+date : 2013-05-16T21:03:17+08:00
 updated: 2015-05-16 21:03:17
-categories: ["Mayday"]
-tags: ["calm", "mayday"]
-description: "反正就这样吧，我知道我努力过，再吃一颗苹果！"
+categories : ["Mayday"]
+tags : ["calm", "mayday"]
+description : "反正就这样吧，我知道我努力过，再吃一颗苹果！"
 ---
 
 累了，就停下来听这首歌。

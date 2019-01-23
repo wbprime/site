@@ -1,9 +1,9 @@
 ---
-title: "Spring MVC Integration Testing - Forms"
-date: 2016-04-09 23:08:24
+title : "Spring MVC Integration Testing - Forms"
+date : 2016-04-09T23:08:24+08:00
 updated: 2016-04-09 23:08:24
-categories: ["Spring MVC Testing"]
-tags: ["Spring MVC", "testing", "java"]
+categories : ["Spring MVC Testing"]
+tags : ["Spring MVC", "testing", "java"]
 
 ---
 

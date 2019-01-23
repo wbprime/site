@@ -1,10 +1,10 @@
 ---
-title: "Tomcat Note"
-date: 2018-02-06T15:28:53+08:00
-categories: ["Notes"]
-tags: ["tomcat"]
-description: "Note of apache tomcat architecture"
-draft: false
+title : "Tomcat Note"
+date : 2018-02-06T15:28:53+08:00
+categories : ["Notes"]
+tags : ["tomcat"]
+description : "Note of apache tomcat architecture"
+draft : false
 ---
 
 Notes of

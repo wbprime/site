@@ -1,9 +1,9 @@
 ---
-title: "Spring MVC Integration Testing - Configuration"
-date: 2016-04-09 23:07:53
+title : "Spring MVC Integration Testing - Configuration"
+date : 2016-04-09T23:07:53+08:00
 updated: 2016-04-16 11:07:53
-categories: ["Spring MVC Testing"]
-tags: ["Spring MVC", "testing", "java"]
+categories : ["Spring MVC Testing"]
+tags : ["Spring MVC", "testing", "java"]
 
 ---
 

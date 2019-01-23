@@ -1,9 +1,9 @@
 ---
-title: "Learning Java Concurrency - wait & notify"
-date: 2016-04-06 10:00:56
+title : "Learning Java Concurrency - wait & notify"
+date : 2016-04-06T10:00:56+08:00
 updated: 2016-04-06 10:00:56
-categories: ["Learning Java Concurrency"]
-tags: ["java", "concurrency"]
+categories : ["Learning Java Concurrency"]
+tags : ["java", "concurrency"]
 
 ---
 

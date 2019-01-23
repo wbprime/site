@@ -1,9 +1,9 @@
 ---
-title: "Ansi Colors"
-date: 2018-01-08T10:45:11+08:00
-categories: ["Notes"]
-tags: ["ansi_color"]
-draft: true
+title : "Ansi Colors"
+date : 2018-01-08T10:45:11+08:00
+categories : ["Notes"]
+tags : ["ansi_color"]
+draft : true
 ---
 
 在Bash/Zsh里面给命令行输出添加颜色，可以使用ANSI的控制字符串。

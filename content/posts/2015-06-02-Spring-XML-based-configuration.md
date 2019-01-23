@@ -1,10 +1,10 @@
 ---
-title: "Spring: XML based configuration"
-date: 2015-06-02 10:12:47
+title : "Spring: XML based configuration"
+date : 2015-06-02T10:12:47+08:00
 updated: 2015-06-10 13:12:47
-categories: ["Spring DI"]
-tags: ["Spring", "java"]
-description: "The Springframework XML-based metadata configuration guide."
+categories : ["Spring DI"]
+tags : ["Spring", "java"]
+description : "The Springframework XML-based metadata configuration guide."
 ---
 
 # Overview

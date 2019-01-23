@@ -1,9 +1,9 @@
 ---
-title: "Learning Java Concurrency - CountDownLatch"
-date: 2016-03-30 21:06:08
+title : "Learning Java Concurrency - CountDownLatch"
+date : 2016-03-30T21:06:08+08:00
 updated: 2016-03-30 21:06:08
-categories: ["Learning Java Concurrency"]
-tags: ["java", "concurrency"]
+categories : ["Learning Java Concurrency"]
+tags : ["java", "concurrency"]
 
 ---
 

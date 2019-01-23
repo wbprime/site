@@ -1,9 +1,9 @@
 ---
-title: "Spring MVC Integration Testing - REST API"
-date: 2016-04-09 23:08:39
+title : "Spring MVC Integration Testing - REST API"
+date : 2016-04-09T23:08:39+08:00
 updated: 2016-04-09 23:08:39
-categories: ["Spring MVC Testing"]
-tags: ["Spring MVC", "testing", "java"]
+categories : ["Spring MVC Testing"]
+tags : ["Spring MVC", "testing", "java"]
 
 ---
 

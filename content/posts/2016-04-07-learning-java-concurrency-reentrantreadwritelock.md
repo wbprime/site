@@ -1,9 +1,9 @@
 ---
-title: "Learning Java Concurrency - ReentrantReadWriteLock"
-date: 2016-04-07 21:54:38
+title : "Learning Java Concurrency - ReentrantReadWriteLock"
+date : 2016-04-07T21:54:38+08:00
 updated: 2016-04-08 10:54:38
-categories: ["Learning Java Concurrency"]
-tags: ["java", "concurrency"]
+categories : ["Learning Java Concurrency"]
+tags : ["java", "concurrency"]
 
 ---
 

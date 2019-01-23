@@ -1,9 +1,9 @@
 ---
-title: "Learning Java Concurrency - Executors(1) ExecutorService"
-date: 2016-04-15 16:34:20
+title : "Learning Java Concurrency - Executors(1) ExecutorService"
+date : 2016-04-15T16:34:20+08:00
 updated: 2016-04-15 16:34:20
-categories: ["Learning Java Concurrency"]
-tags: ["java", "concurrency"]
+categories : ["Learning Java Concurrency"]
+tags : ["java", "concurrency"]
 
 ---
 

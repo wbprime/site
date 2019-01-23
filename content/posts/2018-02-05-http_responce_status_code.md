@@ -1,10 +1,10 @@
 ---
-title: "[Note] Http Responce Status Code"
-date: 2018-02-05T15:45:52+08:00
-categories: ["Notes"]
-tags: ["HTTP", "Status Code"]
-description: "Notes about HTTP response status code"
-draft: false
+title : "[Note] Http Responce Status Code"
+date : 2018-02-05T15:45:52+08:00
+categories : ["Notes"]
+tags : ["HTTP", "Status Code"]
+description : "Notes about HTTP response status code"
+draft : false
 ---
 
 Notes about HTTP response status code.

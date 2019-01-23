@@ -1,10 +1,10 @@
 ---
-title: "JDK installation on Archlinux"
-date: 2015-05-25 11:07:13
+title : "JDK installation on Archlinux"
+date : 2015-05-25T11:07:13+08:00
 updated: 2015-05-25 11:07:13
-categories: ["Tech"]
-tags: ["java", "JDK", "archlinux"]
-description: "Step by step guide to install a JDK 7/8 on Archlinux."
+categories : ["Tech"]
+tags : ["java", "JDK", "archlinux"]
+description : "Step by step guide to install a JDK 7/8 on Archlinux."
 ---
 
 Basically, [Archlinux](https://www.archlinux.org) provide OpenJDK 7/8 in [official repository](https://wiki.archlinux.org/index.php/Java).  Java JDK environment will be setup in quite a little minutes follwing Archliux official guide. 

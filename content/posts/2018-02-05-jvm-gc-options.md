@@ -1,10 +1,10 @@
 ---
-title: "Jvm GC Options"
-date: 2018-02-05T16:16:53+08:00
-categories: ["Notes"]
-tags: ["jvm", "gc"]
-description: "Notes on JVM gc types & options"
-draft: false
+title : "Jvm GC Options"
+date : 2018-02-05T16:16:53+08:00
+categories : ["Notes"]
+tags : ["jvm", "gc"]
+description : "Notes on JVM gc types & options"
+draft : false
 ---
 
 # General options
