@@ -1,7 +1,7 @@
 ---
 title: "Nginx Note - Process Cycle"
 date: 2018-02-06T16:25:54+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["nginx"]
 description: "Note of main process cycle for Nginx"
 draft: false

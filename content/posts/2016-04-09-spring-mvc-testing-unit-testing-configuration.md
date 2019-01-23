@@ -2,7 +2,7 @@
 title: 'Spring MVC Unit Testing - Configuration'
 date: 2016-04-09 23:06:57
 updated: 2016-04-09 23:06:57
-categories: "Spring MVC Testing"
+categories: ["Spring MVC Testing"]
 tags: ["Spring MVC", "testing", "java"]
 
 ---

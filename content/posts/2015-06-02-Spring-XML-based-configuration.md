@@ -2,7 +2,7 @@
 title: 'Spring: XML based configuration'
 date: 2015-06-02 10:12:47
 updated: 2015-06-10 13:12:47
-categories: "Spring DI"
+categories: ["Spring DI"]
 tags: [Spring, java]
 description: "The Springframework XML-based metadata configuration guide."
 ---

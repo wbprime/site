@@ -2,7 +2,7 @@
 title: "记怀柔烧烤"
 date: 2015-05-14 08:23:02
 updated: 2015-05-16 15:59:57
-categories: "Life "
+categories: ["Life "]
 tags: [trip ,happy]
 description: "A trip to Huairou District."
 ---

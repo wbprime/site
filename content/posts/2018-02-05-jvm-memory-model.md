@@ -1,7 +1,7 @@
 ---
 title: "Jvm Memory Model"
 date: 2018-02-05T16:47:59+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["jvm", "memory model"]
 description: "Note on JVM memory model"
 draft: false

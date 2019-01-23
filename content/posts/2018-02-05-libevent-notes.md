@@ -1,7 +1,7 @@
 ---
 title: "Libevent Note"
 date: 2018-02-05T17:08:50+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["libevent"]
 description: "Note on libevent"
 draft: false

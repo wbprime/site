@@ -2,7 +2,7 @@
 title: "Hello World"
 date: 2015-05-13 12:30:23
 updated: 2015-05-16 15:30:23
-categories: "Life "
+categories: ["Life "]
 tags: [Hexo] 
 description: "On May 13 2015, I started my new blog.  As a brand new trip, I bought my domain and host a page on Github.  This is a "Hello world" post inited by Hexo project."
 ---

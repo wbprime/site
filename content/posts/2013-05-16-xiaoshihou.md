@@ -2,7 +2,7 @@
 title: "小时候"
 date: 2013-05-16 20:43:42
 updated: 2015-05-16 20:43:42
-categories: "Mayday"
+categories: ["Mayday"]
 tags: [calm, mayday]
 description: "毛毛虫从厚厚的茧中爬出来的时候，蜕变成了美艳的蝴蝶。 成长了也就蜕变了。 收获了一身的万众瞩目和丰功伟业。 留下了遍体的伤痕累累与疲惫重重。 我究竟得到了什么？ 我究竟失去了什么？"
 ---

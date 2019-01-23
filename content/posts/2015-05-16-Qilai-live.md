@@ -2,7 +2,7 @@
 title: 起来(live) 
 date: 2015-05-16 17:27:36
 updated: 2015-05-16 17:27:36
-categories: "Mayday"
+categories: ["Mayday"]
 tags: [mayday]
 description: "音乐起，耳朵一亮。 气势恢宏的配乐，铺天盖地的潮水汹涌而来，先声夺人。 然后是起来。"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Thrift Note"
 date: 2018-02-06T13:22:50+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["thrift"]
 description: "Note of thrift first guide"
 draft: false

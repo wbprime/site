@@ -1,7 +1,7 @@
 ---
 title: "Maven Note"
 date: 2018-02-06T10:50:17+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: []
 description: "Note on apache maven"
 draft: false

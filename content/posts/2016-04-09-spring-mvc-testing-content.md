@@ -2,7 +2,7 @@
 title: 'Spring MVC Testing: Content'
 date: 2016-04-09 23:03:35
 updated: 2016-04-09 23:03:35
-categories: "Spring MVC Testing"
+categories: ["Spring MVC Testing"]
 tags: ["Spring MVC", "testing", "java"]
 
 ---

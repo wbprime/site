@@ -1,7 +1,7 @@
 ---
 title: "Nginx Note - Modules Design"
 date: 2018-02-06T16:23:34+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["nginx"]
 description: "Note of modules designing for Nginx"
 draft: false

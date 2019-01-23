@@ -2,7 +2,7 @@
 title: 'Learning Java Concurrency - wait & notify'
 date: 2016-04-06 10:00:56
 updated: 2016-04-06 10:00:56
-categories: "Learning Java Concurrency"
+categories: ["Learning Java Concurrency"]
 tags: [java, concurrency]
 
 ---

@@ -2,7 +2,7 @@
 title: "将进酒"
 date: 2015-05-16 19:10:58
 updated: 2015-05-16 19:10:58
-categories: "Life"
+categories: ["Life"]
 tags: [calm]
 description: "酒一曰天地。 酒二曰人伦。 酒三曰太一。 酒四曰律法。 酒五曰先生。 酒六曰后生。 酒七曰独独之我。 酒八曰爱恨。 酒九曰无。 九则老矣，过犹不及。"
 ---

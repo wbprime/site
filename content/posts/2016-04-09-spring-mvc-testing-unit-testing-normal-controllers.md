@@ -2,7 +2,7 @@
 title: 'Spring MVC Unit Testing - Normal Controllers'
 date: 2016-04-09 23:07:12
 updated: 2016-04-09 23:07:12
-categories: "Spring MVC Testing"
+categories: ["Spring MVC Testing"]
 tags: ["Spring MVC", "testing", "java"]
 
 ---

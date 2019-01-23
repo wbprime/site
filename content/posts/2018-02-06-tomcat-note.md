@@ -1,7 +1,7 @@
 ---
 title: "Tomcat Note"
 date: 2018-02-06T15:28:53+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["tomcat"]
 description: "Note of apache tomcat architecture"
 draft: false

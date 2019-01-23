@@ -1,7 +1,7 @@
 ---
 title: "Nginx Note - Config Parsing and Loading"
 date: 2018-02-06T16:26:08+08:00
-categories: "Notes"
+categories: ["Notes"]
 tags: ["nginx"]
 description: "Note of config parsing and loading for Nginx"
 draft: false
