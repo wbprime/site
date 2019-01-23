@@ -2,7 +2,7 @@
 title: "小王二三事"
 date: 2015-05-16 19:07:06
 updated: 2015-05-16 19:07:06
-categories: Life
+categories: "Life"
 tags: [happy]
 description: "小王是我的一个朋友，很好的朋友。 小王最近有点迷茫。 我问他原因。"
 ---

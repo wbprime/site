@@ -2,7 +2,7 @@
 title: JDK installation on Archlinux
 date: 2015-05-25 11:07:13
 updated: 2015-05-25 11:07:13
-categories: Tech
+categories: "Tech"
 tags: [java, JDK, archlinux]
 description: "Step by step guide to install a JDK 7/8 on Archlinux."
 ---
