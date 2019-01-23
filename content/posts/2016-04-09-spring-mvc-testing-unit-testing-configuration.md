@@ -1,11 +1,12 @@
----
-title : "Spring MVC Unit Testing - Configuration"
-date : 2016-04-09T23:06:57+08:00
-updated: 2016-04-09 23:06:57
-categories : ["Spring MVC Testing"]
-tags : ["Spring MVC", "testing", "java"]
-
----
++++
+title = "Spring MVC Unit Testing - Configuration"
+description = "Spring MVC Unit Testing - Configuration"
+date = 2016-04-09T23:06:57+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
 本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第1篇，原文链接：[Unit Testing of Spring MVC Controllers: Configuration](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-configuration/)。
 

@@ -1,11 +1,12 @@
----
-title : "Posix & GNU Make Note"
-date : 2018-02-05T18:00:50+08:00
-categories : ["Notes"]
-tags : ["make", "makefile"]
-description : "Note on make and makefile"
-draft : false
----
++++
+title = "Posix & GNU Make Note"
+description = "Note on make and makefile"
+date = 2018-02-05T18:00:50+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["make", "makefile"]
++++
 
 ## Compile
 

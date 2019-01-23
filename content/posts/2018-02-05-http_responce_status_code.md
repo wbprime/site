@@ -1,11 +1,12 @@
----
-title : "[Note] Http Responce Status Code"
-date : 2018-02-05T15:45:52+08:00
-categories : ["Notes"]
-tags : ["HTTP", "Status Code"]
-description : "Notes about HTTP response status code"
-draft : false
----
++++
+title = "[Note] Http Responce Status Code"
+description = "Notes about HTTP response status code"
+date = 2018-02-05T15:45:52+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["HTTP", "Status Code"]
++++
 
 Notes about HTTP response status code.
 

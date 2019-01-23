@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - synchronized"
-date : 2016-04-01T16:39:24+08:00
-updated: 2016-04-01 16:39:24
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - synchronized"
+description = "Learning Java Concurrency - synchronized"
+date = 2016-04-01T16:39:24+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 synchronized，同步控制器，是Java原生提供的多线程同步控制的工具，是Java语法的一部分。
 

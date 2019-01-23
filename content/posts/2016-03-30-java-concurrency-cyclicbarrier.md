@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - CyclicBarrier"
-date : 2016-03-30T21:06:26+08:00
-updated: 2016-04-01 09:06:26
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - CyclicBarrier"
+description = "Learning Java Concurrency - CyclicBarrier"
+date = 2016-03-30T21:06:26+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 CyclicBarrier，正如同名字里面表达出来的，是一个可以循环使用的屏障。与CountDownLatch类似，它可以用来表达等待某个状态，比如大家都到齐了，那么开始开会吧。与CountDownLatch不同的是，它可以多次等待，也就是可以等待多个状态。
 

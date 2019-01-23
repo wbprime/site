@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - Executors(1) ExecutorService"
-date : 2016-04-15T16:34:20+08:00
-updated: 2016-04-15 16:34:20
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - Executors(1) ExecutorService"
+description = "Learning Java Concurrency - Executors(1) ExecutorService"
+date = 2016-04-15T16:34:20+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 回过头来看`Thread`类，其实可以发现该类是对一件任务的抽象。通过将要完成的任务抽象出来用`Thread`或者`Runnable`来表示，然后委托给另外的线程来处理。`Thread`类在这里充当的是任务执行者的角色，表示一个执行任务的线程。
 

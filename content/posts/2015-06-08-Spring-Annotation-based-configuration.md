@@ -1,11 +1,12 @@
----
-title : "Spring: Annotation based configuration"
-date : 2015-06-08T10:45:49+08:00
-updated: 2015-06-10 13:45:49
-categories : ["Spring DI"]
-tags : ["Spring", "java"]
-description : "The Springframework annotation-based metadata configuration guide."
----
++++
+title = "Spring: Annotation based configuration"
+description = "The Springframework annotation-based metadata configuration guide."
+date = 2015-06-08T10:45:49+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring DI"]
+tags = ["Spring", "java"]
++++
 
 Despite XML-based configuration, the Springframework provides full support for annotation-based metadata configuration.
 

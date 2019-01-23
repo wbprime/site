@@ -1,11 +1,12 @@
----
-title : "Maven Note"
-date : 2018-02-06T10:50:17+08:00
-categories : ["Notes"]
-tags : []
-description : "Note on apache maven"
-draft : false
----
++++
+title = "Maven Note"
+description = "Note on apache maven"
+date = 2018-02-06T10:50:17+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = []
++++
 
 # Local Repository Location
 

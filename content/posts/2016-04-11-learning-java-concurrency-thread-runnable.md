@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - Thread & Runnable"
-date : 2016-04-11T10:04:31+08:00
-updated: 2016-04-11 10:04:31
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - Thread & Runnable"
+description = "Learning Java Concurrency - Thread & Runnable"
+date = 2016-04-11T10:04:31+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 Java并发多线程的第一课，应该就是`Thread`了。顾名思义，`Thread`就是一个线程。线程是很底层的一个概念，在不同的操作系统上实现的模型和细节并不相同，甚至于可以说天差地别；但是总体来说，线程是比进程更细粒度的操作系统调度的单位，线程有自己的运行栈，但是同一个进程的线程共享方法区和堆区数据。
 

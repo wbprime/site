@@ -1,11 +1,12 @@
----
-title : "Thrift Note"
-date : 2018-02-06T13:22:50+08:00
-categories : ["Notes"]
-tags : ["thrift"]
-description : "Note of thrift first guide"
-draft : false
----
++++
+title = "Thrift Note"
+description = "Note of thrift first guide"
+date = 2018-02-06T13:22:50+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["thrift"]
++++
 
 笔记，来自网络，来源不可考。
 

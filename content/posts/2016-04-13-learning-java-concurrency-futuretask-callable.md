@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - FutureTask & Callable"
-date : 2016-04-13T10:17:57+08:00
-updated: 2016-04-13 10:17:57
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - FutureTask & Callable"
+description = "Learning Java Concurrency - FutureTask & Callable"
+date = 2016-04-13T10:17:57+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 Java的`java.util.concurrent`包里面提供了多线程并发和同步的支持。
 

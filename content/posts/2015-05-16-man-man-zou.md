@@ -1,11 +1,12 @@
----
-title : "慢慢走"
-date : 2015-05-16T20:00:57+08:00
-updated: 2015-05-16 20:00:57
-categories : ["Life"]
-tags : ["upset"]
-description : "转眼间已经工作了两年，似乎什么也没有改变。 日子慢慢来，慢慢过，慢慢走。"
----
++++
+title = "慢慢走"
+description = "转眼间已经工作了两年，似乎什么也没有改变。 日子慢慢来，慢慢过，慢慢走。"
+date = 2015-05-16T20:00:57+08:00
+draft = false
+[taxonomies]
+categories =  ["Life"]
+tags = ["upset"]
++++
 
 转眼间已经工作了两年，似乎什么也没有改变。
 

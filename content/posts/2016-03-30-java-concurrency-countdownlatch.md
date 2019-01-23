@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - CountDownLatch"
-date : 2016-03-30T21:06:08+08:00
-updated: 2016-03-30 21:06:08
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - CountDownLatch"
+description = "Learning Java Concurrency - CountDownLatch"
+date = 2016-03-30T21:06:08+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 CountDownLatch 是一种比较有意思的线程同步方法，主要用于需要同步启动的环境中。
 

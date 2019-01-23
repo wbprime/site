@@ -1,11 +1,12 @@
----
-title : "Spring Mvc Note"
-date : 2018-02-06T12:51:13+08:00
-categories : ["Notes"]
-tags : ["spring mvc"]
-description : "Note on Spring MVC"
-draft : false
----
++++
+title = "Spring Mvc Note"
+description = "Note on Spring MVC"
+date = 2018-02-06T12:51:13+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["spring mvc"]
++++
 
 # Scenario 1
 

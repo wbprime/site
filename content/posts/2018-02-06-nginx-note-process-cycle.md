@@ -1,11 +1,12 @@
----
-title : "Nginx Note - Process Cycle"
-date : 2018-02-06T16:25:54+08:00
-categories : ["Notes"]
-tags : ["nginx"]
-description : "Note of main process cycle for Nginx"
-draft : false
----
++++
+title = "Nginx Note - Process Cycle"
+description = "Note of main process cycle for Nginx"
+date = 2018-02-06T16:25:54+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["nginx"]
++++
 
 转载自[Nginx 的执行模型](http://www.lenky.info/archives/2011/09/48)
 

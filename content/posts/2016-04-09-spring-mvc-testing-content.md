@@ -1,11 +1,12 @@
----
-title : "Spring MVC Testing: Content"
-date : 2016-04-09T23:03:35+08:00
-updated: 2016-04-09 23:03:35
-categories : ["Spring MVC Testing"]
-tags : ["Spring MVC", "testing", "java"]
-
----
++++
+title = "Spring MVC Testing: Content"
+description = "Spring MVC Testing: Content"
+date = 2016-04-09T23:03:35+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
 本系列翻译自[Spring MVC Test Tutorial](http://www.petrikainulainen.net/spring-mvc-test-tutorial/)。
 

@@ -1,11 +1,12 @@
----
-title : "Nginx Note - Modules Design"
-date : 2018-02-06T16:23:34+08:00
-categories : ["Notes"]
-tags : ["nginx"]
-description : "Note of modules designing for Nginx"
-draft : false
----
++++
+title = "Nginx Note - Modules Design"
+description = "Note of modules designing for Nginx"
+date = 2018-02-06T16:23:34+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["nginx"]
++++
 
 转载自[Nginx 模块的统一架构](http://www.lenky.info/archives/2011/09/62)
 

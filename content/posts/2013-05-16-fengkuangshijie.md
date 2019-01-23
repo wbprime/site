@@ -1,11 +1,12 @@
----
-title : "疯狂世界"
-date : 2013-05-16T21:01:44+08:00
-updated: 2015-05-16 21:01:44
-categories : ["Mayday"]
-tags : ["calm", "mayday"]
-description : "五月天的歌曲，早期的代表作之一，疯狂世界。"
----
++++
+title = "疯狂世界"
+description = "五月天的歌曲，早期的代表作之一，疯狂世界。"
+date = 2013-05-16T21:01:44+08:00
+draft = false
+[taxonomies]
+categories =  ["Mayday"]
+tags = ["calm", "mayday"]
++++
 
 五月天的歌曲，早期的代表作之一，疯狂世界。
 

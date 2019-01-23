@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - Semaphore"
-date : 2016-03-30T20:33:17+08:00
-updated: 2016-04-01 11:03:17
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - Semaphore"
+description = "Learning Java Concurrency - Semaphore"
+date = 2016-03-30T20:33:17+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 Semaphore，信号量。信号量可以理解为令牌掌牌使，负责令牌的发放；当线程需要执行任务时，先到信号量处领取令牌，领取到了令牌再去执行任务；如果令牌被领光了，就需要一直等待；如果任务执行完了，需要到信号量处交还令牌。很简单的逻辑！
 

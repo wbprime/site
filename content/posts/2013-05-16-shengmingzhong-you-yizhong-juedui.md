@@ -1,11 +1,12 @@
----
-title : "生命有一种绝对"
-date : 2013-05-16T21:04:55+08:00
-updated: 2015-05-16 21:04:55
-categories : ["Mayday"]
-tags : ["calm", "mayday"]
-description : "你跳不出这个世界，是因为你不知道这个世界有多大，一旦你知道了，你就超出了它。"
----
++++
+title = "生命有一种绝对"
+description = "你跳不出这个世界，是因为你不知道这个世界有多大，一旦你知道了，你就超出了它。"
+date = 2013-05-16T21:04:55+08:00
+draft = false
+[taxonomies]
+categories =  ["Mayday"]
+tags = ["calm", "mayday"]
++++
 
 从来都不是一个豪气凌云的人，也从来没有经历过什么热血澎湃的岁月。
 

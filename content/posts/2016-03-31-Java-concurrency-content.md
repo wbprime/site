@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - Content"
-date : 2016-03-31T10:10:46+08:00
-updated: 2016-04-15 19:10:46
-categories : ["Learning Java Concurrency"]
-tags : ["'java'", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - Content"
+description = "Learning Java Concurrency - Content"
+date = 2016-03-31T10:10:46+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["'java'", "concurrency"]
++++
 
 Java Concurrency是学习Java的过程中绕不过去的一道坎。既然绕不过去，只能一点一点去学习它，然后了解它。本系列是在学习Java Concurrency过程中的记录，鉴于网络上关于原理和实现代码的文章一大堆，所以本系列会尽量以实际应用为主。毕竟原理了解的再深，还是要落地为代码。
 

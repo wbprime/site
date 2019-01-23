@@ -1,11 +1,12 @@
----
-title : "Spring MVC Unit Testing - Normal Controllers"
-date : 2016-04-09T23:07:12+08:00
-updated: 2016-04-09 23:07:12
-categories : ["Spring MVC Testing"]
-tags : ["Spring MVC", "testing", "java"]
-
----
++++
+title = "Spring MVC Unit Testing - Normal Controllers"
+description = "Spring MVC Unit Testing - Normal Controllers"
+date = 2016-04-09T23:07:12+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
 本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第2篇，原文链接：[Unit Testing of Spring MVC Controllers: "Normal" Controllers](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/)。
 

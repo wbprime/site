@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - wait & notify"
-date : 2016-04-06T10:00:56+08:00
-updated: 2016-04-06 10:00:56
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - wait & notify"
+description = "Learning Java Concurrency - wait & notify"
+date = 2016-04-06T10:00:56+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 在synchronized关键字之外，Java提供了另外的`wait`和`notify`函数族用于支援多线程通信，使用上类似于JUC的Condition类。
 

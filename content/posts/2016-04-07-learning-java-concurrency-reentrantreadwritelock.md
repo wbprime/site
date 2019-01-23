@@ -1,11 +1,12 @@
----
-title : "Learning Java Concurrency - ReentrantReadWriteLock"
-date : 2016-04-07T21:54:38+08:00
-updated: 2016-04-08 10:54:38
-categories : ["Learning Java Concurrency"]
-tags : ["java", "concurrency"]
-
----
++++
+title = "Learning Java Concurrency - ReentrantReadWriteLock"
+description = "Learning Java Concurrency - ReentrantReadWriteLock"
+date = 2016-04-07T21:54:38+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 `ReentrantLock`是互斥锁，对于要保护的资源，同一时间只能有一个线程进行访问。所谓的访问，就是读和写。但是在实际中，往往是读操作对互斥性的要求远远低于写操作。
 
