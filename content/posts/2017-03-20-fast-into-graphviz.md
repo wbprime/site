@@ -1,5 +1,5 @@
 ---
-title: Fast into Graphviz
+title: "Fast into Graphviz"
 date: 2017-03-20 11:55:45
 updated: 2017-03-20 11:55:45
 categories: ["Graphviz"]
