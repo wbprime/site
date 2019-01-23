@@ -3,6 +3,7 @@ title = "Thrift Note"
 description = "Note of thrift first guide"
 date = 2018-02-06T13:22:50+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Notes"]
 tags = ["thrift"]
@@ -106,7 +107,7 @@ tags = ["thrift"]
 参见:
 
 ![thrift
-client](/posts/2018-02-06-thrift-note.dir/uml_thrift_server_side_sequence.png) 。
+client](uml_thrift_server_side_sequence.png) 。
 
 ## 客户端代码
 
@@ -150,7 +151,7 @@ package service.client;
 参见：
 
 ![thrift
-server](/posts/2018-02-06-thrift-note.dir/uml_thrift_client_side_sequence.png) 。
+server](uml_thrift_client_side_sequence.png) 。
 
 # 数据类型
 
