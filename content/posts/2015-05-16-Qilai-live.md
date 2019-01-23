@@ -1,5 +1,5 @@
 ---
-title: "起来(live) "
+title: 起来(live) 
 date: 2015-05-16 17:27:36
 updated: 2015-05-16 17:27:36
 categories: ["Mayday"]

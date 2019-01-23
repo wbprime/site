@@ -1,5 +1,5 @@
 ---
-title: "JDK installation on Archlinux"
+title: JDK installation on Archlinux
 date: 2015-05-25 11:07:13
 updated: 2015-05-25 11:07:13
 categories: ["Tech"]

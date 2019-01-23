@@ -1,5 +1,5 @@
 ---
-title: "'Learning Java Concurrency - Executors(1) ExecutorService'"
+title: 'Learning Java Concurrency - Executors(1) ExecutorService'
 date: 2016-04-15 16:34:20
 updated: 2016-04-15 16:34:20
 categories: ["Learning Java Concurrency"]

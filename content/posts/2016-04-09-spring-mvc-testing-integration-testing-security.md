@@ -1,5 +1,5 @@
 ---
-title: "'Spring MVC Integration Testing - Security'"
+title: 'Spring MVC Integration Testing - Security'
 date: 2016-04-09 23:08:58
 updated: 2016-04-09 23:08:58
 categories: ["Spring MVC Testing"]

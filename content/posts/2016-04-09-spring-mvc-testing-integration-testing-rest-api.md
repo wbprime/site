@@ -1,5 +1,5 @@
 ---
-title: "'Spring MVC Integration Testing - REST API'"
+title: 'Spring MVC Integration Testing - REST API'
 date: 2016-04-09 23:08:39
 updated: 2016-04-09 23:08:39
 categories: ["Spring MVC Testing"]

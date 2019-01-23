@@ -1,5 +1,5 @@
 ---
-title: "'Learning Java Concurrency - ReentrantLock & Condition'"
+title: 'Learning Java Concurrency - ReentrantLock & Condition'
 date: 2016-04-07 09:47:10
 updated: 2016-04-07 09:47:10
 categories: ["Learning Java Concurrency"]
