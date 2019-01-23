@@ -4,7 +4,7 @@ date: 2013-05-16 20:46:59
 updated: 2015-05-16 20:46:59
 categories: Mayday
 tags: [calm, mayday]
-description: 谁说不能让我此生唯一自传，如同诗一般？
+description: "谁说不能让我此生唯一自传，如同诗一般？"
 ---
 
 青春之後，认输之前，我在哪里？

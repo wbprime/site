@@ -4,7 +4,7 @@ date: 2015-06-08 10:45:49
 updated: 2015-06-10 13:45:49
 categories: "Spring DI"
 tags: [Spring, java]
-description: The Springframework annotation-based metadata configuration guide.
+description: "The Springframework annotation-based metadata configuration guide."
 ---
 
 Despite XML-based configuration, the Springframework provides full support for annotation-based metadata configuration.
