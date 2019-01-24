@@ -11,7 +11,7 @@ tags = ["java", "concurrency"]
 
 `ReentrantLock`是`synchronized`的高阶版本，用来控制多线程同步。`ReentrantLock`是一种独占锁，同一时间只能有一个线程使用一把锁，其他请求加锁的线程都会被阻塞。除了控制多线程同步之外，`ReentrantLock`还提供了`Condition`用来进行多线程通讯。`Condition`是`Object`类的方法`wait & notify`的替代版本，可以用等待/通知模式来有效控制多线程对共享资源的访问。
 
-仿[`synchronized`](./2016-04-01-learning-java-concurrency-synchronized.md)，用`ReentrantLock`实现单例模式的代码如下：
+仿[`synchronized`](./posts/2016-04-01-learning-java-concurrency-synchronized.md)，用`ReentrantLock`实现单例模式的代码如下：
 
 ```java
 private static class Singleton {
@@ -39,7 +39,7 @@ private static class Singleton {
 }
 ```
 
-仿[`wait & notify`](./2016-04-06-learning-java-concurrency-wait-notify/index.md)，用`Condition`来实现父子通知汇款的代码如下：
+仿[`wait & notify`](./posts/2016-04-06-learning-java-concurrency-wait-notify/index.md)，用`Condition`来实现父子通知汇款的代码如下：
 
 ```java
 private static class DepositAccount {

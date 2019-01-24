@@ -208,10 +208,10 @@ public class TodoControllerTest {
  
         when(todoServiceMock.findAll()).thenReturn(Arrays.asList(first, second));
  
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get(./posts/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/list"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/list.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/list.jsp"))
                 .andExpect(model().attribute("todos", hasSize(2)))
                 .andExpect(model().attribute("todos", hasItem(
                         allOf(
@@ -347,10 +347,10 @@ public class TodoControllerTest {
     public void findById_TodoEntryNotFound_ShouldRender404View() throws Exception {
         when(todoServiceMock.findById(1L)).thenThrow(new TodoNotFoundException(""));
  
-        mockMvc.perform(get("/todo/{id}", 1L))
+        mockMvc.perform(get(./posts/todo/{id}", 1L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
  
         verify(todoServiceMock, times(1)).findById(1L);
         verifyZeroInteractions(todoServiceMock);
@@ -418,10 +418,10 @@ public class TodoControllerTest {
  
         when(todoServiceMock.findById(1L)).thenReturn(found);
  
-        mockMvc.perform(get("/todo/{id}", 1L))
+        mockMvc.perform(get(./posts/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/view"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/view.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/view.jsp"))
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
                 .andExpect(model().attribute("todo", hasProperty("description", is("Lorem ipsum"))))
                 .andExpect(model().attribute("todo", hasProperty("title", is("Foo"))));
@@ -593,7 +593,7 @@ public class TodoControllerTest {
         String title = TestUtil.createStringWithLength(101);
         String description = TestUtil.createStringWithLength(501);
  
-        mockMvc.perform(post("/todo/add")
+        mockMvc.perform(post(./posts/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", description)
                 .param("title", title)
@@ -601,7 +601,7 @@ public class TodoControllerTest {
         )
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/add"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/add.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/add.jsp"))
                 .andExpect(model().attributeHasFieldErrors("todo", "title"))
                 .andExpect(model().attributeHasFieldErrors("todo", "description"))
                 .andExpect(model().attribute("todo", hasProperty("id", nullValue())))
@@ -699,7 +699,7 @@ public class TodoControllerTest {
  
         when(todoServiceMock.add(isA(TodoDTO.class))).thenReturn(added);
  
-        mockMvc.perform(post("/todo/add")
+        mockMvc.perform(post(./posts/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", "description")
                 .param("title", "title")
@@ -707,7 +707,7 @@ public class TodoControllerTest {
         )
                 .andExpect(status().isMovedTemporarily())
                 .andExpect(view().name("redirect:todo/{id}"))
-                .andExpect(redirectedUrl("/todo/1"))
+                .andExpect(redirectedUrl(./posts/todo/1"))
                 .andExpect(model().attribute("id", is("1")))
                 .andExpect(flash().attribute("feedbackMessage", is("Todo entry: title was added.")));
  

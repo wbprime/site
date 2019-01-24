@@ -381,7 +381,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findAll() throws Exception {
-        mockMvc.perform(get("/api/todo"))
+        mockMvc.perform(get(./posts/api/todo"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$", hasSize(2)))
@@ -462,7 +462,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findById() throws Exception {
-        mockMvc.perform(get("/api/todo/{id}", 1L))
+        mockMvc.perform(get(./posts/api/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(1)))
@@ -518,7 +518,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get("/api/todo/{id}", 3L))
+        mockMvc.perform(get(./posts/api/todo/{id}", 3L))
                 .andExpect(status().isNotFound());
     }
 }
@@ -582,7 +582,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData-delete-expected.xml")
     public void deleteById() throws Exception {
-        mockMvc.perform(delete("/api/todo/{id}", 1L))
+        mockMvc.perform(delete(./posts/api/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(1)))
@@ -646,7 +646,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void deleteByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(delete("/api/todo/{id}", 3L))
+        mockMvc.perform(delete(./posts/api/todo/{id}", 3L))
                 .andExpect(status().isNotFound());
     }
 }
@@ -777,7 +777,7 @@ public class ITTodoControllerTest {
         String description = TodoTestUtil.createStringWithLength(501);
         TodoDTO added = TodoTestUtil.createDTO(null, description, title);
  
-        mockMvc.perform(post("/api/todo")
+        mockMvc.perform(post(./posts/api/todo")
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(added))
         )
@@ -848,7 +848,7 @@ public class ITTodoControllerTest {
     @ExpectedDatabase(value="toDoData-add-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void add() throws Exception {
         TodoDTO added = TodoTestUtil.createDTO(null, "description", "title");
-        mockMvc.perform(post("/api/todo")
+        mockMvc.perform(post(./posts/api/todo")
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(added))
         )
@@ -934,7 +934,7 @@ public class ITTodoControllerTest {
     public void updateEmptyTodo() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(1L, "", "");
  
-        mockMvc.perform(put("/api/todo/{id}", 1L)
+        mockMvc.perform(put(./posts/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1001,7 +1001,7 @@ public class ITTodoControllerTest {
  
         TodoDTO updated = TodoTestUtil.createDTO(1L, description, title);
  
-        mockMvc.perform(put("/api/todo/{id}", 1L)
+        mockMvc.perform(put(./posts/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1065,7 +1065,7 @@ public class ITTodoControllerTest {
     public void updateTodoWhenTodoIsNotFound() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(3L, "description", "title");
  
-        mockMvc.perform(put("/api/todo/{id}", 3L)
+        mockMvc.perform(put(./posts/api/todo/{id}", 3L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1126,7 +1126,7 @@ public class ITTodoControllerTest {
     public void update() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(1L, "description", "title");
  
-        mockMvc.perform(put("/api/todo/{id}", 1L)
+        mockMvc.perform(put(./posts/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )

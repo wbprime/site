@@ -147,7 +147,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
  
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+        registry.addResourceHandler(./posts/static/**").addResourceLocations("/static/");
     }
  
     @Override
@@ -182,7 +182,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
  
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/jsp/");
+        viewResolver.setPrefix(./posts/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
  
         return viewResolver;
@@ -392,7 +392,7 @@ public class StandaloneTodoControllerTest {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
  
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/jsp/");
+        viewResolver.setPrefix(./posts/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
  
         return viewResolver;

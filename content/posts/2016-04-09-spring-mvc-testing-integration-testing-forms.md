@@ -145,7 +145,7 @@ public class TodoController {
         addFeedbackMessage(attributes, "feedback.message.todo.added", added.getTitle());
         attributes.addAttribute("id", added.getId());
  
-        return createRedirectViewPath("/todo/{id}");
+        return createRedirectViewPath(./posts/todo/{id}");
     }
  
     @RequestMapping(value = "/todo/update/{id}", method = RequestMethod.GET)
@@ -169,7 +169,7 @@ public class TodoController {
         addFeedbackMessage(attributes, "feedback.message.todo.updated", updated.getTitle());
         attributes.addAttribute("id", updated.getId());
  
-        return createRedirectViewPath("/todo/{id}");
+        return createRedirectViewPath(./posts/todo/{id}");
     }
  
     private TodoDTO constructFormObjectForUpdateForm(Todo updated) {
@@ -254,10 +254,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void showAddTodoForm() throws Exception {
-        mockMvc.perform(get("/todo/add"))
+        mockMvc.perform(get(./posts/todo/add"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/add"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/add.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/add.jsp"))
                 .andExpect(model().attribute("todo", hasProperty("id", nullValue())))
                 .andExpect(model().attribute("todo", hasProperty("description", isEmptyOrNullString())))
                 .andExpect(model().attribute("todo", hasProperty("title", isEmptyOrNullString())));
@@ -335,13 +335,13 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void addEmptyTodo() throws Exception {
-        mockMvc.perform(post("/todo/add")
+        mockMvc.perform(post(./posts/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .sessionAttr("todo", new TodoDTO())
         )
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/add"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/add.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/add.jsp"))
                 .andExpect(model().attributeHasFieldErrors("todo", "title"))
                 .andExpect(model().attribute("todo", hasProperty("id", nullValue())))
                 .andExpect(model().attribute("todo", hasProperty("description", isEmptyOrNullString())))
@@ -404,7 +404,7 @@ public class ITTodoControllerTest {
         String title = TodoTestUtil.createStringWithLength(101);
         String description = TodoTestUtil.createStringWithLength(501);
  
-        mockMvc.perform(post("/todo/add")
+        mockMvc.perform(post(./posts/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", description)
                 .param("title", title)
@@ -412,7 +412,7 @@ public class ITTodoControllerTest {
         )
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/add"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/add.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/add.jsp"))
                 .andExpect(model().attributeHasFieldErrors("todo", "title"))
                 .andExpect(model().attributeHasFieldErrors("todo", "description"))
                 .andExpect(model().attribute("todo", hasProperty("id", nullValue())))
@@ -473,7 +473,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase(value="toDoData-add-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void addTodo() throws Exception {
-        mockMvc.perform(post("/todo/add")
+        mockMvc.perform(post(./posts/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", "description")
                 .param("title", "title")
@@ -546,10 +546,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void showUpdateTodoForm() throws Exception {
-        mockMvc.perform(get("/todo/update/{id}", 1L))
+        mockMvc.perform(get(./posts/todo/update/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/update"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/update.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/update.jsp"))
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
                 .andExpect(model().attribute("todo", hasProperty("description", is("Lorem ipsum"))))
                 .andExpect(model().attribute("todo", hasProperty("title", is("Foo"))));
@@ -605,10 +605,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void showUpdateTodoFormWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get("/todo/update/{id}", 3L))
+        mockMvc.perform(get(./posts/todo/update/{id}", 3L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
     }
 }
 ```
@@ -675,14 +675,14 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void updateEmptyTodo() throws Exception {
-        mockMvc.perform(post("/todo/update")
+        mockMvc.perform(post(./posts/todo/update")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("id", "1")
                 .sessionAttr("todo", new TodoDTO())
         )
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/update"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/update.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/update.jsp"))
                 .andExpect(model().attributeHasFieldErrors("todo", "title"))
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
                 .andExpect(model().attribute("todo", hasProperty("description", isEmptyOrNullString())))
@@ -745,7 +745,7 @@ public class ITTodoControllerTest {
         String title = TodoTestUtil.createStringWithLength(101);
         String description = TodoTestUtil.createStringWithLength(501);
  
-        mockMvc.perform(post("/todo/update")
+        mockMvc.perform(post(./posts/todo/update")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", description)
                 .param("id", "1")
@@ -754,7 +754,7 @@ public class ITTodoControllerTest {
         )
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/update"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/update.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/update.jsp"))
                 .andExpect(model().attributeHasFieldErrors("todo", "title"))
                 .andExpect(model().attributeHasFieldErrors("todo", "description"))
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
@@ -815,7 +815,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase(value="toDoData-update-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void updateTodo() throws Exception {
-        mockMvc.perform(post("/todo/update")
+        mockMvc.perform(post(./posts/todo/update")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", "description")
                 .param("id", "1")
@@ -888,7 +888,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void updateTodoWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(post("/todo/update")
+        mockMvc.perform(post(./posts/todo/update")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", "description")
                 .param("id", "3")
@@ -897,7 +897,7 @@ public class ITTodoControllerTest {
         )
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
     }
 }
 ```

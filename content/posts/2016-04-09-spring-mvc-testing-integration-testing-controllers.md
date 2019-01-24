@@ -287,7 +287,7 @@ public class TodoController {
  
         addFeedbackMessage(attributes, "feedback.message.todo.deleted", deleted.getTitle());
  
-        return createRedirectViewPath("/");
+        return createRedirectViewPath(./posts/");
     }
  
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -445,10 +445,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findAll() throws Exception {
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get(./posts/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/list"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/list.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/list.jsp"))
                 .andExpect(model().attribute("todos", hasSize(2)))
                 .andExpect(model().attribute("todos", hasItem(
                         allOf(
@@ -523,10 +523,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findById() throws Exception {
-        mockMvc.perform(get("/todo/{id}", 1L))
+        mockMvc.perform(get(./posts/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/view"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/view.jsp"))
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/view.jsp"))
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
                 .andExpect(model().attribute("todo", hasProperty("description", is("Lorem ipsum"))))
                 .andExpect(model().attribute("todo", hasProperty("title", is("Foo"))));
@@ -580,10 +580,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get("/todo/{id}", 3L))
+        mockMvc.perform(get(./posts/todo/{id}", 3L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
     }
 }
 ```
@@ -643,7 +643,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("todoData-delete-expected.xml")
     public void deleteById() throws Exception {
-        mockMvc.perform(get("/todo/delete/{id}", 1L))
+        mockMvc.perform(get(./posts/todo/delete/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("redirect:/"))
                 .andExpect(flash().attribute("feedbackMessage", is("Todo entry: Foo was deleted.")));
@@ -705,10 +705,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void deleteByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get("/todo/delete/{id}", 3L))
+        mockMvc.perform(get(./posts/todo/delete/{id}", 3L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
     }
 }
 ```

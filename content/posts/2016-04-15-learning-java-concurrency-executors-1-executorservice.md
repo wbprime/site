@@ -97,7 +97,7 @@ if (!re) {
 除了可以向线程池提交`Runnable`类实例外，还可以提交`Callable`类实例。线程池也提供了用`Callable`类实例包装`Runnable`类实例的方法。
 
 `Callable`类和`Future`类的使用参见 [FutureTask &
-Callable](./2016-04-13-learning-java-concurrency-futuretask-callable/index.md) 。
+Callable](./posts/2016-04-13-learning-java-concurrency-futuretask-callable/index.md) 。
 
 ## 批量任务 invokeAll & invokeAny()
 

@@ -227,7 +227,7 @@ public class TodoControllerTest {
  
         when(todoServiceMock.findAll()).thenReturn(Arrays.asList(first, second));
  
-        mockMvc.perform(get("/api/todo"))
+        mockMvc.perform(get(./posts/api/todo"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$", hasSize(2)))
@@ -373,7 +373,7 @@ public class TodoControllerTest {
     public void findById_TodoEntryNotFound_ShouldReturnHttpStatusCode404() throws Exception {
         when(todoServiceMock.findById(1L)).thenThrow(new TodoNotFoundException(""));
  
-        mockMvc.perform(get("/api/todo/{id}", 1L))
+        mockMvc.perform(get(./posts/api/todo/{id}", 1L))
                 .andExpect(status().isNotFound());
  
         verify(todoServiceMock, times(1)).findById(1L);
@@ -436,7 +436,7 @@ public class TodoControllerTest {
  
         when(todoServiceMock.findById(1L)).thenReturn(found);
  
-        mockMvc.perform(get("/api/todo/{id}", 1L))
+        mockMvc.perform(get(./posts/api/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(1)))
@@ -607,7 +607,7 @@ public class TodoControllerTest {
                 .title(title)
                 .build();
  
-        mockMvc.perform(post("/api/todo")
+        mockMvc.perform(post(./posts/api/todo")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(dto))
         )
@@ -727,7 +727,7 @@ public class TodoControllerTest {
  
         when(todoServiceMock.add(any(TodoDTO.class))).thenReturn(added);
  
-        mockMvc.perform(post("/api/todo")
+        mockMvc.perform(post(./posts/api/todo")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(dto))
         )
