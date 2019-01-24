@@ -16,4 +16,4 @@ after_success: |
     git remote add pages https://github.com/wbprime/wbprime.github.io.git &&
     git fetch pages master && git checkout -b deploying pages/master &&
     git add -A && git commit -m "Commit from travis" &&
-    git push pages deploying:master
+    git push -f https://$GH_TOKEN@github.com/wbprime/wbprime.github.io.git deploying:master
