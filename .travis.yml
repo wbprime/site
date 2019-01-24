@@ -12,8 +12,13 @@ after_success: |
     # This command builds our static site and automatically puts it in a directory
     # called `public`, unless specified otherwise
     zola build &&
-    cd public &&
-    git remote add pages https://github.com/wbprime/wbprime.github.io.git &&
-    git fetch pages master && git checkout -b deploying pages/master &&
-    git add -A && git commit -m "Commit from travis" &&
-    git push -f https://$GH_TOKEN@github.com/wbprime/wbprime.github.io.git deploying:master
+    git submodule add https://github.com/wbprime/wbprime.github.io.git pages &&
+    git submodule init pages &&
+    git submodule update pages &&
+    cd pages &&
+    git checkout master &&
+    rm -rf * &&
+    cp -r ../public/* ./ &&
+    git add -A &&
+    git commit -m "Commit from travis" &&
+    git push -f https://$GH_TOKEN@github.com/wbprime/wbprime.github.io.git master:master
