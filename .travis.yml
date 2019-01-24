@@ -12,11 +12,11 @@ after_success: |
     zola build
 
 deploy:
-	provider: pages
-	skip-cleanup: true
-	github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
-	local-dir: public
-	fqdn: www.wangbo.im
-	keep-history: true
-	on:
-		branch: master
+    provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
+    local-dir: public
+    fqdn: www.wangbo.im
+    keep-history: true
+    on:
+        branch: master
