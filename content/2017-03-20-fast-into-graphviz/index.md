@@ -3,6 +3,7 @@ title = "Fast into Graphviz"
 description = "Fast into Graphviz"
 date = 2017-03-20T11:55:45+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Graphviz"]
 tags = ["graphviz", "tech"]
