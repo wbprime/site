@@ -1,5 +1,3 @@
-# site
-
-[Wbprime](http://www.wangbo.im)
+[Wbprime](http://www.wangbo.im) [![Build Status](https://travis-ci.org/wbprime/wbpages.svg?branch=master)](https://travis-ci.org/wbprime/wbpages)
 
 In migrating (from Hugo to Zola) ...
