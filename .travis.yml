@@ -6,12 +6,17 @@ before_script:
 script:
     - zola build
 
-# If you are using a different folder than `public` for the output directory, you will
-# need to change the `zola` command and the `ghp-import` path
 after_success: |
     [ $TRAVIS_BRANCH = master ] &&
     [ $TRAVIS_PULL_REQUEST = false ] &&
-    zola build &&
-    sudo pip install ghp-import &&
-    ghp-import -c www.wangbo.im -n public &&
-    git push -fq https://${GH_TOKEN}@github.com/wbprime/wbprime.github.io master
+    zola build
+
+deploy:
+	provider: pages
+	skip-cleanup: true
+	github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
+	local-dir: public
+	fqdn: www.wangbo.im
+	keep-history: true
+	on:
+		branch: master
