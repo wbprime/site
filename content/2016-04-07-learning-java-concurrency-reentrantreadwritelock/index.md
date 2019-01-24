@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - ReentrantReadWriteLock"
 description = "Learning Java Concurrency - ReentrantReadWriteLock"
 date = 2016-04-07T21:54:38+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
@@ -431,7 +432,8 @@ static final class FairSync extends Sync {
 
 读锁是共享锁，条件变量没有意义，所以获取条件变量的方法会抛出`UnsupportedOperationException`异常。
 
-写锁的条件变量的用法同[`ReentrantLock`](/2016/04/07/learning-java-concurrency-reentrantlock-condition/)
+写锁的条件变量的用法同
+[`ReentrantLock`](./2016-04-07-learning-java-concurrency-reentrantlock-condition/index.md) 。
 
 # 总结
 

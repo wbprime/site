@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - CountDownLatch"
 description = "Learning Java Concurrency - CountDownLatch"
 date = 2016-03-30T21:06:08+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
@@ -67,8 +68,6 @@ import java.util.concurrent.Executors;
 /**
  * Class: CountDownLatchCase
  * Date: 2016/03/30 13:05
- *
- * @author Elvis Wang [mail@wbprime.me]
  */
 public final class CountDownLatchCase {
 

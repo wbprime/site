@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - FutureTask & Callable"
 description = "Learning Java Concurrency - FutureTask & Callable"
 date = 2016-04-13T10:17:57+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
@@ -43,7 +44,7 @@ public interface Callable<V> {
 
 添加返回值就是为了支援计算类的任务；可以抛出Checked异常则是为了完善错误处理机制。
 
-Thread/Runnable 机制是不允许抛出Checked异常的；如果抛出了Unchecked异常，会自动去寻找线程的异常处理器进行处理，参见 [Learning Java Concurrency - Thread & Runnable](/2016/04/11/learning-java-concurrency-thread-runnable/) 里面关于线程异常处理的部分。
+Thread/Runnable 机制是不允许抛出Checked异常的；如果抛出了Unchecked异常，会自动去寻找线程的异常处理器进行处理，参见 [Learning Java Concurrency - Thread & Runnable](./2016-04-11-learning-java-concurrency-thread-runnable/index.md) 里面关于线程异常处理的部分。
 
 # Future
 

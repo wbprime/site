@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - CyclicBarrier"
 description = "Learning Java Concurrency - CyclicBarrier"
 date = 2016-03-30T21:06:26+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
@@ -75,8 +76,6 @@ import java.util.concurrent.Executors;
 /**
  * Class: CyclicBarrierCase
  * Date: 2016/03/30 13:35
- *
- * @author Elvis Wang [mail@wbprime.me]
  */
 public final class CyclicBarrierCase {
     private static class Interviewee implements Runnable {

@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - wait & notify"
 description = "Learning Java Concurrency - wait & notify"
 date = 2016-04-06T10:00:56+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
@@ -53,8 +54,6 @@ import java.util.concurrent.Executors;
 /**
  * Class: DepositCase
  * Date: 2016/04/05 14:42
- *
- * @author Elvis Wang [mail@wbprime.me]
  */
 public class DepositCase {
     private static class DepositAccount {
@@ -207,8 +206,6 @@ import java.util.concurrent.Executors;
 /**
  * Class: LinghuChongCase
  * Date: 2016/04/06 12:38
- *
- * @author Elvis Wang [mail@wbprime.me]
  */
 public class LinghuChongCase {
     private static class Bowl {
@@ -320,5 +317,5 @@ public class LinghuChongCase {
 
 # 代码下载
 
-[DepositCase.java](2016-04-06-learning-java-concurrency-wait-notify/DepositCase.java)
-[LinghuChongCase.java](2016-04-06-learning-java-concurrency-wait-notify/LinghuChongCase.java)
+[DepositCase.java](DepositCase.java)
+[LinghuChongCase.java](LinghuChongCase.java)

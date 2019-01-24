@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - Semaphore"
 description = "Learning Java Concurrency - Semaphore"
 date = 2016-03-30T20:33:17+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
@@ -92,8 +93,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * Class: SemaphoreCase
  * Date: 2016/03/30 18:15
- *
- * @author Elvis Wang [mail@wbprime.me]
  */
 public final class SemaphoreCase {
     private static class Item {

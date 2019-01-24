@@ -3,6 +3,7 @@ title = "Learning Java Concurrency - Thread & Runnable"
 description = "Learning Java Concurrency - Thread & Runnable"
 date = 2016-04-11T10:04:31+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Learning Java Concurrency"]
 tags = ["java", "concurrency"]
