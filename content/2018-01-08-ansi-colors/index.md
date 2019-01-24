@@ -3,6 +3,7 @@ title = "Ansi Colors"
 description = "Ansi Colors"
 date = 2018-01-08T10:45:11+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Notes"]
 tags = ["ansi_color"]
@@ -35,9 +36,9 @@ tags = ["ansi_color"]
 - Bright Cyan
 - Bright WHite
 
-![Image 1](2018-01-08-ansi-colors/ansi_color.1.png)
+![Image 1](ansi_color.1.png)
 
-![Image 2](2018-01-08-ansi-colors/ansi_color.2.png)
+![Image 2](ansi_color.2.png)
 
 其中，Bright* 是在对应的颜色基础上增强得来。
 
