@@ -9,14 +9,11 @@ script:
 after_success: |
     [ $TRAVIS_BRANCH = master ] &&
     [ $TRAVIS_PULL_REQUEST = false ] &&
-    zola build
-
-deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: $GH_TOKEN  # Set in the settings page of your repository, as a secure variable
-    local-dir: public
-    fqdn: www.wangbo.im
-    keep-history: true
-    on:
-        branch: master
+    # This command builds our static site and automatically puts it in a directory
+    # called `public`, unless specified otherwise
+    zola build &&
+    cd public &&
+    git remote add pages https://github.com/wbprime/wbprime.github.io.git &&
+    git fetch pages master && git checkout -b deploying pages/master &&
+    git add -A && git commit -m "Commit from travis" &&
+    git push pages deploying:master
