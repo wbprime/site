@@ -3,6 +3,7 @@ title = "Awk Tips: md5"
 description = "Awk Tips: md5"
 date = 2017-06-01T09:43:06+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Awk"]
 tags = ["awk", "tech", "md5"]
