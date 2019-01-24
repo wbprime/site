@@ -8,7 +8,7 @@ categories =  ["Spring MVC Testing"]
 tags = ["Spring MVC", "testing", "java"]
 +++
 
-本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 集成测试系列的第4篇，原文链接：[Integration Testing of Spring MVC Applications: REST API, Part One](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-one/) 和 [Integration Testing of Spring MVC Applications: REST API, Part Two](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-two/)。
+本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 集成测试系列的第4篇，原文链接：[Integration Testing of Spring MVC Applications: REST API, Part One](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-one/) 和 [Integration Testing of Spring MVC Applications: REST API, Part Two](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-two/)。
 
 本文主要介绍如何为基于Spring MVC的REST-full的web应用程序添加集成测试。REST服务通过HTTP标准方法的语义（GET/POST/PUT/DELETE等）来隐喻常见的增删改查（CRUD）操作。
 
@@ -381,7 +381,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findAll() throws Exception {
-        mockMvc.perform(get(./posts/api/todo"))
+        mockMvc.perform(get("/api/todo"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$", hasSize(2)))
@@ -462,7 +462,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findById() throws Exception {
-        mockMvc.perform(get(./posts/api/todo/{id}", 1L))
+        mockMvc.perform(get("/api/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(1)))
@@ -518,7 +518,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get(./posts/api/todo/{id}", 3L))
+        mockMvc.perform(get("/api/todo/{id}", 3L))
                 .andExpect(status().isNotFound());
     }
 }
@@ -582,7 +582,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData-delete-expected.xml")
     public void deleteById() throws Exception {
-        mockMvc.perform(delete(./posts/api/todo/{id}", 1L))
+        mockMvc.perform(delete("/api/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(1)))
@@ -646,7 +646,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void deleteByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(delete(./posts/api/todo/{id}", 3L))
+        mockMvc.perform(delete("/api/todo/{id}", 3L))
                 .andExpect(status().isNotFound());
     }
 }
@@ -777,7 +777,7 @@ public class ITTodoControllerTest {
         String description = TodoTestUtil.createStringWithLength(501);
         TodoDTO added = TodoTestUtil.createDTO(null, description, title);
  
-        mockMvc.perform(post(./posts/api/todo")
+        mockMvc.perform(post("/api/todo")
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(added))
         )
@@ -848,7 +848,7 @@ public class ITTodoControllerTest {
     @ExpectedDatabase(value="toDoData-add-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void add() throws Exception {
         TodoDTO added = TodoTestUtil.createDTO(null, "description", "title");
-        mockMvc.perform(post(./posts/api/todo")
+        mockMvc.perform(post("/api/todo")
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(added))
         )
@@ -934,7 +934,7 @@ public class ITTodoControllerTest {
     public void updateEmptyTodo() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(1L, "", "");
  
-        mockMvc.perform(put(./posts/api/todo/{id}", 1L)
+        mockMvc.perform(put("/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1001,7 +1001,7 @@ public class ITTodoControllerTest {
  
         TodoDTO updated = TodoTestUtil.createDTO(1L, description, title);
  
-        mockMvc.perform(put(./posts/api/todo/{id}", 1L)
+        mockMvc.perform(put("/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1065,7 +1065,7 @@ public class ITTodoControllerTest {
     public void updateTodoWhenTodoIsNotFound() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(3L, "description", "title");
  
-        mockMvc.perform(put(./posts/api/todo/{id}", 3L)
+        mockMvc.perform(put("/api/todo/{id}", 3L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1126,7 +1126,7 @@ public class ITTodoControllerTest {
     public void update() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(1L, "description", "title");
  
-        mockMvc.perform(put(./posts/api/todo/{id}", 1L)
+        mockMvc.perform(put("/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
         )
@@ -1155,4 +1155,5 @@ public class ITTodoControllerTest {
 - 如何对PUT接口进行集成测试
 - 如何对DELETE接口进行集成测试
 
-下一篇是 [Spring MVC Integration Testing - Security](/2016/04/09/spring-mvc-testing-integration-testing-security/)。
+下一篇是 [Spring MVC Integration Testing -
+Security](./posts/2016-04-09-spring-mvc-testing-integration-testing-security.md)。

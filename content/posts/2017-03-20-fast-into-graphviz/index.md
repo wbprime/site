@@ -247,7 +247,7 @@ digraph work_flow {
 * -Timap (imagemap files for httpd servers for each node or edge that has a non‐null "href" attribute)
 * -Tcmapx (client‐side imagemap for use in html and xhtml)
 
-更多输出格式参见 <http://www.graphviz.org/content/output-format> 。
+更多输出格式参见 <https://graphviz.gitlab.io/_pages/doc/info/output.html> 。
 
 # DOT Language
 
@@ -327,7 +327,8 @@ subgraph {
 - `node [name=val];` : 节点属性
 - `edge [name=val];` : 边属性
 
-详细说明，参见 [Graphviz attrs](http://www.graphviz.org/content/attrs) 。
+详细说明，参见 [Graphviz
+attrs](https://graphviz.gitlab.io/_pages/doc/info/attrs.html) 。
 
 # 参考
 

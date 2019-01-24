@@ -8,9 +8,9 @@ categories =  ["Spring MVC Testing"]
 tags = ["Spring MVC", "testing", "java"]
 +++
 
-本文是[Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 集成测试系列的第2篇，原文链接：[Integration Testing of Spring MVC Applications: Controllers](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-controllers/)。
+本文是[Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 集成测试系列的第2篇，原文链接：[Integration Testing of Spring MVC Applications: Controllers](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-controllers/)。
 
-本文主要介绍如何为“标准”Controller编写集成测试。在这里“标准”的含义延续前一个序列 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 中的含义，表示不使用Ajax的请求或者处理Form结果的请求。
+本文主要介绍如何为“标准”Controller编写集成测试。在这里“标准”的含义延续前一个序列 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 中的含义，表示不使用Ajax的请求或者处理Form结果的请求。
 
 同样地，本文还是一步一步地为我们的TodoApplication编写集成测试。该程序提供Todo项的增删改查（CRUD）接口，本文主要关注其中的3个接口：获取Todo项列表；查看单个Todo项的详情；以及删除某个Todo项。
 
@@ -287,7 +287,7 @@ public class TodoController {
  
         addFeedbackMessage(attributes, "feedback.message.todo.deleted", deleted.getTitle());
  
-        return createRedirectViewPath(./posts/");
+        return createRedirectViewPath("/");
     }
  
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -445,10 +445,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findAll() throws Exception {
-        mockMvc.perform(get(./posts/"))
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/list"))
-                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/list.jsp"))
+                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/list.jsp"))
                 .andExpect(model().attribute("todos", hasSize(2)))
                 .andExpect(model().attribute("todos", hasItem(
                         allOf(
@@ -523,10 +523,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findById() throws Exception {
-        mockMvc.perform(get(./posts/todo/{id}", 1L))
+        mockMvc.perform(get("/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/view"))
-                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/todo/view.jsp"))
+                .andExpect(forwardedUrl("/WEB-INF/jsp/todo/view.jsp"))
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
                 .andExpect(model().attribute("todo", hasProperty("description", is("Lorem ipsum"))))
                 .andExpect(model().attribute("todo", hasProperty("title", is("Foo"))));
@@ -580,10 +580,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get(./posts/todo/{id}", 3L))
+        mockMvc.perform(get("/todo/{id}", 3L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
     }
 }
 ```
@@ -643,7 +643,7 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("todoData-delete-expected.xml")
     public void deleteById() throws Exception {
-        mockMvc.perform(get(./posts/todo/delete/{id}", 1L))
+        mockMvc.perform(get("/todo/delete/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("redirect:/"))
                 .andExpect(flash().attribute("feedbackMessage", is("Todo entry: Foo was deleted.")));
@@ -705,10 +705,10 @@ public class ITTodoControllerTest {
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void deleteByIdWhenTodoIsNotFound() throws Exception {
-        mockMvc.perform(get(./posts/todo/delete/{id}", 3L))
+        mockMvc.perform(get("/todo/delete/{id}", 3L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
-                .andExpect(forwardedUrl(./posts/WEB-INF/jsp/error/404.jsp"));
+                .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
     }
 }
 ```
@@ -721,4 +721,4 @@ public class ITTodoControllerTest {
 - 使用Spring MVC Test编写的集成测试用例可读性非常好，可以作为接口文档的补充
 - Spring MVC Test没法验证view是否正确绘制，但可以验证是否使用了预期的view模板
 
-下一篇是 [Spring MVC Integration Testing - Forms](/2016/04/09/spring-mvc-testing-integration-testing-forms/)。
+下一篇是 [Spring MVC Integration Testing - Forms](./posts/2016-04-09-spring-mvc-testing-integration-testing-forms.md)。

@@ -8,7 +8,7 @@ categories =  ["Spring MVC Testing"]
 tags = ["Spring MVC", "testing", "java"]
 +++
 
-本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第1篇，原文链接：[Unit Testing of Spring MVC Controllers: Configuration](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-configuration/)。
+本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第1篇，原文链接：[Unit Testing of Spring MVC Controllers: Configuration](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-configuration/)。
 
 一直以来，为Spring MVC的Controller写单元测试的工作既简单又问题多多。简单体现在单元测试可以很简单地写个测试用例调用一下目标Controller的方法；问题在于这种单元测试完全没有用（不是HTTP的请求），比如说，这种单元测试的方法没办法测试请求映射、参数验证和异常映射等。
 
@@ -147,7 +147,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
  
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(./posts/static/**").addResourceLocations("/static/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
     }
  
     @Override
@@ -182,7 +182,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
  
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix(./posts/WEB-INF/jsp/");
+        viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
  
         return viewResolver;
@@ -392,7 +392,7 @@ public class StandaloneTodoControllerTest {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
  
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix(./posts/WEB-INF/jsp/");
+        viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
  
         return viewResolver;
@@ -466,6 +466,7 @@ public class WebApplicationContextTodoControllerTest {
 - 进行Spring配置的时候按照功能分片段维护是很重要的，能方便配置重用
 - `Standalone`方式和`WebApplicationContext`方式的区别
 
-下一篇是介绍 [Unit Testing - Normal Controllers](/2016/04/09/spring-mvc-testing-unit-testing-normal-controllers/)
+下一篇是介绍 [Unit Testing - Normal
+Controllers](./posts/2016-04-09-spring-mvc-testing-unit-testing-normal-controllers.md)
 
 本文使用的代码已经放在了 [Github](https://github.com/pkainulainen/spring-mvc-test-examples/tree/master/controllers-unittest) 上，请自行查阅。
