@@ -3,6 +3,7 @@ title = "Jvm GC Options"
 description = "Notes on JVM gc types & options"
 date = 2018-02-05T16:16:53+08:00
 draft = false
+template = "page.html"
 [taxonomies]
 categories =  ["Notes"]
 tags = ["jvm", "gc"]
@@ -27,7 +28,7 @@ java -client -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX
 
 See following image first:
 
-![GC options table](/posts/2018-02-05-jvm-gc-options.dir/jvm_gc_combinations.png)
+![GC options table](jvm_gc_combinations.png)
 
 ## Young generation
 
