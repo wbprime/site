@@ -1,11 +1,12 @@
----
-title: 'Spring MVC Testing: Content'
-date: 2016-04-09 23:03:35
-updated: 2016-04-09 23:03:35
-categories: "Spring MVC Testing"
-tags: ["Spring MVC", "testing", "java"]
-
----
++++
+title = "Spring MVC Testing: Content/目录"
+description = "Spring MVC Testing: Content"
+date = 2016-04-09T23:03:35+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
 本系列翻译自[Spring MVC Test Tutorial](http://www.petrikainulainen.net/spring-mvc-test-tutorial/)。
 
@@ -19,19 +20,19 @@ Springframework自3.2版本以后，提供了[Spring MVC Test Framework](http://
 
 需要注意的是，虽然这个系列将Spring MVC Test Framework分为单元测试和集成测试两个部分，但是对于Spring本身来说，其内部实现都是一样的。单元测试和集成测试的区分，是从开发者的角度进行的区分。
 
-<!-- More -->
+<!-- more -->
 
 Spring MVC 单元测试：
 
-1. [Unit Testing - Configuration](/2016/04/09/spring-mvc-testing-unit-testing-configuration/)
-2. [Unit Testing - Normal Controllers](/2016/04/09/spring-mvc-testing-unit-testing-normal-controllers/)
-3. [Unit Testing - REST API](/2016/04/09/spring-mvc-testing-unit-testing-rest-api/)
+1. [Unit Testing - Configuration](./posts/2016-04-09-spring-mvc-testing-unit-testing-configuration.md)
+2. [Unit Testing - Normal Controllers](./posts/2016-04-09-spring-mvc-testing-unit-testing-normal-controllers.md)
+3. [Unit Testing - REST API](./posts/2016-04-09-spring-mvc-testing-unit-testing-rest-api.md)
 
 Spring MVC 集成测试：
 
-1. [Integration Testing - Configuration](/2016/04/09/spring-mvc-testing-integration-testing-configuration/)
-2. [Integration Testing - Controllers](/2016/04/09/spring-mvc-testing-integration-testing-controllers/)
-3. [Integration Testing - Forms](/2016/04/09/spring-mvc-testing-integration-testing-forms/)
-4. [Integration Testing - REST API](/2016/04/09/spring-mvc-testing-integration-testing-rest-api/)
-5. [Integration Testing - Security](/2016/04/09/spring-mvc-testing-integration-testing-security/)
-6. [Integration Testing - JsonPath](/2016/04/09/spring-mvc-testing-integration-testing-jsonpath/)
+1. [Integration Testing - Configuration](./posts/2016-04-09-spring-mvc-testing-integration-testing-configuration.md)
+2. [Integration Testing - Controllers](./posts/2016-04-09-spring-mvc-testing-integration-testing-controllers.md)
+3. [Integration Testing - Forms](./posts/2016-04-09-spring-mvc-testing-integration-testing-forms.md)
+4. [Integration Testing - REST API](./posts/2016-04-09-spring-mvc-testing-integration-testing-rest-api.md)
+5. [Integration Testing - Security](./posts/2016-04-09-spring-mvc-testing-integration-testing-security.md)
+6. [Integration Testing - JsonPath](./posts/2016-04-09-spring-mvc-testing-integration-testing-jsonpath.md)

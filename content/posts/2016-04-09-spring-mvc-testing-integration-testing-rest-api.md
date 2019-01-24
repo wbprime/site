@@ -1,13 +1,14 @@
----
-title: 'Spring MVC Integration Testing - REST API'
-date: 2016-04-09 23:08:39
-updated: 2016-04-09 23:08:39
-categories: "Spring MVC Testing"
-tags: ["Spring MVC", "testing", "java"]
++++
+title = "Spring MVC Integration Testing - REST API"
+description = "Spring MVC Integration Testing - REST API"
+date = 2016-04-09T23:08:39+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
----
-
-本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 集成测试系列的第4篇，原文链接：[Integration Testing of Spring MVC Applications: REST API, Part One](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-one/) 和 [Integration Testing of Spring MVC Applications: REST API, Part Two](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-two/)。
+本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 集成测试系列的第4篇，原文链接：[Integration Testing of Spring MVC Applications: REST API, Part One](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-one/) 和 [Integration Testing of Spring MVC Applications: REST API, Part Two](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-two/)。
 
 本文主要介绍如何为基于Spring MVC的REST-full的web应用程序添加集成测试。REST服务通过HTTP标准方法的语义（GET/POST/PUT/DELETE等）来隐喻常见的增删改查（CRUD）操作。
 
@@ -19,7 +20,7 @@ tags: ["Spring MVC", "testing", "java"]
 - 添加新Todo项接口的集成测试
 - 更新Todo项接口的集成测试
 
-<!-- More -->
+<!-- more -->
 
 # 示例web应用结构
 
@@ -1154,4 +1155,5 @@ public class ITTodoControllerTest {
 - 如何对PUT接口进行集成测试
 - 如何对DELETE接口进行集成测试
 
-下一篇是 [Spring MVC Integration Testing - Security](/2016/04/09/spring-mvc-testing-integration-testing-security/)。
+下一篇是 [Spring MVC Integration Testing -
+Security](./posts/2016-04-09-spring-mvc-testing-integration-testing-security.md)。

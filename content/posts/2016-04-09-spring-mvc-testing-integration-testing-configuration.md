@@ -1,13 +1,14 @@
----
-title: 'Spring MVC Integration Testing - Configuration'
-date: 2016-04-09 23:07:53
-updated: 2016-04-16 11:07:53
-categories: "Spring MVC Testing"
-tags: ["Spring MVC", "testing", "java"]
++++
+title = "Spring MVC Integration Testing - Configuration"
+description = "Spring MVC Integration Testing - Configuration"
+date = 2016-04-09T23:07:53+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
----
-
-本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 集成测试系列的第1篇，原文链接：[Integration Testing of Spring MVC Applications: Configuration](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-configuration/)。
+本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 集成测试系列的第1篇，原文链接：[Integration Testing of Spring MVC Applications: Configuration](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-configuration/)。
 
 没有人会否认集成测试的重要性，它是验证我们开发的组件能够正常协同工作的重要手段。不幸的是，对使用Spring MVC开发的web应用程序作集成测试有一点麻烦。
 
@@ -27,7 +28,7 @@ tags: ["Spring MVC", "testing", "java"]
 
 我们一起来开始进入Spring MVC Test的世界吧！
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 
@@ -116,4 +117,4 @@ public class TodoControllerTest_WebAppContext {
 - 应该使用`webAppContextSetup`的方式而不是`standaloneSetup`方式
 - 如何使用`WebApplicationContext`注入来完成Spring配置的加载
 
-下一篇是 [Spring MVC Integration Testing - Controllers](/2016/04/09/spring-mvc-testing-integration-testing-controllers/)。
+下一篇是 [Spring MVC Integration Testing - Controllers](./posts/2016-04-09-spring-mvc-testing-integration-testing-controllers.md)。

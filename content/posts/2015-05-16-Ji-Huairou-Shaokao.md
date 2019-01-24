@@ -1,11 +1,12 @@
----
-title: "记怀柔烧烤"
-date: 2015-05-14 08:23:02
-updated: 2015-05-16 15:59:57
-categories: Life 
-tags: [trip ,happy]
-description: A trip to Huairou District.
----
++++
+title = "记怀柔烧烤"
+description = "A trip to Huairou District."
+date = 2015-05-14T08:23:02+08:00
+draft = false
+[taxonomies]
+categories =  ["Life "]
+tags = ["trip ", "happy"]
++++
 
 # 一 缘起
 

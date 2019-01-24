@@ -1,11 +1,12 @@
----
-title: 起来(live) 
-date: 2015-05-16 17:27:36
-updated: 2015-05-16 17:27:36
-categories: Mayday
-tags: [mayday]
-description: 音乐起，耳朵一亮。 气势恢宏的配乐，铺天盖地的潮水汹涌而来，先声夺人。 然后是起来。
----
++++
+title = "起来(live) "
+description = "音乐起，耳朵一亮。 气势恢宏的配乐，铺天盖地的潮水汹涌而来，先声夺人。 然后是起来。"
+date = 2015-05-16T17:27:36+08:00
+draft = false
+[taxonomies]
+categories =  ["Mayday"]
+tags = ["mayday"]
++++
 
 这首歌的原唱版本是什么四分卫啥的，没有听说过之前，孤陋寡闻的说。
 

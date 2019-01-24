@@ -1,11 +1,12 @@
----
-title: "后青春期的诗"
-date: 2013-05-16 20:46:59
-updated: 2015-05-16 20:46:59
-categories: Mayday
-tags: [calm, mayday]
-description: 谁说不能让我此生唯一自传，如同诗一般？
----
++++
+title = "后青春期的诗"
+description = "谁说不能让我此生唯一自传，如同诗一般？"
+date = 2013-05-16T20:46:59+08:00
+draft = false
+[taxonomies]
+categories =  ["Mayday"]
+tags = ["calm", "mayday"]
++++
 
 青春之後，认输之前，我在哪里？
 

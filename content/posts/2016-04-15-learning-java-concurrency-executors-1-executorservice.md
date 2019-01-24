@@ -1,11 +1,12 @@
----
-title: 'Learning Java Concurrency - Executors(1) ExecutorService'
-date: 2016-04-15 16:34:20
-updated: 2016-04-15 16:34:20
-categories: "Learning Java Concurrency"
-tags: [java, concurrency]
-
----
++++
+title = "Learning Java Concurrency - Executors(1) ExecutorService"
+description = "Learning Java Concurrency - Executors(1) ExecutorService"
+date = 2016-04-15T16:34:20+08:00
+draft = false
+[taxonomies]
+categories =  ["Learning Java Concurrency"]
+tags = ["java", "concurrency"]
++++
 
 回过头来看`Thread`类，其实可以发现该类是对一件任务的抽象。通过将要完成的任务抽象出来用`Thread`或者`Runnable`来表示，然后委托给另外的线程来处理。`Thread`类在这里充当的是任务执行者的角色，表示一个执行任务的线程。
 
@@ -13,7 +14,7 @@ tags: [java, concurrency]
 
 Java提供了另一个接口`Executor`来真正地抽象任务执行者这个概念：线程池。怎么理解呢，看一下`Executor`接口的代码就好了。
 
-<!-- More -->
+<!-- more -->
 
 # Executor
 
@@ -95,7 +96,8 @@ if (!re) {
 
 除了可以向线程池提交`Runnable`类实例外，还可以提交`Callable`类实例。线程池也提供了用`Callable`类实例包装`Runnable`类实例的方法。
 
-`Callable`类和`Future`类的使用参见 [FutureTask & Callable](/2016/04/13/learning-java-concurrency-futuretask-callable/) 。
+`Callable`类和`Future`类的使用参见 [FutureTask &
+Callable](./posts/2016-04-13-learning-java-concurrency-futuretask-callable/index.md) 。
 
 ## 批量任务 invokeAll & invokeAny()
 

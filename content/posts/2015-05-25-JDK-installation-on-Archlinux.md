@@ -1,17 +1,18 @@
----
-title: JDK installation on Archlinux
-date: 2015-05-25 11:07:13
-updated: 2015-05-25 11:07:13
-categories: Tech
-tags: [java, JDK, archlinux]
-description: Step by step guide to install a JDK 7/8 on Archlinux.
----
++++
+title = "JDK installation on Archlinux"
+description = "Step by step guide to install a JDK 7/8 on Archlinux."
+date = 2015-05-25T11:07:13+08:00
+draft = false
+[taxonomies]
+categories =  ["Tech"]
+tags = ["java", "JDK", "archlinux"]
++++
 
 Basically, [Archlinux](https://www.archlinux.org) provide OpenJDK 7/8 in [official repository](https://wiki.archlinux.org/index.php/Java).  Java JDK environment will be setup in quite a little minutes follwing Archliux official guide. 
 
-However, some java programmes does not work well on OpenJDK, and achives better performance on Sun/Oracle JDK.  For example, [Intellij Idea](https://www.archlinux.org/packages/community/any/intellij-idea-community-edition/) in Archlinux official repository produces warning message blaming OpenJDK.  So Sun/Oracle JDK maybe welcomed by some users who wanted a clean installation of Intellij Idea.
+However, some java programmes does not work well on OpenJDK, and achives better performance on Sun/Oracle JDK.  For example, [Intellij Idea](https://www.archlinux.org/packages/community/x86_64/intellij-idea-community-edition/) in Archlinux official repository produces warning message blaming OpenJDK.  So Sun/Oracle JDK maybe welcomed by some users who wanted a clean installation of Intellij Idea.
 
-1. Choose and download the JDK version you want to install.  
+1. Choose and download the JDK version you want to install.
 
     Offical supported [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) version is 1.7 and 1.8.  This post covers both of them.
 

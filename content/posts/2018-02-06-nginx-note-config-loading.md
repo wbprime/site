@@ -1,11 +1,12 @@
----
-title: "Nginx Note - Config Parsing and Loading"
-date: 2018-02-06T16:26:08+08:00
-categories: "Notes"
-tags: ["nginx"]
-description: "Note of config parsing and loading for Nginx"
-draft: false
----
++++
+title = "Nginx Note - Config Parsing and Loading"
+description = "Note of config parsing and loading for Nginx"
+date = 2018-02-06T16:26:08+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["nginx"]
++++
 
 转载自[Nginx 配置信息的解析流程](http://www.lenky.info/archives/2011/09/22)
 
@@ -19,7 +20,7 @@ Nginx 的配置文件格式是 Nginx 作者自己定义的，并没有采用像�
 
 Nginx配置文件是由多个配置项组成的。每一个配置项都有一个项目名和对应的项目值，项目名又被称为指令（Directive），而项目值可能简单的字符串（以分号结尾），也可能是由简单字符串和多个配置项组合而成配置块的复杂结构（以大括号}结尾），因此我们可以将配置项归纳为两种：简单配置项和复杂配置项。
 
-![配置解析示意图](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_01.png)
+![配置解析示意图](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_01.png)
 
 其项目名 "daemon" 为一个token，项目值 "off" 也是一个token。而简单配置项：
 
@@ -210,21 +211,21 @@ if (ngx_conf_parse(&conf, &cycle->conf_file) != NGX_CONF_OK) {
 
 初始状态，即函数 `ngx_conf_parse` 内申请后的初始状态。
 
-![初始状态](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_02.png)
+![初始状态](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_02.png)
 
-![处理中状态](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_03.png)
+![处理中状态](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_03.png)
 
 这是在处理过程中的状态，有一部分配置内容已经被解析为一个个token并保存起来，而有一部分内容正要被组合成token，还有一部分内容等待处理。
 
-![继续读文件状态](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_04.png)
+![继续读文件状态](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_04.png)
 
 这是在字符都处理完了，需要继续从文件内读取新的内容到缓存区。前面图示说过，已解析字符已经没用了，因此我们可以将已扫描但还未组成token的字符移动到缓存区的前面，然后从配置文件内读取内容填满缓存区剩余的空间，情况如下：
 
-![填充缓冲区状态](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_05.png)
+![填充缓冲区状态](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_05.png)
 
 如果配置文件内容不够，即最后一次，那么情况就是下面这样：
 
-![终止状态](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_06.png)
+![终止状态](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_06.png)
 
 函数 `ngx_conf_read_token` 在读取了合适数量的标记token之后就开始下一步骤即对这些标记进行实际的处理。那多少才算是读取了合适数量的标记呢？区别对待，对于简单配置项则是读取其全部的标记，也就是遇到结束标记分号;为止，此时一条简单配置项的所有标记都被读取并存放在 `cf->args` 数组内，因此可以调用其对应的回调函数进行实际的处理；对于复杂配置项则是读完其配置块前的所有标记，即遇到大括号 `{` 为止，此时复杂配置项处理函数所需要的标记都已读取到，而对于配置块 `{}` 内的标记将在接下来的函数 `ngx_conf_parse` 递归调用中继续处理，这可能是一个反复的过程。
 
@@ -305,6 +306,6 @@ ngx_conf_set_flag_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
 对于Nginx配置文件的解析流程基本就是如此，上面的介绍忽略了很多细节，前面也说过，事实上对于配置信息解析的代码(即各种各样的回调函数 `cmd->set` 的具体实现)占去了Nginx大幅的源代码，而我们这里并没有做过多的分析，仅例举了 `daemon` 配置指令的解析过程，因为对于不同的配置项，解析代码完全是根据自身应用而不同的，当然，除了一些可公共出来的代码以外。最后，看一个Nginx配置文件解析的流程图，如下：
 
-![流程图](/posts/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_07.png)
+![流程图](/2018-02-06-nginx-note.dir/nginx_config_parsing_procedure_07.png)
 
 备注：如无特殊说明，文章内容均出自Lenky个人的真实理解而并非存心妄自揣测来故意愚人耳目。由于个人水平有限，虽力求内容正确无误，但仍然难免出错，请勿见怪，如果可以则请留言告之，并欢迎来信讨论。另外值得说明的是，Lenky的部分文章以及部分内容参考借鉴了网络上各位网友的热心分享，特别是一些带有完全参考的文章，其后附带的链接内容也许更直接、更丰富，而我只是做了一下归纳&转述，在此也一并表示感谢。关于本站的所有技术文章，欢迎转载，但请遵从CC创作共享协议，而一些私人性质较强的心情随笔，建议不要转载。

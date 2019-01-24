@@ -1,19 +1,20 @@
----
-title: 'Spring MVC Integration Testing - Forms'
-date: 2016-04-09 23:08:24
-updated: 2016-04-09 23:08:24
-categories: "Spring MVC Testing"
-tags: ["Spring MVC", "testing", "java"]
++++
+title = "Spring MVC Integration Testing - Forms"
+description = "Spring MVC Integration Testing - Forms"
+date = 2016-04-09T23:08:24+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
----
-
-本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 集成测试系列的第3篇，原文链接：[Integration Testing of Spring MVC Applications: Forms](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/)。
+本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 集成测试系列的第3篇，原文链接：[Integration Testing of Spring MVC Applications: Forms](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-forms/)。
 
 本文主要介绍为处理Form表单请求的接口编写集成测试用例。
 
-本文紧接着上一篇 [Spring MVC Integration Testing - Controllers](/2016/04/09/spring-mvc-testing-integration-testing-controllers/) 的内容，主要涉及到两个接口：创建新的Todo项和更新指定的Todo项。
+本文紧接着上一篇 [Spring MVC Integration Testing - Controllers](./posts/2016-04-09-spring-mvc-testing-integration-testing-controllers.md) 的内容，主要涉及到两个接口：创建新的Todo项和更新指定的Todo项。
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 
@@ -910,4 +911,4 @@ public class ITTodoControllerTest {
 - 如何在Session中添加数据
 - 如何检测响应数据中包含了错误提示信息
 
-下一篇是 [Spring MVC Integration Testing - REST API](/2016/04/09/spring-mvc-testing-integration-testing-rest-api/)。
+下一篇是 [Spring MVC Integration Testing - REST API](./posts/2016-04-09-spring-mvc-testing-integration-testing-rest-api.md)。

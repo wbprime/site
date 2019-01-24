@@ -1,11 +1,12 @@
----
-title: "Nginx Note - Process Cycle"
-date: 2018-02-06T16:25:54+08:00
-categories: "Notes"
-tags: ["nginx"]
-description: "Note of main process cycle for Nginx"
-draft: false
----
++++
+title = "Nginx Note - Process Cycle"
+description = "Note of main process cycle for Nginx"
+date = 2018-02-06T16:25:54+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["nginx"]
++++
 
 转载自[Nginx 的执行模型](http://www.lenky.info/archives/2011/09/48)
 
@@ -17,7 +18,7 @@ Nginx 的进程模型和大多数同类服务程序一样，按职责将进程�
 
 分析 Nginx 多进程模型的入口函数为主进程的 `ngx_master_process_cycle` ，在该函数做完信号处理设置等之后就会调用一个名为 `ngx_start_worker_processes` 的函数用于 `fork` 产生出子进程(子进程数目通过函数调用的第二个参数指定)，子进程作为一个新的实体开始充当工作进程的角色处理客户端的服务请求；而主进程继续执行 `ngx_master_process_cycle` 函数，也就是作为监控进程执行主体 `for` 循环，这是一个死循环，直到进程终止才退出，服务进程基本都是这种写法，所以不用详述，下面先看看这个模型的图示：
 
-![执行模型流程图](/posts/2018-02-06-nginx-note.dir/nginx_process_procedure_01.jpg)
+![执行模型流程图](/2018-02-06-nginx-note.dir/nginx_process_procedure_01.jpg)
 
 图示里表现得很明朗，监控进程和工作进程各有一个无限 `for` 循环，以便进程持续的等待和处理自己负责的事务，直到进程退出。
 

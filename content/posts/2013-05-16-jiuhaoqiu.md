@@ -1,11 +1,12 @@
----
-title: "九号球"
-date: 2013-05-16 21:00:11
-updated: 2015-05-16 21:00:11
-categories: Mayday
-tags: [calm, mayday]
-description: 也许这一首歌，写给的对象是那种不想去思考内涵和意义，也没来及思考的人们，写给当年那个意气风发、浮躁叛逆的少年的。
----
++++
+title = "九号球"
+description = "也许这一首歌，写给的对象是那种不想去思考内涵和意义，也没来及思考的人们，写给当年那个意气风发、浮躁叛逆的少年的。"
+date = 2013-05-16T21:00:11+08:00
+draft = false
+[taxonomies]
+categories =  ["Mayday"]
+tags = ["calm", "mayday"]
++++
 
 不知道这首歌的主旨是什么，这首歌的内涵是什么。
 

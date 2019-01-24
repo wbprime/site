@@ -1,19 +1,20 @@
----
-title: 'Spring MVC Unit Testing - REST API'
-date: 2016-04-09 23:07:22
-updated: 2016-04-09 23:07:22
-categories: "Spring MVC Testing"
-tags: ["Spring MVC", "testing", "java"]
++++
+title = "Spring MVC Unit Testing - REST API"
+description = "Spring MVC Unit Testing - REST API"
+date = 2016-04-09T23:07:22+08:00
+draft = false
+[taxonomies]
+categories =  ["Spring MVC Testing"]
+tags = ["Spring MVC", "testing", "java"]
++++
 
----
-
-本文是 [Spring MVC Testing](/2016/04/09/spring-mvc-testing-content/) 单元测试系列的第3篇，原文链接：[Unit Testing of Spring MVC Controllers: REST API](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)。
+本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第3篇，原文链接：[Unit Testing of Spring MVC Controllers: REST API](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)。
 
 使用Spring MVC可以很方便第创建REST风格的接口，但是编写REST风格接口的单元测试并不是那么方便。幸运的是，Spring MVC Test极大地简化了我们为REST风格controller编写单元测试的工作。
 
 本文将通过为`Todo`项的增删改查（CRUD）的REST风格接口操作编写单元测试的方式，一步一步地讲解如何使用Spring MVC Test来进行单元测试。OK，我们快点进入正文吧！
 
-<!-- More -->
+<!-- more -->
 
 # 通过Maven获取依赖
 
@@ -82,7 +83,7 @@ tags: ["Spring MVC", "testing", "java"]
 
 要针对REST接口编写单元测试，首先要准备一些基础知识：
 
-- Spring MVC Test如何来进行单元测试，相关内容详见 [Spring MVC Unit Testing - Normal Controllers](/2016/04/09/spring-mvc-testing-unit-testing-normal-controllers/)
+- Spring MVC Test如何来进行单元测试，相关内容详见 [Spring MVC Unit Testing - Normal Controllers](./posts/2016-04-09-spring-mvc-testing-unit-testing-normal-controllers.md)
 - 如何对json结果作断言，我们选择的是 [JsonPath](https://github.com/jayway/JsonPath)
 
 然后我们可以开始编写代码了。作为演示，我们将编写一下3种类型的REST接口的单元测试：

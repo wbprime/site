@@ -1,11 +1,12 @@
----
-title: "Tomcat Note"
-date: 2018-02-06T15:28:53+08:00
-categories: "Notes"
-tags: ["tomcat"]
-description: "Note of apache tomcat architecture"
-draft: false
----
++++
+title = "Tomcat Note"
+description = "Note of apache tomcat architecture"
+date = 2018-02-06T15:28:53+08:00
+draft = false
+[taxonomies]
+categories =  ["Notes"]
+tags = ["tomcat"]
++++
 
 Notes of
 [Tomcat 系统架构与设计模式，第 1
