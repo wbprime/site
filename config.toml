@@ -31,7 +31,7 @@ taxonomies = [
 ]
 
 # Whether to automatically compile all Sass files in the sass directory
-compile_sass = false
+compile_sass = true
 
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -40,6 +40,12 @@ highlight_code = true
 # Which theme to use for the code highlighting.
 # See below for list of accepted values
 highlight_theme = "base16-ocean-dark"
+
+# Go through every links in all content and check if the links are valid
+# If a link is invalid (404, 500, etc), the build will error.
+# Link checking can take a very long time if you have many links so this should
+# only enabled once in a while to catch any dead links.
+check_external_links = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
