@@ -1,5 +1,5 @@
 # site
 
-Main page powered by [Hugo](https://gohugo.io)
+[Wbprime](http://www.wangbo.im)
 
-In migrating (from Hexo to Hugo) ...
+In migrating (from Hugo to Zola) ...
