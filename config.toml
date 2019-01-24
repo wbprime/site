@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "http://www.wangbo.im"
+base_url = "https://www.wangbo.im"
 
 # Used in RSS by default
 title = "Wbprime"
