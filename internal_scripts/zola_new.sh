@@ -14,12 +14,12 @@ POSTS_DIR="${ROOT_DIR}/content/posts"
 post_title="$*"
 post_title="${post_title:-Demo Draft}"
 
+post_date="`date +%FT%T`+08:00"
 post_name=`date +%F`
 for each_arg in ${post_title}; do
     post_name="${post_name}-${each_arg}"
 done
 post_name="${post_name}.md"
-
 
 draft_path="${POSTS_DIR}/${post_name}"
 
@@ -27,7 +27,7 @@ cat - <<EOF > "${draft_path}"
 +++
 title = "$post_title"
 description = "$post_title"
-date = 2018-02-06T13:08:22+08:00
+date = "$post_date"
 draft = false
 # template = "page.html"
 [taxonomies]
