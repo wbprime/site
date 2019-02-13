@@ -4,11 +4,11 @@ description = "Step by step guide to install a JDK 7/8 on Archlinux."
 date = 2015-05-25T11:07:13+08:00
 draft = false
 [taxonomies]
-categories =  ["Tech"]
-tags = ["java", "JDK", "archlinux"]
+categories =  ["Java"]
+tags = ["java", "jdk", "archlinux"]
 +++
 
-Basically, [Archlinux](https://www.archlinux.org) provide OpenJDK 7/8 in [official repository](https://wiki.archlinux.org/index.php/Java).  Java JDK environment will be setup in quite a little minutes follwing Archliux official guide. 
+Basically, [Archlinux](https://www.archlinux.org) provide OpenJDK 7/8 in [official repository](https://wiki.archlinux.org/index.php/Java).  Java JDK environment will be setup in quite a little minutes follwing Archliux official guide.
 
 However, some java programmes does not work well on OpenJDK, and achives better performance on Sun/Oracle JDK.  For example, [Intellij Idea](https://www.archlinux.org/packages/community/x86_64/intellij-idea-community-edition/) in Archlinux official repository produces warning message blaming OpenJDK.  So Sun/Oracle JDK maybe welcomed by some users who wanted a clean installation of Intellij Idea.
 
@@ -25,7 +25,7 @@ However, some java programmes does not work well on OpenJDK, and achives better 
 
         tar zxvf jdk-7u79-linux-x64.tar.gz -C /opt
 
-    or 
+    or
 
         tar zxvf jdk-8u45-linux-x64.tar.gz -C /opt
 
@@ -40,7 +40,7 @@ However, some java programmes does not work well on OpenJDK, and achives better 
         #!/bin/bash
         export JAVA_HOME=/opt/jdk
         export PATH=$PATH:$JAVA_HOME/jre/bin
-        
+
     Finally, set java.sh executable.
 
         chmod u+x /etc/profile.d/java.sh

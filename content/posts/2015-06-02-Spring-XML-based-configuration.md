@@ -4,8 +4,8 @@ description = "The Springframework XML-based metadata configuration guide."
 date = 2015-06-02T10:12:47+08:00
 draft = false
 [taxonomies]
-categories =  ["Spring DI"]
-tags = ["Spring", "java"]
+categories =  ["Spring"]
+tags = ["spring", "java"]
 +++
 
 # Overview
@@ -38,13 +38,13 @@ Typical xml configuration file:
 
 ## ApplicationContext
 
-XML-based configuration provides bean metadata to Spring through a single or a set of XML file(s).  
+XML-based configuration provides bean metadata to Spring through a single or a set of XML file(s).
 
 Generally Spring read configuration metadata via a `BeanFactory` interface.  Direct use of `BeanFactory` is not supported officially in dailly application development, though you can implement `BeanFactory` interface and provide your own class.  However Spring provide a more convinient interface `ApplicationContext` inheriting `BeanFactory`.
 
 The `org.springframework.context.ApplicationContext` interface provides more features over `BeanFactory` interface such as: integration with Spring AOP interfaces, message resource handling for internationalization, event publication, web application support and so on.
 
-Implementations of `ApplicationContext` interface differ in ways reading configuration metadata, among which are `ClassPathXmlApplicationContext` and `FileSystemXmlApplicationContext` that providing control of XML-based configuration metadata. 
+Implementations of `ApplicationContext` interface differ in ways reading configuration metadata, among which are `ClassPathXmlApplicationContext` and `FileSystemXmlApplicationContext` that providing control of XML-based configuration metadata.
 
 `ClassPathXmlApplicationContext` is a standalone XML application context, taking the context definition files from the class path, interpreting plain paths as class path resource names that include the package path (e.g. "mypackage/myresource.txt").  `ClassPathXmlApplicationContext` accepts one or more String and intepretes them as files in CLASSPATH, then loads configuration metadata from those files.  The leading slash in parameters, if exists, will be ignored.
 
@@ -68,7 +68,7 @@ Typical usage of `ApplicationContext` to load xml configuration metadata:
 
 # XML file format
 
-## `beans` 
+## `beans`
 
 An xml configuration file is, of cource, a regular xml file with a top-level `<beans />` element and some springframework specific definitions.
 
@@ -79,7 +79,7 @@ An xml configuration file is, of cource, a regular xml file with a top-level `<b
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     </beans>
 
-## `bean` 
+## `bean`
 
 An xml file consists of at least one bean definition through `<bean />` element inside a top-level `<beans />` element.  A `<bean />` element represents a bean object; a bean object can be anything whatever you want it to be: a service layer object, a data access object (DAO), a presentation object and so forth, only if it is a standard BEAN object.
 
@@ -98,7 +98,7 @@ An xml file consists of at least one bean definition through `<bean />` element 
 
     </beans>
 
-## `alias` 
+## `alias`
 
 Spring supports alias for a bean which is valid in the `ApplicationContext` scope.
 
@@ -140,9 +140,9 @@ In file `app.xml`:
         <bean id="appSession" class="me.wbprime.java.MySession" />
     </beans>
 
-## `import` 
+## `import`
 
-It can be useful to have bean definitions span multiple XML files. Often each individual XML configuration file represents a logical layer or module in your architecture.  
+It can be useful to have bean definitions span multiple XML files. Often each individual XML configuration file represents a logical layer or module in your architecture.
 
 In file `app.xml`:
 
@@ -173,7 +173,7 @@ Spring container manages one or more beans by `<bean />` definitions.  A `<bean 
 
 ## Name
 
-In Spring, every bean should have one or more identifiers.  These identifiers must be unique within the container that hosts the bean.  
+In Spring, every bean should have one or more identifiers.  These identifiers must be unique within the container that hosts the bean.
 
 In a `<bean />` element, an identifier can be specified by an `id` attribute.  Note that `id` uniqueness is enforced by the container.
 
@@ -205,7 +205,7 @@ Spring provides 3 ways to instantiating a bean.
     If you got a class with default constructor which has no parameters, you can simply specify the `class` attribute.
 
     If you got a class without a default constructor, you can add a `class` attribute and then provide additional `constructor-arg` sub-elements.
-    
+
         <bean id="exampleBean" class="me.wbprime.java.ExampleBean" >
             <constructor-arg value="some value" />
         </bean>
@@ -230,7 +230,7 @@ Spring provides 3 ways to instantiating a bean.
             <constructor-arg type="int" value="26" />
             <constructor-arg type="java.lang.String" value="Elvis Wang" />
         </bean>
- 
+
     Or you can specify the parameter position:
 
         <bean id="exampleBean" class="me.wbprime.java.ExampleBean" >
@@ -251,7 +251,7 @@ Spring provides 3 ways to instantiating a bean.
 
     You may want to implement your `Factory method` pattern, by using a static factory method.  Of cource you can make your work together with Spring.  In such case, you need a `class` attribute which contains the static factory method as is discussed right before.  Then you need a new attribute named `factory-method`.
 
-    For example: 
+    For example:
 
         package me.wbprime.java
 
@@ -402,7 +402,7 @@ This applies to constructor and factory method based bean instantiation process.
 
 ### Setter-based DI
 
-Setter-based DI applies to beans being instantiated. 
+Setter-based DI applies to beans being instantiated.
 
 Setter-based DI can be done via `property` sub-element.
 
@@ -437,7 +437,7 @@ The Spring supports constructor-based DI via `<constructor-arg />` element and s
 2. bean reference
 
     References to other beans can be setted using `ref` attribute or `ref` element.  You can specify each of `bean`, `local` and `parent` attributes to `ref` element.
-    
+
     Specifying the target bean through the `bean` attribute of the `<ref/>` tag is the most general form, and allows creation of a reference to any bean in the same container or parent container, regardless of whether it is in the same XML file. The value of the `bean` attribute may be the same as the `id` attribute of the target bean, or as one of the values in the `name` attribute of the target bean.
 
     Specifying the target bean through the `parent` attribute creates a reference to a bean that is in a parent container of the current container. The value of the `parent` attribute may be the same as either the `id` attribute of the target bean, or one of the values in the `name` attribute of the target bean, and the target bean must be in a parent container of the current one. You use this bean reference variant mainly when you have a hierarchy of containers and you want to wrap an existing bean in a parent container with a proxy that will have the same name as the parent bean.
@@ -521,24 +521,24 @@ The Spring p-namespace (property namespace ?) is introduced to describe straight
         xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-Typically 
+Typically
 
     <bean name="pnamespaceBean" class="com.example.ExampleBean"
         p:email="foo@bar.com"/>
 
-is the same as 
+is the same as
 
     <bean name="classicBean" class="com.example.ExampleBean">
         <property name="email" value="foo@bar.com"/>
     </bean>
 
-And also 
+And also
 
     <bean name="pnamespaceStudent"
         class="com.example.Student"
         p:teacher-ref="jane"/>
 
-is the same as 
+is the same as
 
     <bean name="classicStudent" class="com.example.Student">
         <property name="teacher" ref="jane"/>
@@ -556,24 +556,24 @@ The Spring c-namespace (constructor namespace ?) is introduced to describe strai
         xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-Typically 
+Typically
 
     <bean name="cnamespaceBean" class="com.example.ExampleBean"
         c:email="foo@bar.com"/>
 
-is the same as 
+is the same as
 
     <bean name="classicBean" class="com.example.ExampleBean">
         <constraint-arg name="email" value="foo@bar.com"/>
     </bean>
 
-And also 
+And also
 
     <bean name="cnamespaceStudent"
         class="com.example.Student"
         c:teacher-ref="jane"/>
 
-is the same as 
+is the same as
 
     <bean name="classicStudent" class="com.example.Student">
         <constructor-arg name="teacher" ref="jane"/>
@@ -595,7 +595,7 @@ will call `foo.getFred().getBob().setSammy("123")` equally.  In order for this t
 
 ##  Autowiring
 
-Autowiring is such a feature that the container manages the relationship between a bean and its implicit collaborating beans and resolves the dependencies automatically.  Within the Spring autowiring decrease your work significantly specifying properties/constructor-args and helps when your project evolves and bean dependencies changes slightly.  To be brief, autowiring moves additional work to the Spring container to detect bean dependencies which needs explicit to be done by you programmers. 
+Autowiring is such a feature that the container manages the relationship between a bean and its implicit collaborating beans and resolves the dependencies automatically.  Within the Spring autowiring decrease your work significantly specifying properties/constructor-args and helps when your project evolves and bean dependencies changes slightly.  To be brief, autowiring moves additional work to the Spring container to detect bean dependencies which needs explicit to be done by you programmers.
 
 The Spring supports 4 kinds of autowiring modes:
 

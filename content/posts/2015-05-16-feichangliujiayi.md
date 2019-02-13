@@ -5,7 +5,7 @@ date = 2015-05-16T14:44:12+08:00
 draft = false
 [taxonomies]
 categories =  ["Life"]
-tags = ["thoughts ", "upset"]
+tags = ["upset"]
 +++
 
 人生如逆旅，年轮旋转压出一条车辙通向远方，远方是终点也是起点。起点叫死亡，终点叫希望。

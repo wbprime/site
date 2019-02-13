@@ -5,8 +5,8 @@ date = 2019-02-11T13:08:22+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Java GC"]
-tags = ["Java", "gc", "cms"]
+categories =  ["Java"]
+tags = ["java", "gc", "cms"]
 +++
 
 在负责的一个项目迁移到公司内部私有云的过程中，发现迁移过后的服务的监控数据不理想，具体表现为：平均响应时间増大、响应时间抖动、cache 访问出现部分超时等，与原本物理机上面部署的服务性能有差异。经过排查发现问题的导火索可能是 JVM GC 导致的暂停；经过几轮对比调参之后，基本上保证了服务的较好状态。

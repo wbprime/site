@@ -4,8 +4,8 @@ description = "The Springframework is famous for IOC and DI features.  What exac
 date = 2015-05-28T19:11:56+08:00
 draft = false
 [taxonomies]
-categories =  ["Spring DI"]
-tags = ["java", "Spring"]
+categories =  ["Spring"]
+tags = ["java", "spring"]
 +++
 
 [Spring](http://spring.io) is a world famous Java developing framework.
@@ -121,7 +121,7 @@ Add spring library dependencies for `Spring` project.
     Run it.
 
         Hello world
-        
+
 4. Now create a new file named `first.xml`.
 
         /home/wb/projects/Spring/

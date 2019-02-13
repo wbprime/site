@@ -4,8 +4,8 @@ description = "A trip to Huairou District."
 date = 2015-05-14T08:23:02+08:00
 draft = false
 [taxonomies]
-categories =  ["Life "]
-tags = ["trip ", "happy"]
+categories =  ["Life"]
+tags = ["trip", "happy"]
 +++
 
 # 一 缘起

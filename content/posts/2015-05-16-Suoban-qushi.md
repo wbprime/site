@@ -4,7 +4,7 @@ description = "离职手续需要所长书记签字。 十分钟之事，拖累�
 date = 2015-05-16T19:01:57+08:00
 draft = false
 [taxonomies]
-categories =  ["Life "]
+categories =  ["Life"]
 tags = ["calm"]
 +++
 
