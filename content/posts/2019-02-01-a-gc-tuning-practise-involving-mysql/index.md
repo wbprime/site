@@ -5,7 +5,7 @@ date = 2019-02-11T13:08:22+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Java"]
+categories =  ["Practise"]
 tags = ["java", "gc", "cms"]
 +++
 
