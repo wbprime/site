@@ -27,7 +27,7 @@ cat - <<EOF > "${draft_path}"
 +++
 title = "$post_title"
 description = "$post_title"
-date = "$post_date"
+date = $post_date
 draft = false
 # template = "page.html"
 [taxonomies]
