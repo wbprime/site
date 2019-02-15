@@ -1,0 +1,28 @@
+
+digraph overview {
+    cacheClient [ label="Cache Client" ];
+
+    sessionsQueue [ label="Session Requests Queue"];
+
+    inputSocket [ label="Socket Input Channel" ];
+    outputSocket [ label="Socket Output Channel" ];
+
+    {
+    edge [ color="blue" ];
+    inputSocket -> countdownLatch [ label="READ THREAD polls input bytes" ];
+    countdownLatch -> inputSocket [ label="READ THREAD loop next" ];
+    }
+
+    {
+    edge [ color="green" ];
+    sessionsQueue -> outputSocket [ label="WRITE THREAD polls output bytes" ];
+    outputSocket -> sessionsQueue [ label="WRITE THREAD loop next" ];
+    }
+
+    {
+    edge [ color="red" ];
+    cacheClient -> sessionsQueue [ label="USER THREAD put request bytes into" ];
+    sessionsQueue -> countdownLatch [ label="USER THREAD waits on" ];
+    countdownLatch -> cacheClient [ label="USER THREAD wakeup" ];
+    }
+}
