@@ -19,17 +19,19 @@ post_name=`date +%F`
 for each_arg in ${post_title}; do
     post_name="${post_name}-${each_arg}"
 done
-post_name="${post_name}.md"
+post_name="${post_name}"
 
-draft_path="${POSTS_DIR}/${post_name}"
+draft_dir="${POSTS_DIR}/${post_name}"
+mkdir "${draft_dir}"
+draft_path="${draft_dir}/index.md"
 
 cat - <<EOF > "${draft_path}"
 +++
 title = "$post_title"
 description = "$post_title"
 date = $post_date
-draft = false
-# template = "page.html"
+draft = true
+template = "page.html"
 [taxonomies]
 categories =  ["category here"]
 tags = ["tag 1", "tag 2", "tag 3"]
