@@ -1,6 +1,6 @@
 +++
-title = "一次由 DNS 解析服务失效引发的线上 DB 连接打满的事故实践"
-description = "一次由 DNS 解析服务失效引发的线上 DB 连接打满的事故实践"
+title = "一次由 DNS 解析服务失效引发的线上 DB 连接打满的事故经历"
+description = "一次由 DNS 解析服务失效引发的线上 DB 连接打满的事故经历"
 date = 2019-03-11T09:07:30+08:00
 draft = false
 template = "page.html"
@@ -144,7 +144,7 @@ MySQL 从库的连接数正常。
 
 # 连接池 BUG 分析
 
-事后排查，发现连接池的 [BUG DBCP-470] (https://issues.apache.org/jira/browse/DBCP-470) 已经被发现并解决过了。
+事后排查，发现连接池的 [BUG DBCP-470](https://issues.apache.org/jira/browse/DBCP-470) 已经被发现并解决过了。
 
 BUG 的分析参见 [数据库连接泄漏问题](https://blog.csdn.net/u010920692/article/details/61417914) 。简单地说，tomcat dbcp 连接池（BasicDataSource）在分配连接（getConnection）时，会先去创建一个内部的连接池（PoolingDataSource）实例；该实例依赖于：
 
