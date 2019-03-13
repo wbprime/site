@@ -4,7 +4,7 @@ description = "Step by step guide to install a JDK 7/8 on Archlinux."
 date = 2015-05-25T11:07:13+08:00
 draft = false
 [taxonomies]
-categories =  ["Java"]
+categories =  ["Practise"]
 tags = ["java", "jdk", "archlinux"]
 +++
 

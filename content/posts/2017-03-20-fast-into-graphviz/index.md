@@ -5,7 +5,7 @@ date = 2017-03-20T11:55:45+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Graphviz"]
+categories =  ["Notes"]
 tags = ["graphviz", "tech"]
 +++
 
@@ -15,7 +15,7 @@ Graphviz 1.2D 及之前的版本使用了 AT&T 代码许可证 (the AT&T Source 
 
 Graphviz 是一款面向程序员的绘图软件，不仅体现在其设计和使用方式上，还体现在其文档上 :)
 
-<!-- more --> 
+<!-- more -->
 
 # Demos
 
@@ -107,17 +107,17 @@ digraph node_shape {
 
 ```
 digraph data_struct {
-    node [shape = record, height=.1]; // 全局样式;  
+    node [shape = record, height=.1]; // 全局样式;
 
-    node0[label = "<f0> |<f1> G|<f2> "];  
-    node1[label = "<f0> |<f1> E|<f2> "];  
-    node2[label = "<f0> |<f1> B|<f2> "];  
-    node3[label = "<f0> |<f1> F|<f2> "];  
-    node4[label = "<f0> |<f1> R|<f2> "];  
-    node5[label = "<f0> |<f1> H|<f2> "];  
-    node6[label = "<f0> |<f1> Y|<f2> "];  
-    node7[label = "<f0> |<f1> A|<f2> "];  
-    node8[label = "<f0> |<f1> C|<f2> "];  
+    node0[label = "<f0> |<f1> G|<f2> "];
+    node1[label = "<f0> |<f1> E|<f2> "];
+    node2[label = "<f0> |<f1> B|<f2> "];
+    node3[label = "<f0> |<f1> F|<f2> "];
+    node4[label = "<f0> |<f1> R|<f2> "];
+    node5[label = "<f0> |<f1> H|<f2> "];
+    node6[label = "<f0> |<f1> Y|<f2> "];
+    node7[label = "<f0> |<f1> A|<f2> "];
+    node8[label = "<f0> |<f1> C|<f2> "];
 
     "node0":f2 -> "node4":f1;
     "node0":f0 -> "node1":f1;
@@ -166,7 +166,7 @@ digraph hash_table {
     node0:f6 -> node5:n;
     node2:p  -> node6:n;
     node4:p  -> node7:n;
-} 
+}
 ```
 
 运行 `dot -Tpng e.dot -o e.png`

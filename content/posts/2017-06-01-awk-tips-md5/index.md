@@ -5,7 +5,7 @@ date = 2017-06-01T09:43:06+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Awk"]
+categories =  ["Notes"]
 tags = ["awk", "tech", "md5"]
 +++
 
@@ -77,4 +77,4 @@ user7 c1293b0e2400acb1461d25dbe4c6e75c
 
 具体来说，`printf $2 |& md5cmd;` 这一行会将用户密码输出，同时 awk 会使用 sh 启动 md5cmd 进程，并将该进程的标准输入与 awk 的标准输出相连接；md5cmd 读取标准输入之后会输出其 md5sum 的结果到标准输出；`md5cmd |& getline md5result;` 这一行会将 md5cmd 进程的标准输出作为输入，读取一行文本并存储到变量 md5result 中。
 
-因为这些语句是对每一行输入文本都会执行的，所以需要在合适的时候关闭 md5cmd 进程的输入输出文件标识符。`close(md5cmd, "to");` 关闭输入到 md5cmd 进程的文件标识符；`close(md5cmd)` 关闭剩下的其他文件标识符。如果不关闭的话，在如入文本文件行数很多的情况下，可能会出现由于大量打开一次性文件标识符而不释放导致可用文件标识符被耗尽的错误。
+因为这些语句是对每一行输入文本都会执行的，所以需要在合适的时候关闭 md5cmd 进程的输入输出文件标识符。`close(md5cmd, "to");` 关闭输入到 md5cmd 进程的文件标识符；`close(md5cmd)` 关闭剩下的其他文件标识符。如果不关闭的话，在文本文件行数很多的情况下，可能会出现由于大量打开一次性文件标识符而不释放导致可用文件标识符被耗尽的错误。
