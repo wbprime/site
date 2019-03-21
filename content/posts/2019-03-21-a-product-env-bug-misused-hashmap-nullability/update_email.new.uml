@@ -1,0 +1,16 @@
+@startuml
+start
+floating note left: try to update email to EMAIL for uid = UID
+:Verfify arguments;
+:Find user by EMAIL;
+if (found user) then (yes)
+    if (user.uid not equals UID) then (yes)
+        :Throw email not available exception;
+        stop
+    else (no)
+        :Remove EMAIL entry in request;
+    endif
+endif
+:Update email to EMAIL for UID in db;
+stop
+@enduml
