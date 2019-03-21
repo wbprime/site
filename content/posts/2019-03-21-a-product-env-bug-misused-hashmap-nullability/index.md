@@ -1,6 +1,6 @@
 +++
-title = "记一次由于误用 HashMap 值的 null 特性的 BUG"
-description = "记一次由于误用 HashMap 值的 null 特性的 BUG"
+title = "一次由于误用 HashMap 值的 null 特性的 BUG"
+description = "一次由于误用 HashMap 值的 null 特性的 BUG"
 date = 2019-03-21T10:04:03+08:00
 draft = false
 template = "page.html"
