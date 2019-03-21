@@ -207,7 +207,7 @@ class SpiBasedUserRealmService {
 
 主要的逻辑在 `CustomJwtAuthProvider` 中。该类实现 Vert.x 内置的 JWTAuth 接口，以能够和 vert.x-web 模块无缝结合。
 
-在 authenticate 的实现中，首先对 JWT 的 token 串进行只解码不验证，从解码出的 JSON 中可以获得对应的用户源类型；可以通过用户源类型找到可用的 RxUserRealm 实例，查询对应的 JWT 配置；之后再使用配置创建原生的 JWTAuth 实例进行 authenticate。
+在 authenticate 的实现中，首先对 JWT 的 token 串进行只解码不验证，从解码出的 JSON 中可以获得对应的用户源类型，解码 JWT token 可以使用[这个](https://github.com/auth0/java-jwt)；可以通过用户源类型找到可用的 RxUserRealm 实例，查询对应的 JWT 配置；之后再使用配置创建原生的 JWTAuth 实例进行 authenticate。
 
 在 generateToken 的实现中，首先根据用户源类型查询到可用的 RxUserRealm 实例，然后使用该实例的 JWT 配置创建原生的 JWTAuth 实例进行 generateToken。
 
