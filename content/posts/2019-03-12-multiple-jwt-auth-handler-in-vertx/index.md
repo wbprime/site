@@ -34,7 +34,8 @@ ID 与内部用户 ID 的对应关系；在登录请求时，根据外部项目 
 # Vert.x 对 JWT 的支持
 
 相关文档参见 [Vert.x Auth Common](https://vertx.io/docs/vertx-auth-common/java/) [Vert.x
-JWT](https://vertx.io/docs/vertx-auth-jwt/java/) [Vert.x Web AuthN & AuthZ) 。
+JWT](https://vertx.io/docs/vertx-auth-jwt/java/) [Vert.x Web AuthN &
+AuthZ](https://vertx.io/docs/vertx-web/java/#_authentication_authorisation) 。
 
 1. 确定 JWT 的算法和密钥
 
