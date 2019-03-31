@@ -9,7 +9,7 @@ categories =  ["Vertx"]
 tags = ["vert.x", "guice", "jsr303"]
 +++
 
-本文在项目中实践了在基于 [Eclipse Vert.x][vertx] 的 Verticle 中使用 [Google Guice][guice] 进行依赖注入，主要的思路是在 `io.vertx.core.Verticle#start` 方法中主动创建 `com.google.inject.Injector` 注入器实例并实行注入操作，在注入操作成功结束之后再进行后续的操作。
+本文介绍了项目中在基于 [Eclipse Vert.x][vertx] 的 Verticle 中使用 [Google Guice][guice] 进行依赖注入的实践，主要的思路是在 `io.vertx.core.Verticle#start` 方法中主动创建 `com.google.inject.Injector` 注入器实例并实行注入操作，在注入操作成功结束之后再进行后续的操作。
 
 在开发结束后的某一天，通过万能的搜索发现已经有人提供了基于 [Google Guice][guice] 的 [Eclipse Vert.x][vertx] 扩展: [Vert.x Guice Extension][vertx-guice]。[Vert.x Guice Extension][vertx-guice] 扩展了 [Vert.x][vertx] 内置的 `io.vertx.core.spi.VerticleFactory` 机制，能够使用 SPI 的方式加载需要的
 Guice 依赖。
