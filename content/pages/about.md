@@ -7,6 +7,10 @@ template = "about.html"
 
 # Elvis Wang
 
+Email: <mail@wangbo.im>
+
+# Live in Code
+
 ## C++ version
 
 ```c++
@@ -56,7 +60,7 @@ public:
 
     void live() {
         // Struggle to live
-    } 
+    }
 
     bool isAlive() {
         return isPersonAlive;
