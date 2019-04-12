@@ -105,6 +105,26 @@ switch (type) {
 
 实际的策略需要分析场景具体制定。对于有确定分类的类型，我倾向于抛出异常。对于异常类型，我之前倾向于使用 AssertionError，现在则倾向于使用 RuntimeException。
 
+## UncaughtExceptionHandler
+
+对于没有捕获的异常，JVM 会调用线程的 uncaughtExceptionHandler 进行处理；如果需要对线程的未捕获的异常做一个最终的处理，需要设置线程的 uncaughtExceptionHandler 或静态的 defaultUncaughtExceptionHandler 。
+
+```
+public class Thread {
+	public interface UncaughtExceptionHandler {
+		void uncaughtException(Thread t, Throwable e);
+	}
+
+	public static void setDefaultUncaughtExceptionHandler(UncaughtExceptionHandler eh) {
+		defaultUncaughtExceptionHandler = eh;
+	}
+
+	public void setUncaughtExceptionHandler(UncaughtExceptionHandler eh) {
+		uncaughtExceptionHandler = eh;
+	}
+}
+```
+
 ## Result<T, E> in Rust
 
 上述的 Error & Exception & RuntimeException 在使用时的区别大部分是语义上的，IDE 和编译器不能帮助开发者严格保持一定的模式。
