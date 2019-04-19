@@ -9,6 +9,10 @@ categories =  ["MultiMedia"]
 tags = ["WebRTC", "RTMP", "wechat", "live-pusher", "live-player"]
 +++
 
+本文主要介绍我们打通 [WebRTC][webrtc] 端和微信小程序端的音视频互通方案，实现在尽量不需要改动 [WebRTC][webrtc] 端代码的情况下，添加对主叫和被叫微信小程序端的支持。
+
+<!-- more -->
+
 # 背景
 
 考虑到腾讯微信的小程序平台提供了音视频的支持，如果能打通基于 [WebRTC][webrtc] 的实时音视频通话与微信小程序，就能够极大地扩展音视频的能力范围，为业务线的产品和服务提供更多更好的选择。
