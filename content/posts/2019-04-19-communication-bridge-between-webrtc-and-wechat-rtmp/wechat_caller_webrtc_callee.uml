@@ -1,0 +1,30 @@
+@startuml
+
+actor webrtc_peer as "WebRTC Peer"
+actor wechat_peer as "WeChat Peer"
+participant janus_server as "WebRTC Gateway"
+participant stream_server as "Streaming Server"
+participant room_server as "Room Server"
+
+== signal communication ==
+
+autonumber
+wechat_peer -[#red]> room_server: create a new room and join as caller
+webrtc_peer -[#red]> room_server: join the room as a callee
+janus_server -[#red]> room_server: send offer
+room_server -[#red]> webrtc_peer: offer forwarding
+webrtc_peer -[#red]> room_server: send answer
+room_server -[#red]> janus_server: answer forwarding
+
+== media communication ==
+
+autonumber
+wechat_peer -[#blue]> stream_server: caller media stream (RTMP)
+stream_server -[#blue]> janus_server: RTMP to RTP media
+janus_server -[#blue]> webrtc_peer: caller media stream (RTP)
+
+webrtc_peer -[#green]> janus_server: callee media stream (RTP)
+janus_server -[#green]> stream_server: media forwarding
+stream_server -[#green]> wechat_peer: RTP to RTMP media
+
+@enduml

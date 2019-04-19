@@ -1,0 +1,26 @@
+digraph {
+    node [shape="box"];
+
+    node [color="#008080",style="filled"]; // Teal
+    janus_server [label="WebRTC Gateway"];
+    stream_server [label = "Streaming Server"];
+    room_server [label="Room Server"];
+    node [color="orange",style="filled"];
+    webrtc_peer [label="WebRTC Peer"];
+    wechat_peer [label="WeChat Peer"];
+
+    edge [color="red"];
+    webrtc_peer -> room_server [label="signal"];
+    janus_server -> room_server [label="signal"];
+    wechat_peer -> room_server [label="signal"];
+
+    edge [color="blue"];
+    webrtc_peer -> janus_server [label="RTP media"];
+    janus_server -> stream_server [label="RTP media"];
+    stream_server -> wechat_peer [label="RTMP media"];
+
+    edge [color="purple"];
+    wechat_peer -> stream_server [label="RTMP media"];
+    stream_server -> janus_server [label="RTP media"];
+    janus_server -> webrtc_peer [label="RTP media"];
+}

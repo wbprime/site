@@ -1,0 +1,26 @@
+@startuml
+
+
+participant wechat_peer as "WeChat Peer"
+participant webrtc_gateway as "WebRTC Gateway"
+participant stream_server as "Streaming Server"
+participant room_server as "Room Server"
+participant ffmpeg as "Transcoding Module"
+
+== RTP&RTCP to RTMP ==
+
+autonumber
+webrtc_gateway -[#red]> stream_server: rtp & rtcp forward
+stream_server -[#red]> ffmpeg: media demux as RTP
+ffmpeg -[#red]> stream_server: media mux as RTMP
+stream_server -[#red]> wechat_peer: forward out
+
+== RTMP to RTP&RTCP ==
+
+autonumber
+wechat_peer -[#green]> stream_server: rtmp forward
+stream_server -[#green]> ffmpeg: media demux as RTMP
+ffmpeg -[#green]> stream_server: media mux as RTP & RTCP
+stream_server -[#green]> webrtc_gateway: forward out
+
+@enduml
