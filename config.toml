@@ -2,8 +2,8 @@
 base_url = "https://www.wangbo.im"
 
 # Used in RSS by default
-title = "Wbprime"
-description = "wbprime’s home & blogs"
+title = "wangbo’s home & blogs"
+description = "wangbo’s home & blogs"
 # the default language, used in RSS and coming i18n
 default_language = "en"
 
@@ -61,4 +61,4 @@ even_menu = [
     {url = "$BASE_URL/about", name = "About"},
 ]
 
-even_title = "Wbprime"
+even_title = "WB Prime"
