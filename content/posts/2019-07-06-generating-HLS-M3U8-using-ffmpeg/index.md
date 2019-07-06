@@ -102,7 +102,7 @@ ffmpeg -hide_banner -loglevel warning \
 
 注意到视频片段的长度并不是指定的 4s。这是因为 [FFmpeg][ffmpeg] 在生成片段时，总是会在满足时长要求条件的第一个关键帧 (I-frame) 处截断，而不是严格按照时长来截断的。
 
-[Demo Script][m3u8.simple.01.sh]
+[Demo Script](m3u8.simple.01.sh)
 
 ## 指定 GOP
 
@@ -148,7 +148,7 @@ ffmpeg -hide_banner -loglevel warning \
 
 片段的时长和目标时长接近了很多，但还是有一些差异。
 
-[Demo Script][m3u8.simple.02.sh]
+[Demo Script](m3u8.simple.02.sh)
 
 ## 取消运动场景检测
 
@@ -193,7 +193,7 @@ ffmpeg -hide_banner -loglevel warning \
 > #EXT-X-ENDLIST
 > ```
 
-[Demo Script][m3u8.simple.03.sh]
+[Demo Script](m3u8.simple.03.sh)
 
 ## closed GOP
 
@@ -217,7 +217,7 @@ ffmpeg -hide_banner -loglevel warning \
     hls.test.m3u8
 ```
 
-[Demo Script][m3u8.simple.04.sh]
+[Demo Script](m3u8.simple.04.sh)
 
 # 多码率 M3U8
 
@@ -271,7 +271,7 @@ ffmpeg -hide_banner -loglevel warning \
 
 对于多码率的选择，可以参考 [Apple 的推荐码率](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices)。
 
-[Demo Script][m3u8.multi.01.sh]
+[Demo Script](m3u8.multi.01.sh)
 
 ## 多分辨率
 
@@ -315,7 +315,7 @@ ffmpeg -hide_banner -loglevel warning \
 > hls.test.1.m3u8
 > ```
 
-[Demo Script][m3u8.multi.02.sh]
+[Demo Script](m3u8.multi.02.sh)
 
 # FFmpeg 3.x
 
@@ -358,7 +358,7 @@ ffmpeg -hide_banner -loglevel warning \
 
 然后，使用 `ffprobe` 遍历每一个码率的片段文件，获取最大码率和分辨率之后手动生成层级播放列表文件。
 
-[Demo Script][m3u8.multi.03.sh]
+[Demo Script](m3u8.multi.03.sh)
 
 以上！
 
