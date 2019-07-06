@@ -260,7 +260,7 @@ ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <outpu
 - [Google: VP9 Bitrate Modes in Detail](https://developers.google.com/media/vp9/bitrate-modes/)
 - [Streaming Learning Center: Saving on Encoding and Streaming: Deploy Capped CRF](https://streaminglearningcenter.com/blogs/saving-encoding-streaming-deploy-capped-crf.html)
 
-[ffmpeg]: http://ffmpeg.org/
+[ffmpeg]: http://ffmpeg.org/ "FFmpeg A complete, cross-platform solution to record, convert and stream audio and video."
 [x264]: http://www.videolan.org/developers/x264.html
 [x265]: http://x265.org/
 [libvpx]: https://www.webmproject.org/code/
