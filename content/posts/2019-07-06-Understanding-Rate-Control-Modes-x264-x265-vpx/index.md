@@ -1,5 +1,5 @@
 +++
-title = "[Translated][译] Understanding Rate Control Modes (x264, x265, vpx)"
+title = "[译] Understanding Rate Control Modes (x264, x265, vpx)"
 description = "翻译自 Understanding Rate Control Modes (x264, x265, vpx)"
 date = 2019-07-06T10:50:16+08:00
 draft = false
