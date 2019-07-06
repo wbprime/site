@@ -5,7 +5,7 @@ date = 2019-04-19T15:35:56+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["MultiMedia"]
+categories =  ["Streaming"]
 tags = ["WebRTC", "RTMP", "wechat", "live-pusher", "live-player"]
 +++
 
