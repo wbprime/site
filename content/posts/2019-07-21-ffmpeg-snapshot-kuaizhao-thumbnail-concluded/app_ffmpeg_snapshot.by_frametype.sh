@@ -110,7 +110,6 @@ for each_format in "${@}"; do
     ffmpeg_cmds[${#ffmpeg_cmds[@]}]="${output_filename_prefix}.${!output_filename_var}"
 
     echo "==> Process \"${OP_TYPE}\" for format \"${each_format}\":"
-    echo "${ffmpeg_cmds[@]}"
     for each_arg in "${ffmpeg_cmds[@]}"; do
         echo "===>>> Arg: \"${each_arg}\""
     done
