@@ -4,7 +4,7 @@ description = "On May 13 2015, I started my new blog.  As a brand new trip, I bo
 date = 2015-05-13T12:30:23+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["Hexo"]
 +++
 

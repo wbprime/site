@@ -4,7 +4,7 @@ description = "酒一曰天地。 酒二曰人伦。 酒三曰太一。 酒四�
 date = 2015-05-16T19:10:58+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["calm"]
 +++
 

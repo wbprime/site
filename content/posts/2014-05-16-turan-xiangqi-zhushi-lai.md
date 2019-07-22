@@ -4,7 +4,7 @@ description = "在南京第二天了，昨天晚上吃完饭心情极其低落�
 date = 2014-05-16T20:03:36+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["upset"]
 +++
 

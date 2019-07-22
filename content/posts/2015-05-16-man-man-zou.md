@@ -4,7 +4,7 @@ description = "转眼间已经工作了两年，似乎什么也没有改变。 �
 date = 2015-05-16T20:00:57+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["upset"]
 +++
 

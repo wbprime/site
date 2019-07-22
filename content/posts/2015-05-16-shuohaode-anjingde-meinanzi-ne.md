@@ -4,7 +4,7 @@ description = "安静的美男子大业，需要一杯清茶，一本书，和�
 date = 2015-05-16T19:54:33+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["calm"]
 +++
 

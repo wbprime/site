@@ -4,7 +4,7 @@ description = "小王是我的一个朋友，很好的朋友。 小王最近有�
 date = 2015-05-16T19:07:06+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["happy"]
 +++
 

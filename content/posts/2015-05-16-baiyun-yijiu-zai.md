@@ -4,7 +4,7 @@ description = "白云依旧在，桃花笑春风。 白云依旧在，黄河入�
 date = 2015-05-16T19:59:21+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["happy"]
 +++
 

@@ -4,7 +4,7 @@ description = "人不知道为什么，总有点少年故事历久弥新的情�
 date = 2015-05-16T19:15:55+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["calm"]
 +++
 

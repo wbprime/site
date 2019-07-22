@@ -4,7 +4,7 @@ description = "人生如逆旅，年轮旋转压出一条车辙通向远方，�
 date = 2015-05-16T14:44:12+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["upset"]
 +++
 

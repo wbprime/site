@@ -4,7 +4,7 @@ description = "外婆 小时候跟你一起长大 现在 长大了外婆却老�
 date = 2014-05-16T20:09:06+08:00
 draft = false
 [taxonomies]
-categories =  ["Life"]
+categories =  ["Causerie"]
 tags = ["upset"]
 +++
 
