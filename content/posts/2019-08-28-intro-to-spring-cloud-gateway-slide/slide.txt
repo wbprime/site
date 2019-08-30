@@ -1,0 +1,862 @@
+% Intro to Spring Cloud Gateway
+% Elvis Wang <mail@wangbo.im>
+% 2019-08-21T09:23:36+08:00
+
+# Intro
+
+## Spring Cloud Gateway
+
+> **Spring Cloud Gateway** aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency.
+
+[Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway)
+
+[Documentation 2.1.0 Current GA](https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.RELEASE/)
+
+## pom
+
+```xml
+<dependencies>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
+    </dependency>
+</dependencies>
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+## Spring Reactor
+
+[Project Reactor](https://projectreactor.io/)
+
+> Reactor is a fourth-generation Reactive library for building non-blocking applications on the JVM based on the Reactive Streams Specification.
+
+- `Mono<T>`
+- `Flux<T>`
+- `Schedular`
+
+## Mono
+
+*First*
+
+```java
+Mono<Void> mono = Mono.fromRunnable(() -> dao.update(user));
+```
+or
+
+```java
+Mono<User> mono = Mono.fromCallable(() -> dao.findById(1000L);
+```
+
+---
+
+*Then*
+
+```java
+mono.map(user -> user.getId());
+```
+
+or
+
+```java
+mono.flatMap(user -> userDao.deleteById(user.getId());
+```
+
+---
+
+*Finally*
+
+```java
+mono.subscribe(
+	value -> System.out.println(value),
+	ex -> ex.printStackTrace(),
+	() -> System.out.println("No data")
+);
+```
+
+## Flux
+
+*First*
+
+```java
+Flux<User> flux = Flux.create(sink -> {
+	final User[] users = userDao.findByName(name);
+	if (users != null) {
+		for (User user : users) {
+			sink.next(user);
+		}
+		sink.complete();
+	} else {
+		sink.error(
+            new IllegalStateException(
+                "Invalid name: " + name));
+	}
+});
+```
+
+or
+
+```java
+Flux<String> flux = Flux.just("123", "456", "789");
+```
+
+---
+
+*Then*
+
+```java
+flux.map(str -> Longs.tryParse(str));
+```
+
+or
+
+```java
+flux.flatMap(user -> userDao.deleteById(user.getId()));
+```
+
+---
+
+*Finally*
+
+```java
+mono.subscribe(
+	value -> System.out.println(value),
+	ex -> ex.printStackTrace(),
+	() -> System.out.println("No data")
+);
+```
+
+## WebFlux
+
+[Spring WebFlux - Web on Reactive Stack](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
+
+> fully non-blocking, supports Reactive Streams back pressure, and runs on such servers as Netty, Undertow, and Servlet 3.1+ containers.
+>
+> - the Spring WebFlux framework
+> - the reactive WebClient
+> - support for testing
+> - and reactive libraries.
+
+---
+
+[Spring Web MVC - Web on Servlet Stack](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web)
+
+![spring-mvc-dispatcherservlet](spring-mvc-context-hierarchy.png)
+
+---
+
+![spring-webflux-vs-webmvc](spring-mvc-vs-webflux.png)
+
+---
+
+```java
+@RequestMapping("/root")
+@RestController
+public class WebFluxTestController {
+    @GetMapping("/user/{id}")
+    public Mono<UserDto> getUser(final String id) {
+        return Mono.just(new Foobar());
+    }
+}
+```
+
+# Gateway
+
+## Workflow
+
+![spring-gateway-architecture](spring_cloud_gateway_diagram.png)
+
+
+## Assembly - HttpHandlerAutoConfiguration
+
+- `org.springframework.boot.web.embedded.netty.NettyReactiveWebServerFactory#getWebServer`
+- `org.springframework.boot.web.embedded.netty.NettyWebServer#start`
+- `org.springframework.http.server.reactive.ReactorHttpHandlerAdapter#apply`
+- `org.springframework.http.server.reactive.HttpHandler#handle`
+
+## Assembly - HttpHandlerAutoConfiguration
+
+```java
+@Configuration
+@ConditionalOnClass({ DispatcherHandler.class, HttpHandler.class })
+@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
+@ConditionalOnMissingBean(HttpHandler.class)
+@AutoConfigureAfter({ WebFluxAutoConfiguration.class })
+@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)
+public class HttpHandlerAutoConfiguration {
+	@Configuration
+	public static class AnnotationConfig {
+		private ApplicationContext applicationContext;
+
+		public AnnotationConfig(ApplicationContext applicationContext) {
+			this.applicationContext = applicationContext;
+		}
+
+		@Bean
+		public HttpHandler httpHandler() {
+			return WebHttpHandlerBuilder.applicationContext(this.applicationContext).build();
+		}
+	}
+}
+```
+
+## Assembly - WebHttpHandlerBuilder
+
+```java
+public static final String WEB_HANDLER_BEAN_NAME = "webHandler";
+
+private WebHttpHandlerBuilder(WebHandler webHandler, @Nullable ApplicationContext applicationContext) {
+	this.webHandler = webHandler; // HERE
+	this.applicationContext = applicationContext;
+}
+
+public static WebHttpHandlerBuilder applicationContext(ApplicationContext context) {
+	WebHttpHandlerBuilder builder = new WebHttpHandlerBuilder(
+			context.getBean(WEB_HANDLER_BEAN_NAME, WebHandler.class), context); // HERE
+
+	// ...
+
+	return builder;
+}
+
+public HttpHandler build() {
+	WebHandler decorated = new FilteringWebHandler(this.webHandler, this.filters); // HERE
+	decorated = new ExceptionHandlingWebHandler(decorated,  this.exceptionHandlers); // HERE
+
+	HttpWebHandlerAdapter adapted = new HttpWebHandlerAdapter(decorated); //HERE
+
+	// ...
+
+	return adapted;
+}
+```
+
+## Assembly - HttpWebHandlerAdapter
+
+```java
+public Mono<Void> handle(ServerHttpRequest request, ServerHttpResponse response) {
+	// ...
+
+	return getDelegate().handle(exchange) // HERE
+			.doOnSuccess(aVoid -> logResponse(exchange))
+			.onErrorResume(ex -> handleUnresolvedError(exchange, ex))
+			.then(Mono.defer(response::setComplete));
+}
+```
+
+## Assembly - ExceptionHandlingWebHandler
+
+```java
+@Override
+public Mono<Void> handle(ServerWebExchange exchange) {
+
+	Mono<Void> completion;
+	try {
+		completion = super.handle(exchange); // HERE
+	} catch (Throwable ex) {
+		completion = Mono.error(ex);
+	}
+
+	return completion;
+}
+```
+
+## Assembly - FilteringWebHandler
+
+```java
+this.chain = new DefaultWebFilterChain(handler, filters); // HERE
+
+@Override
+public Mono<Void> handle(ServerWebExchange exchange) {
+	return this.chain.filter(exchange);
+}
+```
+
+## Assembly - DefaultWebFilterChain
+
+```java
+@Override
+public Mono<Void> filter(ServerWebExchange exchange) {
+	return Mono.defer(() ->
+		this.currentFilter != null && this.next != null ?
+				this.currentFilter.filter(exchange, this.next) :
+				this.handler.handle(exchange));
+}
+```
+
+## Assembly - WebFluxConfigurationSupport
+
+`org.springframework.web.reactive.config.WebFluxConfigurationSupport`
+
+```java
+@Bean
+public DispatcherHandler webHandler() {
+	return new DispatcherHandler();
+}
+```
+
+## Assembly - DispatcherHandler
+
+`org.springframework.web.reactive.DispatcherHandler`
+
+```java
+protected void initStrategies(ApplicationContext context) {
+	Map<String, HandlerMapping> mappingBeans = BeanFactoryUtils.beansOfTypeIncludingAncestors(
+			context, HandlerMapping.class, true, false);
+
+	ArrayList<HandlerMapping> mappings = new ArrayList<>(mappingBeans.values());
+	AnnotationAwareOrderComparator.sort(mappings);
+	this.handlerMappings = Collections.unmodifiableList(mappings);
+}
+
+@Override
+public Mono<Void> handle(ServerWebExchange exchange) {
+	if (this.handlerMappings == null) {
+		return createNotFoundError();
+	}
+	return Flux.fromIterable(this.handlerMappings)
+			.concatMap(mapping -> mapping.getHandler(exchange))
+			.next()
+			.switchIfEmpty(createNotFoundError())
+			.flatMap(handler -> invokeHandler(exchange, handler))
+			.flatMap(result -> handleResult(exchange, result));
+}
+```
+
+## Assembly - RoutePredicateHandlerMapping
+
+- `org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping`
+
+## Assembly - GatewayAutoConfiguration
+
+`org.springframework.cloud.gateway.config.GatewayAutoConfiguration`
+
+```java
+@Configuration
+@ConditionalOnProperty(name = "spring.cloud.gateway.enabled", matchIfMissing = true)
+@EnableConfigurationProperties
+@AutoConfigureBefore({ HttpHandlerAutoConfiguration.class,
+		WebFluxAutoConfiguration.class })
+@AutoConfigureAfter({ GatewayLoadBalancerClientAutoConfiguration.class,
+		GatewayClassPathWarningAutoConfiguration.class })
+@ConditionalOnClass(DispatcherHandler.class)
+public class GatewayAutoConfiguration {
+	@Bean
+	public RoutePredicateHandlerMapping routePredicateHandlerMapping(
+			FilteringWebHandler webHandler, RouteLocator routeLocator,
+			GlobalCorsProperties globalCorsProperties, Environment environment) {
+		return new RoutePredicateHandlerMapping(webHandler, routeLocator,
+				globalCorsProperties, environment);
+	}
+
+	@Bean
+	@Primary
+	// TODO: property to disable composite?
+	public RouteLocator cachedCompositeRouteLocator(List<RouteLocator> routeLocators) {
+		return new CachingRouteLocator(
+				new CompositeRouteLocator(Flux.fromIterable(routeLocators)));
+	}
+
+	@Bean
+	public FilteringWebHandler filteringWebHandler(List<GlobalFilter> globalFilters) {
+		return new FilteringWebHandler(globalFilters);
+	}
+}
+```
+
+## Runtime - RoutePredicateHandlerMapping
+
+- `org.springframework.cloud.gateway.route.RouteLocator`
+- `org.springframework.cloud.gateway.handler.FilteringWebHandler`
+
+```java
+protected Mono<Route> lookupRoute(ServerWebExchange exchange) {
+return this.routeLocator.getRoutes()
+		// individually filter routes so that filterWhen error delaying is not a
+		// problem
+		.concatMap(route -> Mono.just(route).filterWhen(r -> {
+			// add the current route we are testing
+			exchange.getAttributes().put(GATEWAY_PREDICATE_ROUTE_ATTR, r.getId());
+			return r.getPredicate().apply(exchange);
+		})
+	// ...
+```
+
+## Runtime - FilteringWebHandler
+
+```java
+public Mono<Void> handle(ServerWebExchange exchange) {
+	Route route = exchange.getRequiredAttribute(GATEWAY_ROUTE_ATTR);
+	List<GatewayFilter> gatewayFilters = route.getFilters();
+
+	List<GatewayFilter> combined = new ArrayList<>(this.globalFilters);
+	combined.addAll(gatewayFilters);
+
+	AnnotationAwareOrderComparator.sort(combined);
+
+	return new DefaultGatewayFilterChain(combined).filter(exchange);
+}
+```
+
+## Runtime - DefaultWebFilterChain
+
+```java
+public Mono<Void> filter(ServerWebExchange exchange) {
+	return Mono.defer(() -> {
+		if (this.index < filters.size()) {
+			GatewayFilter filter = filters.get(this.index);
+			DefaultGatewayFilterChain chain = new DefaultGatewayFilterChain(this,
+					this.index + 1);
+			return filter.filter(exchange, chain);
+		}
+		else {
+			return Mono.empty(); // complete
+		}
+	});
+}
+```
+
+## Runtime - CachingRouteLocator
+
+`org.springframework.cloud.gateway.route.CachingRouteLocator`
+
+```java
+public class CachingRouteLocator
+		implements RouteLocator, ApplicationListener<RefreshRoutesEvent> {
+
+	// ...
+}
+```
+
+## Runtime - CompositeRouteLocator
+
+`org.springframework.cloud.gateway.route.CompositeRouteLocator`
+
+**All** org.springframework.cloud.gateway.route.RouteLocator beans will be collected *automatically*.
+
+# Routes
+
+## Class Route
+
+`org.springframework.cloud.gateway.route.Route`
+
+```java
+public class Route implements Ordered {
+
+	private final String id;
+
+	private final URI uri;
+
+	private final int order;
+
+	private final AsyncPredicate<ServerWebExchange> predicate;
+
+	private final List<GatewayFilter> gatewayFilters;
+
+	// ...
+}
+```
+
+## Interface RouteLocator
+
+`org.springframework.cloud.gateway.route.RouteLocator`
+
+```java
+public interface RouteLocator {
+	Flux<Route> getRoutes();
+}
+```
+
+## RouteLocator Implementations
+
+- `org.springframework.cloud.gateway.route.CachingRouteLocator`
+- `org.springframework.cloud.gateway.route.CompositeRouteLocator`
+- `org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator`
+
+## RouteDefinitionRouteLocator
+
+`org.springframework.cloud.gateway.route.RouteDefinitionLocator`
+
+```java
+@Override
+public Flux<Route> getRoutes() {
+	return this.routeDefinitionLocator.getRouteDefinitions().map(this::convertToRoute)
+			.map(route -> {
+				if (logger.isDebugEnabled()) {
+					logger.debug("RouteDefinition matched: " + route.getId());
+				}
+				return route;
+			});
+}
+```
+
+## RouteDefinitionLocator and Implementations
+
+```java
+package org.springframework.cloud.gateway.route;
+public interface RouteDefinitionLocator {
+	Flux<RouteDefinition> getRouteDefinitions();
+}
+```
+
+- `org.springframework.cloud.gateway.route.CompositeRouteDefinitionLocator`
+- `org.springframework.cloud.gateway.config.PropertiesRouteDefinitionLocator`
+- `org.springframework.cloud.gateway.route.InMemoryRouteDefinitionRepository`
+
+## RouteDefinitionLocator Loading
+
+`org.springframework.cloud.gateway.config.GatewayAutoConfiguration`
+
+```java
+@Bean
+@Primary
+public RouteDefinitionLocator routeDefinitionLocator(
+		List<RouteDefinitionLocator> routeDefinitionLocators) {
+	return new CompositeRouteDefinitionLocator(
+			Flux.fromIterable(routeDefinitionLocators));
+}
+```
+
+**All** org.springframework.cloud.gateway.route.RouteDefinitionLocator beans will be collected *automatically*.
+
+## RouteDefinition
+
+```java
+public class RouteDefinition {
+	@NotEmpty
+	private String id = UUID.randomUUID().toString();
+
+	@NotEmpty
+	@Valid
+	private List<PredicateDefinition> predicates = new ArrayList<>();
+
+	@Valid
+	private List<FilterDefinition> filters = new ArrayList<>();
+
+	@NotNull
+	private URI uri;
+
+	private int order = 0;
+
+ 	// ...
+}
+```
+
+## Construct Route Via Java
+
+```java
+@Bean
+RouteLocator constantRouteLocator(final RouteLocatorBuilder builder) {
+	return builder.routes()
+		.route("demo_lb", r -> r.header("XHOST")
+			.filters(f -> f.prefixPath("/search"))
+			.uri("lb://httpbin.org"))
+		.build();
+}
+```
+
+## Construct Route Via YAML
+
+```yaml
+spring:
+    cloud:
+        gateway:
+            routes:
+                - id: r1
+                  order: 2
+                  uri: "https://a.com"
+                  predicates:
+                      - host=a.org
+                  filters:
+                      - AddRequestHeader=XHOST,my.a.org
+                - id: r2
+                  order: 1
+                  uri: "https://b.com"
+                  predicates:
+                      - Host=b.org
+                  filters:
+                      - AddRequestHeader=XHOST,my.b.org
+```
+
+# Predicate
+
+## AsyncPredicate
+
+```java
+public class Route implements Ordered {
+
+	private final String id;
+
+	private final URI uri;
+
+	private final int order;
+
+	private final AsyncPredicate<ServerWebExchange> predicate; // HERE
+
+	private final List<GatewayFilter> gatewayFilters;
+
+	// ...
+}
+```
+
+## PredicateDefinition
+
+```java
+public class PredicateDefinition {
+	@NotNull
+	private String name;
+
+	private Map<String, String> args = new LinkedHashMap<>();
+
+	// ...
+}
+```
+
+## PredicateDefinition to AsyncPredicate
+
+`org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator#lookUp`
+
+`org.springframework.cloud.gateway.handler.predicate.RoutePredicateFactory`
+
+## RoutePredicateFactory
+
+`org.springframework.cloud.gateway.handler.predicate.RoutePredicateFactory<C>`
+
+```java
+public interface RoutePredicateFactory<C> extends ShortcutConfigurable, Configurable<C> {
+	AsyncPredicate<ServerWebExchange> applyAsync(Consumer<C> consumer);
+
+	Class<C> getConfigClass();
+}
+```
+
+*Reflection*
+
+## Builtin Predicate Factories
+
+- `org.springframework.cloud.gateway.handler.predicate.AfterRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.BeforeRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.BetweenRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.CookieRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.HeaderRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.HostRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.MethodRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.PathRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.QueryRoutePredicateFactory`
+- `org.springframework.cloud.gateway.handler.predicate.RemoteAddrRoutePredicateFactory`
+
+# Filter
+
+## GatewayFilter
+
+```java
+public interface GatewayFilter extends ShortcutConfigurable {
+	Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain);
+}
+```
+
+## FilterDefinition
+
+```java
+public class FilterDefinition {
+	@NotNull
+	private String name;
+
+	private Map<String, String> args = new LinkedHashMap<>();
+
+	// ...
+}
+```
+
+## FilterDefinition to GatewayFilter
+
+`org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator#loadGatewayFilters`
+
+`org.springframework.cloud.gateway.filter.factory.GatewayFilterFactory`
+
+## GatewayFilterFactory
+
+`org.springframework.cloud.gateway.filter.factory.GatewayFilterFactory<T>`
+
+```java
+public interface GatewayFilterFactory<C> extends ShortcutConfigurable, Configurable<C> {
+	default GatewayFilter apply(Consumer<C> consumer) {
+		C config = newConfig();
+		consumer.accept(config);
+		return apply(config);
+	}
+
+	default Class<C> getConfigClass() {
+		throw new UnsupportedOperationException("getConfigClass() not implemented");
+	}
+}
+```
+
+## Builtin Filter Factories
+
+- AddRequestHeader GatewayFilter Factory
+- AddRequestParameter GatewayFilter Factory
+- AddResponseHeader GatewayFilter Factory
+- Hystrix GatewayFilter Factory
+- FallbackHeaders GatewayFilter Factory
+- PrefixPath GatewayFilter Factory
+- PreserveHostHeader GatewayFilter Factory
+- RequestRateLimiter GatewayFilter Factory
+- RedirectTo GatewayFilter Factory
+- RemoveNonProxyHeaders GatewayFilter Factory
+- RemoveRequestHeader GatewayFilter Factory
+- RemoveResponseHeader GatewayFilter Factory
+- RewritePath GatewayFilter Factory
+- RewriteResponseHeader GatewayFilter Factory
+- SaveSession GatewayFilter Factory
+- SecureHeaders GatewayFilter Factory
+- SetPath GatewayFilter Factory
+- SetResponseHeader GatewayFilter Factory
+- SetStatus GatewayFilter Factory
+- StripPrefix GatewayFilter Factory
+- Retry GatewayFilter Factory
+- RequestSize GatewayFilter Factory
+- Modify Request Body GatewayFilter Factory
+- Modify Response Body GatewayFilter Factory
+
+# Global Filter
+
+## URI scheme
+
+- http
+- https
+- lb
+- forward
+
+# Rate Limit
+
+## Additional Dependency
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+</dependency>
+```
+
+## RequestRateLimiterGatewayFilterFactory
+
+`org.springframework.cloud.gateway.filter.factory.RequestRateLimiterGatewayFilterFactory`
+
+## KeyResolver
+
+`org.springframework.cloud.gateway.filter.ratelimit.KeyResolver`
+
+```java
+public interface KeyResolver {
+	Mono<String> resolve(ServerWebExchange exchange);
+}
+```
+
+## RateLimiter
+
+`org.springframework.cloud.gateway.filter.ratelimit.RateLimiter<T>`
+
+```java
+public interface RateLimiter<C> extends StatefulConfigurable<C> {
+	Mono<Response> isAllowed(String routeId, String id);
+}
+```
+
+- `org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter`
+
+# Load Balance
+
+## Additional Dependency
+
+```xml
+<dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+</dependency>
+```
+
+## LoadBalancerClientFilter
+
+`org.springframework.cloud.gateway.filter.LoadBalancerClientFilter`
+
+For uris like "lb://virtual_host/path"
+
+## LoadBalancerClientFilter
+
+`org.springframework.cloud.gateway.filter.LoadBalancerClientFilter`
+
+```java
+ServiceInstance choose(String serviceId);
+
+URI reconstructURI(ServiceInstance instance, URI original);
+```
+
+## RibbonLoadBalancerClient
+
+`org.springframework.cloud.netflix.ribbon.RibbonLoadBalancerClient`
+
+## ILoadBalancer per Virtual Host
+
+`com.netflix.loadbalancer.ILoadBalancer`
+
+```java
+public interface ILoadBalancer {
+	public void addServers(List<Server> newServers);
+
+	public Server chooseServer(Object key);
+
+	public void markServerDown(Server server);
+
+    public List<Server> getReachableServers();
+
+	public List<Server> getAllServers();
+}
+```
+
+## SpringClientFactory
+
+`org.springframework.cloud.netflix.ribbon.SpringClientFactory`
+
+```java
+public ILoadBalancer getLoadBalancer(String name) {
+	return getInstance(name, ILoadBalancer.class);
+}
+```
+
+## IRule
+
+`com.netflix.loadbalancer.IRule`
+
+- `com.netflix.loadbalancer.RandomRule`
+- `com.netflix.loadbalancer.RetryRule`
+- `com.netflix.loadbalancer.RoundRobinRule`
+- `com.netflix.loadbalancer.WeightedResponseTimeRule`
+
+## IPing
+
+`com.netflix.loadbalancer.IPing`
+
+- `com.netflix.loadbalancer.PingUrl`
+- `com.netflix.loadbalancer.NoOpPing`
+- `com.netflix.loadbalancer.PingConstant`
+
+# End
+
+END
