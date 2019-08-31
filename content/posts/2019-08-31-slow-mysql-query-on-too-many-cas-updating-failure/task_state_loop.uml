@@ -1,0 +1,15 @@
+@startuml
+
+[*] --> NEW: task created
+
+NEW --> PROCESSING: task being processing
+
+PROCESSING --> SUCCESSFULE: succeed
+PROCESSING --> FAILED: fail
+
+SUCCESSFULE --> [*]: archived
+
+FAILED --> NEW: retrying
+FAILED --> [*]: archived
+
+@enduml

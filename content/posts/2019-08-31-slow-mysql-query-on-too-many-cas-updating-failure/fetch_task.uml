@@ -1,0 +1,22 @@
+
+@startuml
+
+start
+
+repeat
+    :SELECT task_id FROM task WHERE task_state = NEW AND task_priority = HIGH limit 1;
+
+    if (found) then (yes)
+        :UPDATE task SET task_state = PROCESSING WHERE task_id = ID AND task_state = NEW;
+
+        if (updated) then (yes)
+            :return FOUND;
+            stop
+        endif
+    else (no)
+        :return NOT_FOUND;
+        stop
+    endif
+repeat while (forever)
+
+@enduml
