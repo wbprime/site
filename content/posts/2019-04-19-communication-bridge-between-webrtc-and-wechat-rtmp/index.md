@@ -41,7 +41,7 @@ tags = ["WebRTC", "RTMP", "wechat", "live-pusher", "live-player"]
 
 方案的总体架构如下：
 
-![总体架构](overview.png)
+![总体架构](overview.svg)
 
 1. Janus Server 作为一个特殊的 [WebRTC][webrtc] 端与指定的另一个 [WebRTC][webrtc] 端通过 Room Server 交换信令并建立会话
 2. 会话建立后，[WebRTC][webrtc] 端与 Janus Server 直接（P2P）或间接（[TURN][turn]）交换音视频流
@@ -75,7 +75,7 @@ tags = ["WebRTC", "RTMP", "wechat", "live-pusher", "live-player"]
 
 此 case下，Janus Server 作为微信小程序端的 [WebRTC][webrtc] 代理接入标准 [WebRTC][webrtc] 栈，复用已有的 [WebRTC][webrtc] 协议栈基础设施（[STUN][stun]/[TURN][turn]/[ICE][ice]/[SDP][sdp]），以减少对原 [WebRTC][webrtc] 栈的侵入影响。
 
-![WebRTC端呼叫微信小程序端](webrtc_caller_wechat_callee.png)
+![WebRTC端呼叫微信小程序端](webrtc_caller_wechat_callee.svg)
 
 ### WebRTC 音视频(被叫) 与 微信小程序音视频(主叫)
 
@@ -90,7 +90,7 @@ tags = ["WebRTC", "RTMP", "wechat", "live-pusher", "live-player"]
 
 此 case 下，Janus Server 作为微信小程序端的 [WebRTC][webrtc] 代理接入标准 [WebRTC][webrtc] 栈，复用已有的 [WebRTC][webrtc] 协议栈基础设施（[STUN][stun]/[TURN][turn]/[ICE][ice]/[SDP][sdp]），以减少对原 [WebRTC][webrtc] 栈的侵入影响。
 
-![微信小程序端呼叫WebRTC端](webrtc_caller_wechat_callee.png)
+![微信小程序端呼叫WebRTC端](webrtc_caller_wechat_callee.svg)
 
 此 case 与前一个 case 的区别在于 [SDP][sdp] 信息（[Offer/Answer][offeranswer]）的生成和处理。微信小程序端主叫时，由于微信小程序端不能正常参与到 [WebRTC][webrtc] 栈的协议协商过程中来，需要在生成 Offer 时做一些针对性的优化和处理。
 
@@ -113,7 +113,7 @@ tags = ["WebRTC", "RTMP", "wechat", "live-pusher", "live-player"]
 
 Streaming Server 将 Janus Server 转发的 [RTP][rtp] & [RTCP][rtcp] 流转换为 [RTMP][rtmp] 流输出至微信小程序端，也将微信小程序端上传的 [RTMP][rtmp] 流转为 [RTP][rtp] & [RTCP][rtcp] 流输出至 Janus Server；最初的实现使用 [FFmpeg][ffmpeg] 搭建，[FFmpeg][ffmpeg] 可以很好地支持 [RTP][rtp] & [RTCP][rtcp] 与 [RTMP][rtmp] 的双向转换。
 
-![基于FFmpeg的流媒体中转](ffmpeg_based_streaming.png)
+![基于FFmpeg的流媒体中转](ffmpeg_based_streaming.svg)
 
 具体来说，即：
 
