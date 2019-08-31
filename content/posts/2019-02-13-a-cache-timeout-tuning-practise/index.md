@@ -37,7 +37,7 @@ tags = ["java", "cache", "tcp", "fast retransmit", "congistion"]
 
 对 Scoket 的读写是通过 NIO Selector 进行的。
 
-![cache client overview](cache_client.loop.png)
+![cache client overview](cache_client.loop.svg)
 
 2. requests
 
