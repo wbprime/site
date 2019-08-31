@@ -35,7 +35,7 @@ tags = ["bug", "HashMap", "null", "nullability"]
 
 旧逻辑如下：
 
-![old updating email](update_email.old.png)
+![old updating email](update_email.old.svg)
 
 当通过邮箱找到一个已存在的用户后，如果该用户是本次需要修改的用户（即重复修改）则认为不会破坏邮箱的唯
 一性约束，反之则说明要修改成为的邮箱已经被别的用户占用了，不能修改。
@@ -44,7 +44,7 @@ tags = ["bug", "HashMap", "null", "nullability"]
 字段都与邮箱不是在同一个表里面，则旧的处理流程可以进行优化：当确定是重复修改邮箱之后，可以把邮箱字段
 从 HashMap 中删去并下传到后续的处理中。
 
-![new updating email](update_email.new.png)
+![new updating email](update_email.new.svg)
 
 **BUG**
 
