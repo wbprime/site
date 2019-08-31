@@ -8,7 +8,8 @@ description = "wangbo’s home & blog"
 default_language = "en"
 
 # Theme name to use
-theme = "even"
+# theme = "even"
+theme = "zerm"
 
 # Whether to generate a RSS feed automatically
 generate_rss = false
@@ -53,7 +54,10 @@ build_search_index = true
 [extra]
 author = "Elvis Wang"
 
+#
 # For even theme
+#
+
 even_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
@@ -61,5 +65,61 @@ even_menu = [
     {url = "$BASE_URL/about", name = "About"},
     {url = "https://github.wangbo.im", name = "Github"},
 ]
-
 even_title = "WB Prime"
+
+#
+# For zerm theme
+#
+
+# Menu items to display. You define a url and the name of the menu item.
+# NOTE: `$BASE_URL/` must be included in the url name.
+main_menu = [
+    {url = "/about", name = "About"},
+    {url = "/categories", name = "Categories"},
+    {url = "/tags", name = "Tags"},
+]
+
+# Show author's name in blog post meta data.
+show_author = true
+
+# Show categories a blog post is marked with in its meta data.
+show_categories = true
+
+# Show tags a blog post is marked with in its meta data.
+show_tags = true
+
+# Theme color. You can have any color you want, so long as it's...
+# ["orange", "blue", "red", "green", "pink"]
+theme_color = "orange"
+
+# How many menu items to show on desktop. if you set this to 0, only submenu
+# button will be visible.
+show_menu_items = 4
+
+# set theme to full screen width.
+full_width = true
+
+# center theme with default width.
+center = false
+
+# set a custom favicon. Must be placed in root of static/ directory...
+favicon = "favicon.ico"
+
+# Set a custom preview image for your website when posted as a link.
+# Must be placed in root of static/ directory...
+# og_preview_img = ""
+
+# Copyright notice if desired. Defaults to
+copyright = "<a href=\"/\">Wbprime's Blog</a> © 2019 &nbsp;<a href=\"mailto:mail@wangbo.im\">Elvis Wang</a>"
+
+# What is displayed in the top left corner of the website. Default is zerm.
+logo_text = "WB Prime"
+
+# Link in logo. Default returns you to $BASE_URL.
+logo_home_link = "/"
+
+# Displayed as title of drop-down menu when size of main_menu > show_menu_items.
+menu_more = "show more"
+
+# Displayed after teaser text for a blog post.
+read_more = "read more"

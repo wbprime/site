@@ -1,3 +1,6 @@
 [submodule "themes/even"]
 	path = themes/even
 	url = https://github.com/getzola/even.git
+[submodule "themes/zerm"]
+	path = themes/zerm
+	url = https://github.com/ejmg/zerm.git
