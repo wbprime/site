@@ -30,11 +30,13 @@ graph start {
 }
 ```
 
-运行 `dot -Tpng a.dot -o a.png`
+<del>运行 `dot -Tpng a.dot -o a.png`</del>
+
+运行 `dot -Tsvg a.dot -o a.svg`
 
 得到：
 
-![a.png](demo0_start.png)
+![a.svg](demo0_start.svg)
 
 ## 程序调用
 
@@ -68,11 +70,13 @@ digraph Invoke {
 }
 ```
 
-运行 `dot -Tpng b.dot -o b.png`
+<del>运行 `dot -Tpng b.dot -o b.png`</del>
+
+运行 `dot -Tsvg b.dot -o b.svg`
 
 得到：
 
-![b.png](demo1_invoke.png)
+![b.svg](demo1_invoke.svg)
 
 ## 节点形状
 
@@ -95,11 +99,13 @@ digraph node_shape {
 }
 ```
 
-运行 `dot -Tpng c.dot -o c.png`
+<del>运行 `dot -Tpng c.dot -o c.png`</del>
+
+运行 `dot -Tsvg c.dot -o c.svg`
 
 得到：
 
-![c.png](demo2_node_shape.png)
+![c.svg](demo2_node_shape.svg)
 
 ## 数据结构
 
@@ -130,11 +136,13 @@ digraph data_struct {
 }
 ```
 
-运行 `dot -Tpng d.dot -o d.png`
+<del>运行 `dot -Tpng d.dot -o d.png`</del>
+
+运行 `dot -Tsvg d.dot -o d.svg`
 
 得到：
 
-![d.png](demo3_data_struct.png)
+![d.svg](demo3_data_struct.svg)
 
 ## Hash table
 
@@ -169,11 +177,13 @@ digraph hash_table {
 }
 ```
 
-运行 `dot -Tpng e.dot -o e.png`
+<del>运行 `dot -Tpng e.dot -o e.png`</del>
+
+运行 `dot -Tsvg e.dot -o e.svg`
 
 得到：
 
-![e.png](demo4_hash_table.png)
+![e.svg](demo4_hash_table.svg)
 
 ## 流程图
 
@@ -212,11 +222,12 @@ digraph work_flow {
 }
 ```
 
-运行 `dot -Tpng f.dot -o f.png`
+~运行 `dot -Tpng f.dot -o f.png`~
+运行 `dot -Tsvg f.dot -o f.svg`
 
 得到：
 
-![f.png](demo5_work_flow.png)
+![f.svg](demo5_work_flow.svg)
 
 # Utilities
 
