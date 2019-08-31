@@ -5,7 +5,7 @@ date = 2019-08-28T09:36:32+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Spring Cloud"]
+categories =  ["Spring"]
 tags = ["gateway", "spring cloud", "route"]
 +++
 
