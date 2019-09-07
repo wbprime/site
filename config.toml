@@ -2,7 +2,7 @@
 base_url = "https://www.wangbo.im"
 
 # Used in RSS by default
-title = "wangbo’s home & blog"
+title = "wangbo’s blog"
 description = "wangbo’s home & blog"
 # the default language, used in RSS and coming i18n
 default_language = "en"
@@ -97,7 +97,7 @@ favicon = "favicon.ico"
 # Must be placed in root of static/ directory...
 ## og_preview_img = ""
 # Copyright notice if desired. Defaults to
-## copyright = "copyright notice here"
+copyright = "<span>© 2019 <a href=\"https://www.wangbo.im\">wangbo&apos; blog</a> :: <a href=\"https://github.wangbo.im\">Github</a> :: Powered by <a href=\"https://www.getzola.org/\">Zola</a></span>"
 # What is displayed in the top left corner of the website. Default is zerm.
 logo_text = "WB Prime"
 # Link in logo. Default returns you to $BASE_URL.
