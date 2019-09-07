@@ -1,6 +1,6 @@
 +++
 title = "Intro to Spring Cloud Gateway"
-description = "Intro to Spring Cloud Gateway"
+description = "本文基于在部门内的一次分享修改而成，主要介绍 Spring Cloud Gateway 的请求处理流程和装配流程。"
 date = 2019-08-28T09:36:32+08:00
 draft = false
 template = "page.html"

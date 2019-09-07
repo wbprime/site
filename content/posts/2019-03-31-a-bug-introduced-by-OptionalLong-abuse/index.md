@@ -1,6 +1,6 @@
 +++
 title = "一次由于滥用 OptionalLong.orElse 引发的 BUG"
-description = "一次由于滥用 OptionalLong.orElse 引发的 BUG"
+description = "JDK 8 引入了 Optional 的概念，以解决 `null` 可能引发的可能的 BUG。新的类型 `java.util.Optional<T>`, `java.util.OptionalDouble`, `java.util.OptionalDouble` 和 `java.util.OptionalDouble` 能够有效避免 `null` 值的使用，强制使用者去处理 `absent & present` 的不同情况。"
 date = 2019-03-31T15:31:07+08:00
 draft = false
 template = "page.html"

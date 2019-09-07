@@ -1,6 +1,6 @@
 +++
 title = "Java try-catch and AssertionError"
-description = "Java try-catch and AssertionError"
+description = "Java 的异常处理机制是 try-catch-finally 。被调用的方法或代码块可以抛出异常（Throwable，含 Exception 和 Error）；被调用的方法或代码块被包含在 try 块中；catch 块中会根据具体的异常类型来实现相关的逻辑；finally 块中实现无论是否发生异常都需要的逻辑。异常处理机制很简单；但是怎么设计异常处理方式是有一些坑的。有一个线上服务在更新逻辑上线时，触发了一个错误处理异常的 BUG，现简单记录之。"
 date = 2019-04-12T10:10:44+08:00
 draft = false
 template = "page.html"

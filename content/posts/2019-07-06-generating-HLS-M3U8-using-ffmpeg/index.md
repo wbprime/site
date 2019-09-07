@@ -1,6 +1,6 @@
 +++
 title = "Generating HLS/M3U8 Using FFmpeg"
-description = "Generating HLS/M3U8 Using FFmpeg"
+description = "最近的项目中需要提供音视频多码率转码支持，集中调研了 FFmpeg 对 Apple HTTP Live Streaming (HLS) 的支持，总结一下，遂成本文。"
 date = 2019-07-06T15:18:04+08:00
 draft = false
 template = "page.html"

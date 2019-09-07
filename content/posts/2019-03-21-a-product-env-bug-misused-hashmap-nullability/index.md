@@ -1,6 +1,6 @@
 +++
 title = "一次由于误用 HashMap 值的 null 特性的 BUG"
-description = "一次由于误用 HashMap 值的 null 特性的 BUG"
+description = "最近又经历了一次线上服务的 BUG，原因是服务内部的代码逻辑问题，比较简单。在此记录下来是为了提醒不要再犯。"
 date = 2019-03-21T10:04:03+08:00
 draft = false
 template = "page.html"

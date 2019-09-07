@@ -1,6 +1,6 @@
 +++
 title = "WebRTC 与微信小程序的音视频互通"
-description = "WebRTC 与微信小程序的音视频互通"
+description = "本文主要介绍我们打通 WebRTC 端和微信小程序端的音视频互通方案，实现在尽量不需要改动 WebRTC 端代码的情况下，添加对主叫和被叫微信小程序端的支持。"
 date = 2019-04-19T15:35:56+08:00
 draft = false
 template = "page.html"

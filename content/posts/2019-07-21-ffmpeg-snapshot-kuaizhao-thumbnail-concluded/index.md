@@ -1,6 +1,6 @@
 +++
 title = "Ffmpeg snapshot/thumbnail 快照套路总结"
-description = "Ffmpeg snapshot/thumbnail 快照套路总结"
+description = "使用 Ffmpeg 对视频进行抽帧操作，即把视频中感兴趣的帧输出为图片；该操作也经常被称之为视频快照、视频截图等。视频抽帧按照输出文件的格式不同，可以输出为 `jpg`、`png`、`gif`、`webp` 等格式文件。视频抽帧按照选取视频帧的条件不同，可以分为按类型、按时间、按场景变化等不同的套路。本文从以上两个方面汇总使用 Ffmpeg 抽帧的套路。"
 date = 2019-07-21T15:37:14+08:00
 draft = false
 template = "page.html"

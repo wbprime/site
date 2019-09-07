@@ -1,6 +1,6 @@
 +++
 title = "Ffmpeg -vsync 使用场景辨析"
-description = "Ffmpeg -vsync option explained"
+description = "在使用 Ffmpeg 进行视频抽帧时，发现 `-vsync` 参数的意思理解的不是很清楚。本文通过不同的场景使用结果对比来辨析 `-vsync` 选项的枚举参数值的区别。"
 date = 2019-07-21T18:18:28+08:00
 draft = false
 template = "page.html"

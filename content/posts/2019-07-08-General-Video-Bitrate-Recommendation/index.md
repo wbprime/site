@@ -1,6 +1,6 @@
 +++
 title = "[Note] General Video Bitrate Recommendation"
-description = "General Video Bitrate Recommendation"
+description = "在视频转码的过程中，比较关键的是需要确定目标码率（或最大码率）。在网上找了一下大型互联网公司的推荐标准，聊为参考。"
 date = 2019-07-08T10:48:41+08:00
 draft = false
 template = "page.html"

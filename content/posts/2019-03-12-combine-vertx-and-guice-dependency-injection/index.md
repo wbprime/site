@@ -1,6 +1,6 @@
 +++
 title = "在 Vert.x 项目中集成使用 Guice 依赖注入"
-description = "在 Vert.x 项目中集成使用 Guice 依赖注入"
+description = "本文介绍了项目中在基于 Eclipse Vert.x 的 Verticle 中使用 Google Guice 进行依赖注入的实践，主要的思路是在 `io.vertx.core.Verticle#start` 方法中主动创建 `com.google.inject.Injector` 注入器实例并实行注入操作，在注入操作成功结束之后再进行后续的操作。在开发结束后的某一天，通过万能的搜索发现已经有人提供了基于 Google Guice 的 Eclipse Vert.x 扩展: Vert.x Guice Extension。Vert.x Guice Extension 扩展了 Vert.x 内置的 `io.vertx.core.spi.VerticleFactory` 机制，能够使用 SPI 的方式加载需要的 Guice 依赖。本文总结一下自己的实现思路，然后分析 Vert.x Guice Extension 的实现细节，希望能提高自己的代码水平。"
 date = 2019-03-31T11:19:14+08:00
 draft = false
 template = "page.html"
