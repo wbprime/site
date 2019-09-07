@@ -54,9 +54,8 @@ build_search_index = true
 author = "Elvis Wang"
 
 #
-# For even theme
+# For theme https://github.com/getzola/even.git
 #
-
 even_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
