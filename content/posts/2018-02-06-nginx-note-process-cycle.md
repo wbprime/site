@@ -4,8 +4,8 @@ description = "Note of main process cycle for Nginx"
 date = 2018-02-06T16:25:54+08:00
 draft = false
 [taxonomies]
-categories =  ["Notes"]
-tags = ["nginx"]
+categories =  ["Nginx"]
+tags = ["nginx", "note"]
 +++
 
 转载自[Nginx 的执行模型](http://www.lenky.info/archives/2011/09/48)

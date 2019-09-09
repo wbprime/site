@@ -4,8 +4,8 @@ description = "Note of config parsing and loading for Nginx"
 date = 2018-02-06T16:26:08+08:00
 draft = false
 [taxonomies]
-categories =  ["Notes"]
-tags = ["nginx"]
+categories =  ["Nginx"]
+tags = ["nginx", "note"]
 +++
 
 转载自[Nginx 配置信息的解析流程](http://www.lenky.info/archives/2011/09/22)
@@ -72,7 +72,7 @@ log_format   main '$remote_addr – $remote_user [$time_local]  $status '
     ngx_conf_set_flag_slot,
     0,
     offsetof(ngx_core_conf_t, daemon),
-    NULL 
+    NULL
 },
 ```
 
@@ -256,17 +256,17 @@ ngx_conf_set_flag_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ngx_str_t        *value;
     ngx_flag_t       *fp;
     ngx_conf_post_t  *post;
-    
+
     /* 解析出来的对应值存放的内存位置 */
     fp = (ngx_flag_t *) (p + cmd->offset);
-    
+
     /* 该内存位置已有值，故知配置指令重复 */
     if (*fp != NGX_CONF_UNSET) {
         return "is duplicate";
     }
-    
+
     /* cf->args存放的是与当前处理配置项相关的各个token，
-        比如解析daemon配置指令时， 
+        比如解析daemon配置指令时，
         cf->args内的数据详细如下，以便于理解（通过gdb调试获得的结果）：
     (gdb) p *cf->args
     $1 = {elts = 0x9a0c798, nelts = 2, size = 8, nalloc = 10, pool = 0x9a0bf00}
@@ -275,9 +275,9 @@ ngx_conf_set_flag_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     (gdb) p *(((ngx_str_t*)(cf->args->elts)+1))
     $3 = {len = 3, data = 0x9a0c7f0 "off"}
     */
-    
+
     value = cf->args->elts;
-    
+
     /* 解析，布尔值的配置很好解析，"on"转为nginx内的1，"off"转为0。*/
     if (ngx_strcasecmp(value[1].data, (u_char *) "on") == 0) {
         *fp = 1;
@@ -290,7 +290,7 @@ ngx_conf_set_flag_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
             value[1].data, cmd->name.data);
             return NGX_CONF_ERROR;
     }
-    
+
     /* 其它处理函数，
         对于daemon配置指令来说为NULL，
         但是对于其它指令，比如optimize_server_names则还需调用自定义的处理。
@@ -299,7 +299,7 @@ ngx_conf_set_flag_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
         post = cmd->post;
         return post->post_handler(cf, post, fp);
     }
-    
+
     return NGX_CONF_OK;
 }
 ```
