@@ -1,11 +1,11 @@
 +++
-title = "Spring Mvc Note"
-description = "Note on Spring MVC"
+title = "Spring Mvc: ApplicationContext within/without Servlet Container"
+description = "Spring Mvc: ApplicationContext within/without Servlet Container"
 date = 2018-02-06T12:51:13+08:00
 draft = false
 [taxonomies]
-categories =  ["Notes"]
-tags = ["spring mvc"]
+categories =  ["Spring"]
+tags = ["spring mvc", "note"]
 +++
 
 # Scenario 1
@@ -58,7 +58,7 @@ In web.xml define:
 ```
 <servlet>
     <servlet-name>springweb</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>    
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
