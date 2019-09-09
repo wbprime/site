@@ -1,12 +1,12 @@
 +++
 title = "Graphviz Dot Note"
-description = "Graphviz Note 之 设置输出图片的大小。"
+description = "Graphviz 之 设置输出图片的大小。"
 date = 2019-03-11T21:27:50+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Notes"]
-tags = ["graphviz", "dot"]
+categories =  ["Graphviz"]
+tags = ["graphviz", "dot", "note"]
 +++
 
 # 设置输出图片的大小
