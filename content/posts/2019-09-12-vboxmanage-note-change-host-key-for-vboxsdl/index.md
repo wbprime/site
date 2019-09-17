@@ -5,8 +5,8 @@ date = 2019-09-12T17:39:15+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["VirtualBox"]
-tags = ["virtualbox", "vboxsdl", "host_key"]
+categories =  ["Utils"]
+tags = ["virtualbox", "vboxsdl", "host-key"]
 +++
 
 如果平时使用 Linux，偶尔会有使用 Windows 软件（如 WPS/QQ 等）的需求场景时，最好的解决方案就是使用虚拟机了。如果使用了 [Virtual Box](https://www.virtualbox.org/) 的话，那么可以了解一下其除了基于 [Qt](https://www.qt.io/) 的虚拟机运行界面之外还额外提供了一个基于 [SDL](https://www.libsdl.org/) 的虚拟机运行界面。
