@@ -5,7 +5,7 @@ date = 2019-03-11T21:27:50+08:00
 draft = false
 template = "page.html"
 [taxonomies]
-categories =  ["Graphviz"]
+categories =  ["Utils"]
 tags = ["graphviz", "dot", "note"]
 +++
 
