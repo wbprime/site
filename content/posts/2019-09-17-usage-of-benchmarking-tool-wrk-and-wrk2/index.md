@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Utils"]
-tags = ["benchmark", "load-test", "wrk", "wrk2"]
+tags = ["benchmark", "testing", "load-test", "wrk", "wrk2"]
 +++
 
 
