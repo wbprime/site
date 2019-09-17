@@ -5,7 +5,7 @@ date = 2016-04-09T23:07:12+08:00
 draft = false
 [taxonomies]
 categories =  ["Spring MVC Testing"]
-tags = ["Spring MVC", "testing", "java"]
+tags = ["spring-mvc", "testing", "java"]
 +++
 
 本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第2篇，原文链接：[Unit Testing of Spring MVC Controllers: "Normal" Controllers](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/)。
@@ -122,11 +122,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
- 
+
 @Controller
 public class TodoController {
     private final TodoService service;
-     
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String findAll(Model model) {
         List<Todo> models = service.findAll();
@@ -155,7 +155,7 @@ public class TodoController {
 
 相关代码如下：
 
-```java 
+```java
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -167,47 +167,47 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
- 
+
 import java.util.Arrays;
- 
+
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
-    public void 
+    public void
     findAll_ShouldAddTodoEntriesToModelAndRenderTodoListView() throws Exception {
         Todo first = new TodoBuilder()
                 .id(1L)
                 .description("Lorem ipsum")
                 .title("Foo")
                 .build();
- 
+
         Todo second = new TodoBuilder()
                 .id(2L)
                 .description("Lorem ipsum")
                 .title("Bar")
                 .build();
- 
+
         when(todoServiceMock.findAll()).thenReturn(Arrays.asList(first, second));
- 
+
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/list"))
@@ -227,7 +227,7 @@ public class TodoControllerTest {
                                 hasProperty("title", is("Bar"))
                         )
                 )));
- 
+
         verify(todoServiceMock, times(1)).findAll();
         verifyNoMoreInteractions(todoServiceMock);
     }
@@ -266,25 +266,25 @@ public String findById(@PathVariable("id") Long id, Model model) throws TodoNotF
 @Bean
 public SimpleMappingExceptionResolver exceptionResolver() {
     SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
- 
+
     Properties exceptionMappings = new Properties();
- 
+
     exceptionMappings.put(
         "net.petrikainulainen.spring.testmvc.todo.exception.TodoNotFoundException",
         "error/404"
     );
     exceptionMappings.put("java.lang.Exception", "error/error");
     exceptionMappings.put("java.lang.RuntimeException", "error/error");
- 
+
     exceptionResolver.setExceptionMappings(exceptionMappings);
- 
+
     Properties statusCodes = new Properties();
- 
+
     statusCodes.put("error/404", "404");
     statusCodes.put("error/error", "500");
- 
+
     exceptionResolver.setStatusCodes(statusCodes);
- 
+
     return exceptionResolver;
 }
 ```
@@ -324,34 +324,34 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
- 
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
     public void findById_TodoEntryNotFound_ShouldRender404View() throws Exception {
         when(todoServiceMock.findById(1L)).thenThrow(new TodoNotFoundException(""));
- 
+
         mockMvc.perform(get("/todo/{id}", 1L))
                 .andExpect(status().isNotFound())
                 .andExpect(view().name("error/404"))
                 .andExpect(forwardedUrl("/WEB-INF/jsp/error/404.jsp"));
- 
+
         verify(todoServiceMock, times(1)).findById(1L);
         verifyZeroInteractions(todoServiceMock);
     }
@@ -386,38 +386,38 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
- 
+
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
-    public void 
+    public void
     findById_TodoEntryFound_ShouldAddTodoEntryToModelAndRenderViewTodoEntryView() throws Exception {
         Todo found = new TodoBuilder()
                 .id(1L)
                 .description("Lorem ipsum")
                 .title("Foo")
                 .build();
- 
+
         when(todoServiceMock.findById(1L)).thenReturn(found);
- 
+
         mockMvc.perform(get("/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("todo/view"))
@@ -425,7 +425,7 @@ public class TodoControllerTest {
                 .andExpect(model().attribute("todo", hasProperty("id", is(1L))))
                 .andExpect(model().attribute("todo", hasProperty("description", is("Lorem ipsum"))))
                 .andExpect(model().attribute("todo", hasProperty("title", is("Foo"))));
- 
+
         verify(todoServiceMock, times(1)).findById(1L);
         verifyNoMoreInteractions(todoServiceMock);
     }
@@ -455,18 +455,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
- 
+
 import javax.validation.Valid;
 import java.util.Locale;
- 
+
 @Controller
 @SessionAttributes("todo")
 public class TodoController {
- 
+
     private final TodoService service;
- 
+
     private final MessageSource messageSource;
- 
+
     @RequestMapping(value = "/todo/add", method = RequestMethod.POST)
     public String add(
         @Valid @ModelAttribute("todo") TodoDTO dto,
@@ -476,15 +476,15 @@ public class TodoController {
         if (result.hasErrors()) {
             return "todo/add";
         }
- 
+
         Todo added = service.add(dto);
- 
+
         addFeedbackMessage(attributes, "feedback.message.todo.added", added.getTitle());
         attributes.addAttribute("id", added.getId());
- 
+
         return createRedirectViewPath("todo/view");
     }
- 
+
     private void addFeedbackMessage(
         RedirectAttributes attributes,
         String messageCode,
@@ -493,12 +493,12 @@ public class TodoController {
         String localizedFeedbackMessage = getMessage(messageCode, messageParameters);
         attributes.addFlashAttribute("feedbackMessage", localizedFeedbackMessage);
     }
- 
+
     private String getMessage(String messageCode, Object... messageParameters) {
         Locale current = LocaleContextHolder.getLocale();
         return messageSource.getMessage(messageCode, messageParameters, current);
     }
- 
+
     private String createRedirectViewPath(String requestMapping) {
         StringBuilder redirectViewPath = new StringBuilder();
         redirectViewPath.append("redirect:");
@@ -513,18 +513,18 @@ public class TodoController {
 ```java
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
- 
+
 public class TodoDTO {
- 
+
     private Long id;
- 
+
     @Length(max = 500)
     private String description;
- 
+
     @NotEmpty
     @Length(max = 100)
     private String title;
- 
+
     //Constructor and other methods are omitted.
 }
 ```
@@ -564,35 +564,35 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
- 
+
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
-    public void 
+    public void
     add_DescriptionAndTitleAreTooLong_ShouldRenderFormViewAndReturnValidationErrorsForTitleAndDescription()
     throws Exception {
         String title = TestUtil.createStringWithLength(101);
         String description = TestUtil.createStringWithLength(501);
- 
+
         mockMvc.perform(post("/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", description)
@@ -607,7 +607,7 @@ public class TodoControllerTest {
                 .andExpect(model().attribute("todo", hasProperty("id", nullValue())))
                 .andExpect(model().attribute("todo", hasProperty("description", is(description))))
                 .andExpect(model().attribute("todo", hasProperty("title", is(title))));
- 
+
         verifyZeroInteractions(todoServiceMock);
     }
 }
@@ -618,20 +618,20 @@ public class TodoControllerTest {
 ```java
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
- 
+
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
- 
+
 public class TestUtil {
- 
+
     public static String createStringWithLength(int length) {
         StringBuilder builder = new StringBuilder();
- 
+
         for (int index = 0; index < length; index++) {
             builder.append("a");
         }
- 
+
         return builder.toString();
     }
 }
@@ -666,7 +666,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
- 
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
@@ -674,21 +674,21 @@ import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
     public void add_NewTodoEntry_ShouldAddTodoEntryAndRenderViewTodoEntryView() throws Exception {
         Todo added = new TodoBuilder()
@@ -696,9 +696,9 @@ public class TodoControllerTest {
                 .description("description")
                 .title("title")
                 .build();
- 
+
         when(todoServiceMock.add(isA(TodoDTO.class))).thenReturn(added);
- 
+
         mockMvc.perform(post("/todo/add")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("description", "description")
@@ -710,13 +710,13 @@ public class TodoControllerTest {
                 .andExpect(redirectedUrl("/todo/1"))
                 .andExpect(model().attribute("id", is("1")))
                 .andExpect(flash().attribute("feedbackMessage", is("Todo entry: title was added.")));
- 
+
         ArgumentCaptor<TodoDTO> formObjectArgument = ArgumentCaptor.forClass(TodoDTO.class);
         verify(todoServiceMock, times(1)).add(formObjectArgument.capture());
         verifyNoMoreInteractions(todoServiceMock);
- 
+
         TodoDTO formObject = formObjectArgument.getValue();
- 
+
         assertThat(formObject.getDescription(), is("description"));
         assertNull(formObject.getId());
         assertThat(formObject.getTitle(), is("title"));

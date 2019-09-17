@@ -5,7 +5,7 @@ date = 2016-04-09T23:08:39+08:00
 draft = false
 [taxonomies]
 categories =  ["Spring MVC Testing"]
-tags = ["Spring MVC", "testing", "java"]
+tags = ["spring-mvc", "testing", "java"]
 +++
 
 本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 集成测试系列的第4篇，原文链接：[Integration Testing of Spring MVC Applications: REST API, Part One](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-one/) 和 [Integration Testing of Spring MVC Applications: REST API, Part Two](http://www.petrikainulainen.net/programming/spring-framework/integration-testing-of-spring-mvc-applications-rest-api-part-two/)。
@@ -31,7 +31,7 @@ Domain层有一个Todo的实体类，代码如下：
 ```java
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
- 
+
 import javax.persistence.*;
 
 @Entity
@@ -80,15 +80,15 @@ Service层有一个`TodoService`接口，主要提供了以下个方法：
 
 ```java
 public interface TodoService {
- 
+
     public Todo deleteById(Long id) throws TodoNotFoundException;
- 
+
     public List<Todo> findAll();
- 
+
     public Todo findById(Long id) throws TodoNotFoundException;
 
     public Todo add(TodoDTO added);
- 
+
     public Todo update(TodoDTO updated) throws TodoNotFoundException;
 }
 ```
@@ -107,20 +107,20 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
- 
+
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Locale;
 
 @Controller
 public class TodoController {
- 
+
     @Resource
     private TodoService service;
- 
+
     @Resource
     private LocaleContextHolderWrapper localeHolderWrapper;
- 
+
     @Resource
     private MessageSource messageSource;
 
@@ -130,78 +130,78 @@ public class TodoController {
         Todo deleted = service.deleteById(id);
         return createDTO(deleted);
     }
- 
+
     @RequestMapping(value = "/api/todo", method = RequestMethod.GET)
     @ResponseBody
     public List<TodoDTO> findAll() {
         List<Todo> models = service.findAll();
         return createDTOs(models);
     }
- 
+
     private List<TodoDTO> createDTOs(List<Todo> models) {
         List<TodoDTO> dtos = new ArrayList<TodoDTO>();
- 
+
         for (Todo model: models) {
             dtos.add(createDTO(model));
         }
- 
+
         return dtos;
     }
- 
+
     @RequestMapping(value = "/api/todo/{id}", method = RequestMethod.GET)
     @ResponseBody
     public TodoDTO findById(@PathVariable("id") Long id) throws TodoNotFoundException {
         Todo found = service.findById(id);
         return createDTO(found);
     }
- 
+
     @RequestMapping(value = "/api/todo", method = RequestMethod.POST)
     @ResponseBody
     public TodoDTO add(@Valid @RequestBody TodoDTO dto) throws FormValidationError {
         validate("todo", dto);
- 
+
         Todo added = service.add(dto);
- 
+
         return createDTO(added);
     }
- 
+
     @RequestMapping(value = "/api/todo/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public TodoDTO update(
         @Valid @RequestBody TodoDTO dto,
         @PathVariable("id") Long todoId
     ) throws TodoNotFoundException, FormValidationError {
- 
+
         Todo updated = service.update(dto);
- 
+
         return createDTO(updated);
     }
- 
+
     private TodoDTO createDTO(Todo model) {
         TodoDTO dto = new TodoDTO();
- 
+
         dto.setId(model.getId());
         dto.setDescription(model.getDescription());
         dto.setTitle(model.getTitle());
- 
+
         return dto;
     }
- 
+
     @ExceptionHandler(FormValidationError.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public FormValidationErrorDTO handleFormValidationError(FormValidationError validationError) {
         Locale current = localeHolderWrapper.getCurrentLocale();
- 
+
         List<FieldError> fieldErrors = validationError.getFieldErrors();
- 
+
         FormValidationErrorDTO dto = new FormValidationErrorDTO();
- 
+
         for (FieldError fieldError: fieldErrors) {
             String[] fieldErrorCodes = fieldError.getCodes();
             for (int index = 0; index < fieldErrorCodes.length; index++) {
                 String fieldErrorCode = fieldErrorCodes[index];
- 
+
                 String localizedError = messageSource.getMessage(fieldErrorCode, fieldError.getArguments(), current);
                 if (localizedError != null && !localizedError.equals(fieldErrorCode)) {
                     dto.addFieldError(fieldError.getField(), localizedError);
@@ -214,14 +214,14 @@ public class TodoController {
                 }
             }
         }
- 
+
         return dto;
     }
- 
+
     private boolean isLastFieldErrorCode(int index, String[] fieldErrorCodes) {
         return index == fieldErrorCodes.length - 1;
     }
- 
+
     @ExceptionHandler(TodoNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public void handleTodoNotFoundException(TodoNotFoundException ex) {
@@ -244,22 +244,22 @@ public class TodoController {
 ```java
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
- 
+
 public class TodoDTO {
- 
+
     private Long id;
- 
+
     @Length(max = 500)
     private String description;
- 
+
     @NotEmpty
     @Length(max = 100)
     private String title;
- 
+
     public TodoDTO() {
- 
+
     }
- 
+
     //Getters and setters
 }
 ```
@@ -270,15 +270,15 @@ public class TodoDTO {
 
 ```java
 public class FieldValidationErrorDTO {
- 
+
     private String path;
     private String message;
- 
+
     public FieldValidationErrorDTO(String path, String message) {
         this.path = path;
         this.message = message;
     }
- 
+
     //Getters
 }
 ```
@@ -289,18 +289,18 @@ public class FieldValidationErrorDTO {
 
 ```java
 public class FormValidationErrorDTO {
- 
+
     private List<FieldValidationErrorDTO> fieldErrors = new ArrayList<FieldValidationErrorDTO>();
- 
+
     public FormValidationErrorDTO() {
- 
+
     }
- 
+
     public void addFieldError(String path, String message) {
         FieldValidationErrorDTO fieldError = new FieldValidationErrorDTO(path, message);
         fieldErrors.add(fieldError);
     }
- 
+
     //Getter
 }
 ```
@@ -319,13 +319,13 @@ public class TodoNotFoundException extends Exception {
 }
 
 public class FormValidationError extends Exception {
- 
+
     private List<FieldError> fieldErrors;
- 
+
     public FormValidationError(List<FieldError> fieldErrors) {
         this.fieldErrors = fieldErrors;
     }
- 
+
     //Getter
 }
 ```
@@ -358,11 +358,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
@@ -371,13 +371,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class })
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findAll() throws Exception {
@@ -439,11 +439,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
@@ -452,13 +452,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class })
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findById() throws Exception {
@@ -496,10 +496,10 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
@@ -508,13 +508,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class })
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void findByIdWhenTodoIsNotFound() throws Exception {
@@ -559,11 +559,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -572,13 +572,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData-delete-expected.xml")
     public void deleteById() throws Exception {
@@ -624,10 +624,10 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -636,13 +636,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void deleteByIdWhenTodoIsNotFound() throws Exception {
@@ -688,11 +688,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -701,13 +701,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup(toDoData.xml)
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void addEmptyTodo() throws Exception {
@@ -749,12 +749,12 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -763,20 +763,20 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void addTodoWhenTitleAndDescriptionAreTooLong() throws Exception {
         String title = TodoTestUtil.createStringWithLength(101);
         String description = TodoTestUtil.createStringWithLength(501);
         TodoDTO added = TodoTestUtil.createDTO(null, description, title);
- 
+
         mockMvc.perform(post("/api/todo")
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(added))
@@ -824,11 +824,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -837,13 +837,13 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase(value="toDoData-add-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void add() throws Exception {
@@ -909,11 +909,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -922,18 +922,18 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void updateEmptyTodo() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(1L, "", "");
- 
+
         mockMvc.perform(put("/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
@@ -972,12 +972,12 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -986,21 +986,21 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void updateTodoWhenTitleAndDescriptionAreTooLong() throws Exception {
         String title = TodoTestUtil.createStringWithLength(101);
         String description = TodoTestUtil.createStringWithLength(501);
- 
+
         TodoDTO updated = TodoTestUtil.createDTO(1L, description, title);
- 
+
         mockMvc.perform(put("/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
@@ -1041,10 +1041,10 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -1053,18 +1053,18 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase("toDoData.xml")
     public void updateTodoWhenTodoIsNotFound() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(3L, "description", "title");
- 
+
         mockMvc.perform(put("/api/todo/{id}", 3L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))
@@ -1101,11 +1101,11 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.samples.context.WebContextLoader;
- 
+
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = WebContextLoader.class, classes = {ExampleApplicationContext.class})
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
@@ -1114,18 +1114,18 @@ import static org.springframework.test.web.server.result.MockMvcResultMatchers.s
         DbUnitTestExecutionListener.class})
 @DatabaseSetup("toDoData.xml")
 public class ITTodoControllerTest {
- 
+
     //Add web application context here
- 
+
     private MockMvc mockMvc;
- 
+
     //Add setUp() method here
- 
+
     @Test
     @ExpectedDatabase(value="toDoData-update-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void update() throws Exception {
         TodoDTO updated = TodoTestUtil.createDTO(1L, "description", "title");
- 
+
         mockMvc.perform(put("/api/todo/{id}", 1L)
                 .contentType(IntegrationTestUtil.APPLICATION_JSON_UTF8)
                 .body(IntegrationTestUtil.convertObjectToJsonBytes(updated))

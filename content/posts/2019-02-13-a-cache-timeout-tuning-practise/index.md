@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Practise"]
-tags = ["java", "cache", "tcp", "fast retransmit", "congistion"]
+tags = ["java", "cache", "tcp", "fast-retransmit", "congistion"]
 +++
 
 负责的服务在线上环境出现了丢弃请求的现象。经排查是由于请求队列中的若干请求处理时间过长，导致队列之后的请求等待以致超时，而在队列中超时的请求会被框架直接抛弃掉。

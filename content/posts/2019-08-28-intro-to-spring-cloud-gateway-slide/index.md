@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Spring"]
-tags = ["gateway", "spring cloud", "route"]
+tags = ["gateway", "spring-cloud", "spring-cloud-gateway", "route"]
 +++
 
 本文基于在部门内的一次分享修改而成，主要介绍 [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) 的请求处理流程和装配流程。

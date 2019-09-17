@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Practise"]
-tags = ["dns", "mysql", "tomcat dbcp", "connection leak"]
+tags = ["dns", "mysql", "tomcat-dbcp", "connection-leak"]
 +++
 
 最近经历了一次由于线上 DNS 解析大范围失效引发的问题排查，并且由于应对不当导致的 MySQL 连接数打满。由于问题发上在周末，网络访问和内部沟通都不方便，整个问题的处理大概花费了 14 个小时（上午 10：00 左右到晚上 03：00）。

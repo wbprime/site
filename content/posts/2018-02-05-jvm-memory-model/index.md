@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Notes"]
-tags = ["jvm", "memory model"]
+tags = ["jvm", "memory-model"]
 +++
 
 JVM 的内存模型，从网上整理的图片：

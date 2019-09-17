@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Notes"]
-tags = ["ansi color"]
+tags = ["ansi-color"]
 +++
 
 在Bash/Zsh里面给命令行输出添加颜色，可以使用ANSI的控制字符串。

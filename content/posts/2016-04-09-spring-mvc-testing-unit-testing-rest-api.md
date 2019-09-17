@@ -5,7 +5,7 @@ date = 2016-04-09T23:07:22+08:00
 draft = false
 [taxonomies]
 categories =  ["Spring MVC Testing"]
-tags = ["Spring MVC", "testing", "java"]
+tags = ["spring-mvc", "testing", "java"]
 +++
 
 本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第3篇，原文链接：[Unit Testing of Spring MVC Controllers: REST API](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/)。
@@ -110,39 +110,39 @@ tags = ["Spring MVC", "testing", "java"]
 ```java
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
- 
+
 import java.util.ArrayList;
 import java.util.List;
- 
+
 @Controller
 public class TodoController {
- 
+
     private TodoService service;
- 
+
     @RequestMapping(value = "/api/todo", method = RequestMethod.GET)
     @ResponseBody
     public List<TodoDTO> findAll() {
         List<Todo> models = service.findAll();
         return createDTOs(models);
     }
- 
+
     private List<TodoDTO> createDTOs(List<Todo> models) {
         List<TodoDTO> dtos = new ArrayList<>();
- 
+
         for (Todo model: models) {
             dtos.add(createDTO(model));
         }
- 
+
         return dtos;
     }
- 
+
     private TodoDTO createDTO(Todo model) {
         TodoDTO dto = new TodoDTO();
- 
+
         dto.setId(model.getId());
         dto.setDescription(model.getDescription());
         dto.setTitle(model.getTitle());
- 
+
         return dto;
     }
 }
@@ -190,28 +190,28 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
- 
+
 import java.util.Arrays;
- 
+
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here.
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
     public void findAll_TodosFound_ShouldReturnFoundTodoEntries() throws Exception {
         Todo first = new TodoBuilder()
@@ -224,9 +224,9 @@ public class TodoControllerTest {
                 .description("Lorem ipsum")
                 .title("Bar")
                 .build();
- 
+
         when(todoServiceMock.findAll()).thenReturn(Arrays.asList(first, second));
- 
+
         mockMvc.perform(get("/api/todo"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
@@ -237,7 +237,7 @@ public class TodoControllerTest {
                 .andExpect(jsonPath("$[1].id", is(2)))
                 .andExpect(jsonPath("$[1].description", is("Lorem ipsum")))
                 .andExpect(jsonPath("$[1].title", is("Bar")));
- 
+
         verify(todoServiceMock, times(1)).findAll();
         verifyNoMoreInteractions(todoServiceMock);
     }
@@ -248,11 +248,11 @@ public class TodoControllerTest {
 
 ```java
 public class TestUtil {
- 
-    public static final MediaType APPLICATION_JSON_UTF8 = 
+
+    public static final MediaType APPLICATION_JSON_UTF8 =
 			new MediaType(
 				MediaType.APPLICATION_JSON.getType(),
-				MediaType.APPLICATION_JSON.getSubtype, 
+				MediaType.APPLICATION_JSON.getSubtype,
 				Charset.forName("utf8")
 			);
 }
@@ -276,26 +276,26 @@ public class TestUtil {
 ```java
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
- 
+
 @Controller
 public class TodoController {
- 
+
     private TodoService service;
- 
+
     @RequestMapping(value = "/api/todo/{id}", method = RequestMethod.GET)
     @ResponseBody
     public TodoDTO findById(@PathVariable("id") Long id) throws TodoNotFoundException {
         Todo found = service.findById(id);
         return createDTO(found);
     }
- 
+
     private TodoDTO createDTO(Todo model) {
         TodoDTO dto = new TodoDTO();
- 
+
         dto.setId(model.getId());
         dto.setDescription(model.getDescription());
         dto.setTitle(model.getTitle());
- 
+
         return dto;
     }
 }
@@ -314,12 +314,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
- 
+
 @ControllerAdvice
 public class RestErrorHandler {
- 
+
     private static final Logger LOGGER = LoggerFactory.getLogger(RestErrorHandler.class);
- 
+
     @ExceptionHandler(TodoNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public void handleTodoNotFoundException(TodoNotFoundException ex) {
@@ -350,32 +350,32 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
- 
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here.
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
     public void findById_TodoEntryNotFound_ShouldReturnHttpStatusCode404() throws Exception {
         when(todoServiceMock.findById(1L)).thenThrow(new TodoNotFoundException(""));
- 
+
         mockMvc.perform(get("/api/todo/{id}", 1L))
                 .andExpect(status().isNotFound());
- 
+
         verify(todoServiceMock, times(1)).findById(1L);
         verifyNoMoreInteractions(todoServiceMock);
     }
@@ -405,27 +405,27 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
- 
+
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here.
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
     public void findById_TodoEntryFound_ShouldReturnFoundTodoEntry() throws Exception {
         Todo found = new TodoBuilder()
@@ -433,16 +433,16 @@ public class TodoControllerTest {
                 .description("Lorem ipsum")
                 .title("Foo")
                 .build();
- 
+
         when(todoServiceMock.findById(1L)).thenReturn(found);
- 
+
         mockMvc.perform(get("/api/todo/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.description", is("Lorem ipsum")))
                 .andExpect(jsonPath("$.title", is("Foo")));
- 
+
         verify(todoServiceMock, times(1)).findById(1L);
         verifyNoMoreInteractions(todoServiceMock);
     }
@@ -468,28 +468,28 @@ public class TodoControllerTest {
 ```java
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
- 
+
 import javax.validation.Valid;
- 
+
 @Controller
 public class TodoController {
- 
+
     private TodoService service;
- 
+
     @RequestMapping(value = "/api/todo", method = RequestMethod.POST)
     @ResponseBody
     public TodoDTO add(@Valid @RequestBody TodoDTO dto) {
         Todo added = service.add(dto);
         return createDTO(added);
     }
- 
+
     private TodoDTO createDTO(Todo model) {
         TodoDTO dto = new TodoDTO();
- 
+
         dto.setId(model.getId());
         dto.setDescription(model.getDescription());
         dto.setTitle(model.getTitle());
- 
+
         return dto;
     }
 }
@@ -500,18 +500,18 @@ public class TodoController {
 ```java
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
- 
+
 public class TodoDTO {
- 
+
     private Long id;
- 
+
     @Length(max = 500)
     private String description;
- 
+
     @NotEmpty
     @Length(max = 100)
     private String title;
- 
+
     //Constructor and other methods are omitted.
 }
 ```
@@ -573,40 +573,40 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
- 
+
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here.
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
-    public void 
+    public void
     add_TitleAndDescriptionAreTooLong_ShouldReturnValidationErrorsForTitleAndDescription()
     throws Exception {
         String title = TestUtil.createStringWithLength(101);
         String description = TestUtil.createStringWithLength(501);
- 
+
         TodoDTO dto = new TodoDTOBuilder()
                 .description(description)
                 .title(title)
                 .build();
- 
+
         mockMvc.perform(post("/api/todo")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(dto))
@@ -623,7 +623,7 @@ public class TodoControllerTest {
                         "The maximum length of the description is 500 characters.",
                         "The maximum length of the title is 100 characters."
                 )));
- 
+
         verifyZeroInteractions(todoServiceMock);
     }
 }
@@ -635,32 +635,32 @@ public class TodoControllerTest {
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
- 
+
 import java.io.IOException;
 import java.nio.charset.Charset;
- 
+
 public class TestUtil {
- 
-    public static final MediaType APPLICATION_JSON_UTF8 = 
+
+    public static final MediaType APPLICATION_JSON_UTF8 =
         new MediaType(
-            MediaType.APPLICATION_JSON.getType(), 
+            MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype(),
             Charset.forName("utf8")
         );
- 
+
     public static byte[] convertObjectToJsonBytes(Object object) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         return mapper.writeValueAsBytes(object);
     }
- 
+
     public static String createStringWithLength(int length) {
         StringBuilder builder = new StringBuilder();
- 
+
         for (int index = 0; index < length; index++) {
             builder.append("a");
         }
- 
+
         return builder.toString();
     }
 }
@@ -688,7 +688,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
- 
+
 import static junit.framework.Assert.assertNull;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -696,37 +696,37 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
- 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestContext.class, WebAppContext.class})
 @WebAppConfiguration
 public class TodoControllerTest {
- 
+
     private MockMvc mockMvc;
- 
+
     @Autowired
     private TodoService todoServiceMock;
- 
+
     //Add WebApplicationContext field here.
- 
+
     //The setUp() method is omitted.
- 
+
     @Test
-    public void 
+    public void
     add_NewTodoEntry_ShouldAddTodoEntryAndReturnAddedEntry() throws Exception {
         TodoDTO dto = new TodoDTOBuilder()
                 .description("description")
                 .title("title")
                 .build();
- 
+
         Todo added = new TodoBuilder()
                 .id(1L)
                 .description("description")
                 .title("title")
                 .build();
- 
+
         when(todoServiceMock.add(any(TodoDTO.class))).thenReturn(added);
- 
+
         mockMvc.perform(post("/api/todo")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(dto))
@@ -736,11 +736,11 @@ public class TodoControllerTest {
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.description", is("description")))
                 .andExpect(jsonPath("$.title", is("title")));
- 
+
         ArgumentCaptor<TodoDTO> dtoCaptor = ArgumentCaptor.forClass(TodoDTO.class);
         verify(todoServiceMock, times(1)).add(dtoCaptor.capture());
         verifyNoMoreInteractions(todoServiceMock);
- 
+
         TodoDTO dtoArgument = dtoCaptor.getValue();
         assertNull(dtoArgument.getId());
         assertThat(dtoArgument.getDescription(), is("description"));

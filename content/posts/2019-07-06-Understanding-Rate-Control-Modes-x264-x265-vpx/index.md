@@ -6,7 +6,7 @@ draft = false
 template = "page.html"
 [taxonomies]
 categories =  ["Streaming"]
-tags = ["ffmpeg", "h264", "rate control", "crf", "cbr", "vbr", "abr", "vbv"]
+tags = ["ffmpeg", "h264", "rate-control", "crf", "cbr", "vbr", "abr", "vbv"]
 +++
 
 最近在做短视频转码的项目，涉及到视频在线传输的码率控制的问题，于网络搜寻资料时发现了一篇介绍基于

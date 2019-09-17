@@ -5,7 +5,7 @@ date = 2018-02-05T15:45:52+08:00
 draft = false
 [taxonomies]
 categories =  ["Notes"]
-tags = ["HTTP", "status code"]
+tags = ["HTTP", "status-code"]
 +++
 
 Notes about HTTP response status code.
