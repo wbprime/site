@@ -145,7 +145,7 @@ typedef struct {
 
 在 [wrk][wrk] 的输出中，有两个地方显示的是压测的 QPS: 第 5 行 "Req/Sec" 和 第 13 行 "Requests/sec"。
 
-[如上所述](#Thread Stats)，"Req/Sec" 是线程采样数据的统计结果：多个线程分别每 100ms 收集一次累积的请求响应数，该值乘以 1000 放入统计数组中参与最终的统计；假若程序总的 1s 中的请求响应数是 1000，线程数是 4，则统计数组中会出现 `4 x 10 = 40` 个采样，"Req/Sec" 是这 40 个采样的统计结果（如均值）。
+[如上所述](#thread-stats)，"Req/Sec" 是线程采样数据的统计结果：多个线程分别每 100ms 收集一次累积的请求响应数，该值乘以 1000 放入统计数组中参与最终的统计；假若程序总的 1s 中的请求响应数是 1000，线程数是 4，则统计数组中会出现 `4 x 10 = 40` 个采样，"Req/Sec" 是这 40 个采样的统计结果（如均值）。
 
 而 "Requests/sec" 是简单地将所有的请求响应数除以测试时长，按前一段的描述应该得到 1000。
 
@@ -153,7 +153,7 @@ typedef struct {
 
 # WRK2 基本用法
 
-[Gil Tene](https://www.linkedin.com/in/giltene) 发现了 [wrk][wrk] 在进行性能测试采样和衡量时存在一些误解和不足，于 2014 年 fork 了 [wrk][wrk] 并添加了基于 [HDR 直方图](http://hdrhistogram.org/) 的更详细的延时分布和对 Coordinated Omission 进行修正的延时统计，还有固定吞吐量模式支持，这就是 [wrk2][wrk2]。
+大牛 [Gil Tene](https://www.linkedin.com/in/giltene) 发现了 [wrk][wrk] 在进行性能测试采样和衡量时存在一些误解和不足，于 2014 年 fork 了 [wrk][wrk] 并添加了基于 [HDR 直方图](http://hdrhistogram.org/) 的更详细的延时分布和对 Coordinated Omission 进行修正的延时统计，还有固定吞吐量模式支持，这就是 [wrk2][wrk2]。
 
 > wrk2 is wrk modifed to produce a constant throughput load, and accurate latency details to the high 9s (i.e. can produce accurate 99.9999%'ile when run long enough). In addition to wrk's arguments, wrk2 takes a throughput argument (in total requests per second) via either the --rate or -R parameters (default is 1000).
 
