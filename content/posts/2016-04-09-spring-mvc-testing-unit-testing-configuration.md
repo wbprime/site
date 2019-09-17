@@ -5,7 +5,7 @@ date = 2016-04-09T23:06:57+08:00
 draft = false
 [taxonomies]
 categories =  ["Spring MVC Testing"]
-tags = ["Spring MVC", "testing", "java"]
+tags = ["spring-mvc", "testing", "java"]
 +++
 
 本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第1篇，原文链接：[Unit Testing of Spring MVC Controllers: Configuration](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-configuration/)。
