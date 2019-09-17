@@ -207,6 +207,8 @@ ffmpeg -i input.flv -frames:v 10 -loop 0 -f webp -c:v libwebp \
 2. [snapshot_by_interval](app_ffmpeg_snapshot.by_interval.sh) 按照时间间隔抽帧，可以设置时间间隔和输出动画速度
 3. [snapshot_by_thumbnail](app_ffmpeg_snapshot.by_thumbnail.sh) 按照帧类型和场景变化抽帧，可以设置输出动画速度
 
+---
+
 以上。
 
 更多参见：

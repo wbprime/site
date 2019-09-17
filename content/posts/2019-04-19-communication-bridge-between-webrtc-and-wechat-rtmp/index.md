@@ -153,6 +153,10 @@ Streaming Server 将 Janus Server 转发的 [RTP][rtp] & [RTCP][rtcp] 流转换�
 
 本文所述的是一个打通 [WebRTC][webrtc] 和微信小程序的音视频通话支持方案。按照本方案，我们完成了原型系统的搭建，基本实现了预期的目标；后续需要不断优化结构，提高通话体验。
 
+---
+
+以上。
+
 [webrtc]: https://en.wikipedia.org/wiki/WebRTC "WebRTC (Web Real-Time Communication)"
 [peerconnection]: https://developer.mozilla.org/zh-CN/docs/Web/API/RTCPeerConnection "RTCPeerConnection"
 [rtmp]: https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol "Real-Time_Messaging_Protocol"

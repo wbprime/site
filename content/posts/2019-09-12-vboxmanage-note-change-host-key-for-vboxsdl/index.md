@@ -36,4 +36,6 @@ ${VBOXSDL} --hostkey 308 256 --startvm se7en
 
 该命令会设置 host 键为 左-Alt 键并启动虚拟机。
 
+---
+
 以上。

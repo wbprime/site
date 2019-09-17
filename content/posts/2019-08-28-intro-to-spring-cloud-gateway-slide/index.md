@@ -837,5 +837,9 @@ public interface GatewayFilterFactory<C> extends ShortcutConfigurable, Configura
 
 全局过滤器的接口同普通过滤器，但没有提供从定义反序列化生成的能力。
 
+---
+
+以上。
+
 [gateway]: https://spring.io/projects/spring-cloud-gateway "Spring Cloud Gateway"
 [webflux]: https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html "WebFlux - Web on Reactive Stack"

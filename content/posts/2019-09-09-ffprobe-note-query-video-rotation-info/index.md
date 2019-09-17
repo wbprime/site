@@ -22,3 +22,7 @@ ffprobe -loglevel error -hide_banner -select_streams v -show_entries stream_tags
 90/180/270 。
 
 假定一个原视频通过 [ffprobe](https://ffmpeg.org/ffprobe.html) 提取的宽高信息为 800x600，若旋转信息为 90，则实际的视频宽高为 600x800。
+
+---
+
+以上。

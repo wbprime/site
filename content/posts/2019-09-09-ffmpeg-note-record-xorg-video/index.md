@@ -18,3 +18,7 @@ ffmpeg -f x11grab -video_size 1366x768 -framerate 24 -i :0.0+0,0 $(date +%Y%m%dT
 使用了 [x11grap](https://ffmpeg.org/ffmpeg-devices.html#x11grab) 解码器。
 
 参见 [Capturing your Desktop / Screen Recording](https://trac.ffmpeg.org/wiki/Capture/Desktop)
+
+---
+
+以上。

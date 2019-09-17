@@ -250,6 +250,10 @@ ffmpeg -i <input> -c:v libvpx-vp9 -b:v 1M -maxrate 1M -bufsize 2M -pass 2 <outpu
 3. *实时流媒体* 平均码率或固定质量因子配合 VBV (1-pass CRF or ARB with VBV)；固定码率 (CBR)
 4. *刻录* 两路平均码率 (2-pass ABR)
 
+---
+
+以上。
+
 参考资料来源：
 
 - [Handbrake Wiki: Constant Quality vs Average Bit Rate](https://handbrake.fr/docs/en/latest/technical/video-cq-vs-abr.html)

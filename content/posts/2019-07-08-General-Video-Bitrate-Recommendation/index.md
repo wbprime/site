@@ -126,3 +126,7 @@ tags = ["bitrate", "youtube", "apple"]
 ![lighterra_bitarte_2](lighterra.bitrate_2.png)
 
 参见 [Video Encoding Settings for H.264 Excellence](http://www.lighterra.com/papers/videoencodingh264/) 。
+
+---
+
+以上。

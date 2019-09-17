@@ -740,4 +740,8 @@ tags = ["ffmpeg", "vsync", "fps"]
 
 To be continued
 
+---
+
+以上。
+
 [ffmpeg]: http://ffmpeg.org

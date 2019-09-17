@@ -360,7 +360,9 @@ ffmpeg -hide_banner -loglevel warning \
 
 [Demo Script](m3u8.multi.03.sh)
 
-以上！
+---
+
+以上。
 
 参考：
 

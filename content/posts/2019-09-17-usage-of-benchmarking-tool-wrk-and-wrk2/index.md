@@ -347,6 +347,8 @@ Transfer/sec:     95.91KB
 
 我的一个性能测试实践是先使用 [wrk][wrk] 找到一个符合基本要求的并发读（`-c` 选项）和对应的QPS，然后以这个QPS为上限使用 [wrk2][wrk2] 在相同并发度的基础上测试不同吞吐量（`-R` 选项）下的请求延时。
 
+---
+
 以上。
 
 [wrk]: https://github.com/wg/wrk "Modern HTTP benchmarking tool"

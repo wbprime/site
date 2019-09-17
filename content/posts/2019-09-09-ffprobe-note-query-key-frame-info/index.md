@@ -18,3 +18,7 @@ ffprobe -loglevel error -hide_banner -select_streams v -show_format -show_frames
 ```
 
 [ffprobe](https://ffmpeg.org/ffprobe.html) 的更多用法请参考[其文档](https://ffmpeg.org/ffprobe-all.html) 。
+
+---
+
+以上。
