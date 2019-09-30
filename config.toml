@@ -41,7 +41,8 @@ highlight_code = true
 # Which theme to use for the code highlighting.
 # See below for list of accepted values
 # highlight_theme = "base16-ocean-dark"
-highlight_theme = "visual-studio-dark"
+# highlight_theme = "visual-studio-dark"
+highlight_theme = "gruvbox-dark"
 
 # Go through every links in all content and check if the links are valid
 # If a link is invalid (404, 500, etc), the build will error.
@@ -78,7 +79,7 @@ show_categories = true
 show_tags = true
 # Theme color. You can have any color you want, so long as it's...
 # ["orange", "blue", "red", "green", "pink"]
-theme_color = "blue"
+theme_color = "red"
 # Custom css to style over the defaults. This is useful when you only have a
 # few small tweaks to make rather than a major rehaul to the theme.
 # It would be best to make this a proper .sass or .scss file in sass/ rather
