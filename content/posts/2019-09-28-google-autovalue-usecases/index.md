@@ -31,6 +31,8 @@ POJO 的好处吾等皆非常清楚，然而本文却在讲 [AutoValue][autovalu
 本文对于 [AutoValue][autovalue] 的用法做一个简单汇总，并引申介绍一下基于 [AutoValue][autovalue] 的对
 象 JSON 序列化方案。
 
+<!-- more -->
+
 # AutoValue Usecases
 
 ## Maven Settings
