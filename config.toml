@@ -8,8 +8,8 @@ description = "wangbo’s home & blog"
 default_language = "en"
 
 # Theme name to use
-# theme = "even"
-theme = "zerm"
+theme = "even"
+# theme = "zerm"
 
 # Whether to generate a RSS feed automatically
 generate_rss = false
@@ -60,13 +60,14 @@ author = "Elvis Wang"
 # For theme https://github.com/getzola/even.git
 #
 even_menu = [
-    {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},
     {url = "$BASE_URL/about", name = "About"},
-    {url = "https://github.wangbo.im", name = "Github"},
+    {url = "https://github.wangbo.im", name = "Github"}
 ]
 even_title = "WB Prime"
+katex_enable = false
+katex_auto_render = false
 
 #
 # For theme https://github.com/ejmg/zerm.git
