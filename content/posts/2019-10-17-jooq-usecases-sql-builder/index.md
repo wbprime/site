@@ -19,6 +19,18 @@ tags = ["jdbc", "sql", "jooq"]
 
 [jOOQ][jooq] 可以用来帮助构建 SQL 语句，忽略不同 SQL 方言的存在。
 
+在 [Maven](https://maven.apache.org/) 中使用 [jOOQ][jooq]，需要在 `pom.xml` 文件中添加以下依赖：
+
+```xml
+<dependency>
+    <groupId>org.jooq</groupId>
+    <artifactId>jooq</artifactId>
+    <version>${jooq_version}</version>
+</dependency>
+```
+
+截至 2019-10-21，[jOOQ][jooq] 的最新版本是 `3.12.1` 。
+
 以下所有的 SQL 生成用例都使用了 [JUnit 5](https://junit.org/junit5/) 的参数化测试能力，参数化的数据为 6 种不同的关系型数据库方言。
 
 公共代码：
