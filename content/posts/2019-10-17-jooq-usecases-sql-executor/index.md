@@ -17,6 +17,18 @@ tags = ["jdbc", "sql", "jooq"]
 
 [jOOQ][jooq] 可以用来执行裸 SQL 命令语句，也可以用来执行带参数绑定的 SQL 命令语句（只要你的 SQL 正确的话）。
 
+在 [Maven](https://maven.apache.org/) 中使用 [jOOQ][jooq]，需要在 `pom.xml` 文件中添加以下依赖：
+
+```xml
+<dependency>
+    <groupId>org.jooq</groupId>
+    <artifactId>jooq</artifactId>
+    <version>${jooq_version}</version>
+</dependency>
+```
+
+截至 2019-10-21，[jOOQ][jooq] 的最新版本是 `3.12.1` 。
+
 以下所有的用例都基于 [JUnit 5](https://junit.org/junit5/) 框架，测试用的数据库提供方为 [H2][h2] 。
 
 公共代码：
