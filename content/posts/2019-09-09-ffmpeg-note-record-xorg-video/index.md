@@ -19,6 +19,8 @@ ffmpeg -f x11grab -video_size 1366x768 -framerate 24 -i :0.0+0,0 $(date +%Y%m%dT
 
 参见 [Capturing your Desktop / Screen Recording](https://trac.ffmpeg.org/wiki/Capture/Desktop)
 
+<!-- more -->
+
 ---
 
 以上。
