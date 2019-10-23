@@ -1,6 +1,6 @@
 +++
-title = "JOOQ 的使用 - 执行 SQL 命令语句"
-description = "jOOQ 是基于 JDBC 之上的一个抽象层，提供了多种多样的模型来与关系型数据库进行互操作；其使用与 mybatis 和 Hibernate ORM 不同的思路来实现对象关系映射(ORM) 。本篇主要介绍基于 jOOQ 的 SQL 命令语句执行。"
+title = "JOOQ 的使用 - 执行 SQL 语句 (SQL Executor)"
+description = "jOOQ 是基于 JDBC 之上的一个抽象层，提供了多种多样的模型来与关系型数据库进行互操作；其使用与 mybatis 和 Hibernate ORM 不同的思路来实现对象关系映射(ORM) 。本篇主要介绍基于 jOOQ 的 SQL 命令执行 (SQL Executor) 。"
 date = 2019-10-17T19:09:40+08:00
 draft = false
 template = "page.html"
@@ -11,7 +11,7 @@ tags = ["jdbc", "sql", "jooq"]
 
 [jOOQ][jooq] 是基于 JDBC 之上的一个抽象层，提供了多种多样的模型来与关系型数据库进行互操作；其使用与 [mybatis](https://mybatis.org/mybatis-3/) 和 [Hibernate ORM](http://hibernate.org/orm/) 不同的思路来实现 [对象关系映射 ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) 。
 
-本篇主要介绍基于 [jOOQ][jooq] 的 SQL 命令语句执行。
+本篇主要介绍基于 [jOOQ][jooq] 的 SQL 命令执行 (SQL Executor) 。
 
 <!-- more -->
 
