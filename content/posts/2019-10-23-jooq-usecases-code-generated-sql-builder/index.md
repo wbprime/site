@@ -11,7 +11,7 @@ tags = ["jdbc", "sql", "jooq"]
 
 [jOOQ][jooq] 是基于 JDBC 之上的一个抽象层，提供了多种多样的模型来与关系型数据库进行互操作；其使用与 [mybatis](https://mybatis.org/mybatis-3/) 和 [Hibernate ORM](http://hibernate.org/orm/) 不同的思路来实现 [对象关系映射 ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) 。
 
-[JOOQ 的使用 - 代码生成配置 (PostgreSQL & DDL Driven)](@/posts/2019-10-21-jooq-usecases-code-generating/index.md) 介绍了使用 [jOOQ][jooq] 为数据库表生成实体类代码；[JOOQ 的使用 - 拼接 SQL 语句 (SQL Builder)](@/posts/2019-10-17-jooq-usecases-sql-builder/index.md) 介绍了基于 [jOOQ][jooq] 的 SQL 命令语句拼接；作为对比，本篇主要介绍基于生成代码的 SQL 语句拼接 (SQL Builder) 。
+[JOOQ 的使用 - 代码生成配置 (PostgreSQL & DDL Driven)](@/posts/2019-10-21-jooq-usecases-code-generating/index.md) 介绍了使用 [jOOQ][jooq] 为数据库表生成实体类代码；[JOOQ 的使用 - 拼接 SQL 语句 (SQL Builder)](@/posts/2019-10-17-jooq-usecases-sql-builder/index.md) 介绍了基于 [jOOQ][jooq] 的 SQL 语句拼接；作为对比，本篇主要介绍基于生成代码的 SQL 语句拼接 (SQL Builder) 。
 
 <!-- more -->
 
@@ -348,7 +348,7 @@ void test_buildDelete(final SQLDialect dialect) {
 
 ---
 
-可以明显感觉到，使用 [jOOQ][jooq] 生成的代码可以为 SQL 拼接提供类型安全的保证。
+可以明显感觉到，使用 [jOOQ][jooq] 生成的代码为 SQL 拼接提供了更强的类型安全保证。
 
 以上。
 
