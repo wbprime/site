@@ -1,5 +1,5 @@
 +++
-title = "JOOQ 的使用 - 代码生成配置 (PostgreSQL & DDL)"
+title = "JOOQ 的使用 - 代码生成配置 (PostgreSQL & DDL Driven)"
 description = "jOOQ 是基于 JDBC 之上的一个抽象层，提供了多种多样的模型来与关系型数据库进行互操作；其使用与 mybatis 和 Hibernate ORM 不同的思路来实现对象关系映射(ORM) 。本篇主要介绍基于 jOOQ 的数据库实例和 SQL DDL 文件驱动的代码生成实践。"
 date = 2019-10-21T11:04:07+08:00
 draft = false
