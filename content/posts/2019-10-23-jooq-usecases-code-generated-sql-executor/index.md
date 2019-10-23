@@ -61,15 +61,15 @@ void setUp(@TempDir final Path dir) throws Exception {
 ## select
 
 ```java
-final Result<Record4<Long, String, String, String>> fetched = dsl
-    .select(Tables.AUTHOR.ID, Tables.AUTHOR.FIRST_NAME,
-        Tables.AUTHOR.LAST_NAME, Tables.BOOK.TITLE)
-    .from(Tables.AUTHOR.as("u"))
-    .join(Tables.BOOK.as("b"))
-    .on(Tables.AUTHOR.ID.eq(Tables.BOOK.AUTHOR_ID))
-    .where(Tables.AUTHOR.FIRST_NAME.eq("Elvis"))
-    .and(Tables.AUTHOR.LAST_NAME.eq("Wang"))
-    .fetch();
+final Result<Record4<Long, String, String, String>> fetched =
+    dsl.select(Tables.AUTHOR.ID, Tables.AUTHOR.FIRST_NAME,
+            Tables.AUTHOR.LAST_NAME, Tables.BOOK.TITLE)
+        .from(Tables.AUTHOR.as("u"))
+        .join(Tables.BOOK.as("b"))
+        .on(Tables.AUTHOR.ID.eq(Tables.BOOK.AUTHOR_ID))
+        .where(Tables.AUTHOR.FIRST_NAME.eq("Elvis"))
+        .and(Tables.AUTHOR.LAST_NAME.eq("Wang"))
+        .fetch();
 
 fetched.forEach(
     r -> System.out.println(
