@@ -17,7 +17,7 @@ tags = ["jdbc", "sql", "jooq"]
 
 # Generated Classes
 
-本文使用 [代码生成](@/posts/2019-10-21-jooq-usecases-code-generating/index.md) 里面的基于 [PostgreSQL][postgresql] 实例驱动生成的代码，代码结构如下：
+本文使用了 [代码生成](@/posts/2019-10-21-jooq-usecases-code-generating/index.md) 里面的基于 [PostgreSQL][postgresql] 实例驱动生成的代码，代码结构如下：
 
 ```
 ├── tables
