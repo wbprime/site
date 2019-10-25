@@ -17,7 +17,7 @@ post_title="${post_title:-Demo Draft}"
 post_date="`date +%FT%T`+08:00"
 post_name=`date +%F`
 for each_arg in ${post_title}; do
-    post_name="${post_name}-${each_arg}"
+    post_name="${post_name}-${each_arg,,}"
 done
 post_name="${post_name}"
 
