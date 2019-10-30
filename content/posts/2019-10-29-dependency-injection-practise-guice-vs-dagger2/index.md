@@ -70,7 +70,7 @@ Framework][spring]、[Google Guice][guice] 和 [Dagger 2][dagger] 都（部分�
 
 整个应用程序的结构设计如下：
 
-<!-- ![command processor graph]() -->
+![di usecase class graph](logic_view.svg)
 
 `MainApp` 类是应用程序的入口，其主要逻辑是构造一个 `CommandProcessor` 类型的实例，并用该实例处理输入行。
 
@@ -259,7 +259,8 @@ public final class SqlUtils {
     @Qualifier
     @Documented
     @Retention(RetentionPolicy.RUNTIME)
-    @Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.PARAMETER})
+    @Target({ElementType.METHOD, ElementType.CONSTRUCTOR,
+             ElementType.FIELD, ElementType.PARAMETER})
     public @interface JdbcUrl {}
 
     public static final String NAMED_KEY_JDBC_USERNAME = "jdbc_username";
@@ -305,14 +306,14 @@ public final class SqlUtils {
 
 ```xml
 <dependency>
-	<groupId>com.google.inject</groupId>
-	<artifactId>guice</artifactId>
-	<version>${google_guice_version}</version>
+    <groupId>com.google.inject</groupId>
+    <artifactId>guice</artifactId>
+    <version>${google_guice_version}</version>
 </dependency>
 <dependency>
-	<groupId>com.google.inject.extensions</groupId>
-	<artifactId>guice-multibindings</artifactId>
-	<version>${google_guice_version}</version>
+    <groupId>com.google.inject.extensions</groupId>
+    <artifactId>guice-multibindings</artifactId>
+    <version>${google_guice_version}</version>
 </dependency>
 ```
 
@@ -320,7 +321,7 @@ public final class SqlUtils {
 
 ```
 ├── app
-│   ├── AppModule.java 		# 新增加
+│   ├── AppModule.java          # 新增加
 │   ├── Command.java
 │   ├── CommandProcessor.java
 │   ├── GlobalContext.java
@@ -328,19 +329,19 @@ public final class SqlUtils {
 │   └── Stdout.java
 ├── echo
 │   ├── EchoCommand.java
-│   └── EchoModule.java		# 新增加
+│   └── EchoModule.java         # 新增加
 ├── exit
 │   ├── ExitCommand.java
-│   └── ExitModule.java		# 新增加
+│   └── ExitModule.java         # 新增加
 ├── set
 │   ├── SetCommand.java
-│   └── SetModule.java		# 新增加
+│   └── SetModule.java          # 新增加
 ├── sql
 │   ├── SqlCommand.java
-│   ├── SqlModule.java 		# 新增加
+│   ├── SqlModule.java          # 新增加
 │   └── SqlUtils.java
-├── MainApp.java
-└── MainModule.java 		# 新增加
+├── MainApp.java                # 修改
+└── MainModule.java             # 新增加
 ```
 
 一共需要增加六个类文件，和修改 `MainApp` 中生成 `CommandProcessor` 实例的代码。
@@ -507,7 +508,7 @@ final class MainModule extends AbstractModule {
 
 ```java
 final Injector injector = Guice.createInjector(new MainModule(
-	"jdbc:h2:mem:test", "h2", "user@H2"
+    "jdbc:h2:mem:test", "h2", "user@H2"
 ));
 final CommandProcessor processor = injector.getInstance(CommandProcessor.class);
 ```
@@ -530,32 +531,33 @@ Component 是对通过依赖项组装构造所需对象实例的一组类的统�
 
 ```xml
 <dependency>
-	<groupId>com.google.dagger</groupId>
-	<artifactId>dagger</artifactId>
-	<version>${google_dagger2_version}</version>
+    <groupId>com.google.dagger</groupId>
+    <artifactId>dagger</artifactId>
+    <version>${google_dagger2_version}</version>
 </dependency>
 
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<version>${maven_plugin_compiler_version}</version>
-	<configuration>
-		<source>${compiler_source_version}</source>
-		<target>${compiler_target_version}</target>
-		<testSource>${compiler_testSource_version}</testSource>
-		<testTarget>${compiler_testTarget_version}</testTarget>
-		<encoding>${project_source_encoding}</encoding>
-		<optimize>true</optimize>
-		<!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
-		<useIncrementalCompilation>false</useIncrementalCompilation>
-		<annotationProcessorPaths>
-			<path>
-				<groupId>com.google.dagger</groupId>
-				<artifactId>dagger-compiler</artifactId>
-				<version>${google_dagger2_version}</version>
-			</path>
-		</annotationProcessorPaths>
-	</configuration>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>${maven_plugin_compiler_version}</version>
+    <configuration>
+        <source>${compiler_source_version}</source>
+        <target>${compiler_target_version}</target>
+        <testSource>${compiler_testSource_version}</testSource>
+        <testTarget>${compiler_testTarget_version}</testTarget>
+        <encoding>${project_source_encoding}</encoding>
+        <optimize>true</optimize>
+        <!-- Slightly faster builds -->
+        <!-- See https://issues.apache.org/jira/browse/MCOMPILER-209 -->
+        <useIncrementalCompilation>false</useIncrementalCompilation>
+        <annotationProcessorPaths>
+            <path>
+                <groupId>com.google.dagger</groupId>
+                <artifactId>dagger-compiler</artifactId>
+                <version>${google_dagger2_version}</version>
+            </path>
+        </annotationProcessorPaths>
+    </configuration>
 </plugin>
 ```
 
@@ -563,7 +565,7 @@ Component 是对通过依赖项组装构造所需对象实例的一组类的统�
 
 ```
 ├── app
-│   ├── AppModule.java 			# 新添加
+│   ├── AppModule.java          # 新增加
 │   ├── Command.java
 │   ├── CommandProcessor.java
 │   ├── GlobalContext.java
@@ -571,19 +573,19 @@ Component 是对通过依赖项组装构造所需对象实例的一组类的统�
 │   └── Stdout.java
 ├── echo
 │   ├── EchoCommand.java
-│   └── EchoModule.java 		# 新添加
+│   └── EchoModule.java         # 新增加
 ├── exit
 │   ├── ExitCommand.java
-│   └── ExitModule.java 		# 新添加
+│   └── ExitModule.java         # 新增加
 ├── set
 │   ├── SetCommand.java
-│   └── SetModule.java 			# 新添加
+│   └── SetModule.java          # 新增加
 ├── sql
 │   ├── SqlCommand.java
-│   ├── SqlModule.java 			# 新添加
+│   ├── SqlModule.java          # 新增加
 │   └── SqlUtils.java
-├── MainApp.java       			# 修改
-└── MainComponent.java 			# 新添加
+├── MainApp.java                # 修改
+└── MainComponent.java          # 新增加
 ```
 
 一共需要增加五个 Module 类文件和一个 Component 类文件，并修改 `MainApp` 中生成 `CommandProcessor` 类实例的代码。
@@ -704,7 +706,7 @@ public abstract class SqlModule {
 
 ```java
 @Component(modules = { AppModule.class, ExitModule.class,
-	EchoModule.class, SetModule.class, SqlModule.class })
+    EchoModule.class, SetModule.class, SqlModule.class })
 @Singleton
 interface MainComponent {
     static Builder builder() {
@@ -732,10 +734,10 @@ interface MainComponent {
 
 ```java
 final MainComponent mainComponent = MainComponent.builder()
-	.setJdbcUrl("jdbc:h2:mem:test")
-	.setJdbcUsername("h2")
-	.setJdbcPassword("user@H2")
-	.build();
+    .setJdbcUrl("jdbc:h2:mem:test")
+    .setJdbcUsername("h2")
+    .setJdbcPassword("user@H2")
+    .build();
 final CommandProcessor processor = mainComponent.commandProcessor();
 ```
 

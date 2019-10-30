@@ -1,0 +1,25 @@
+@startuml
+Command <|.. EchoCommand
+Command <|.. ExitCommand
+Command <|.. SetCommand
+Command <|.. SqlCommand
+
+SetCommand o-- GlobalContext
+SetCommand o-- Stderr
+
+EchoCommand o-- GlobalContext
+EchoCommand o-- Stdout
+
+SqlCommand o-- Stdout
+SqlCommand o-- Stderr
+SqlCommand o-- SQLDialect
+SqlCommand o-- DataSource
+
+DataSource --> JDBC_url
+DataSource --> JDBC_username
+DataSource --> JDBC_password
+
+CommandProcessor "1" o-- "*" Command
+
+MainApp *-- CommandProcessor
+@enduml
