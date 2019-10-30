@@ -9,7 +9,7 @@ categories =  ["Java"]
 tags = ["java", "apt", "maven", "annotationProcessorPaths"]
 +++
 
-Java 中有很多基于 [注解处理器 APT (Annotation Processing Tool)][apt] 技术的类库，如 [AutoValue][autovalue] 和 [FreeBuilder][freebuilder] 等。
+Java 中有很多基于 [注解处理器 (Annotation Processing Tool, APT)][apt] 技术的类库，如 [AutoValue][autovalue] 和 [FreeBuilder][freebuilder] 等。
 
 在 [Maven](https://maven.apache.org/) 中支持 [APT](apt) ，需要在 [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/) 的配置部分添加 [annotationProcessorPaths](https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#annotationProcessorPaths) 的配置，如下：
 
