@@ -8,9 +8,9 @@ categories =  ["Spring MVC Testing"]
 tags = ["spring-mvc", "testing", "java"]
 +++
 
-本文是 [Spring MVC Testing](./posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第2篇，原文链接：[Unit Testing of Spring MVC Controllers: "Normal" Controllers](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/)。
+本文是 [Spring MVC Testing](@/posts/2016-04-09-spring-mvc-testing-content.md) 单元测试系列的第2篇，原文链接：[Unit Testing of Spring MVC Controllers: "Normal" Controllers](http://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/)。
 
-本系列的第1部分讲述了使用Spring MVC Test应如何进行单元测试的[配置](./posts/2016-04-09-spring-mvc-testing-unit-testing-configuration.md)，现在可以开始实战一下如何对标准controller编写单元测试。
+本系列的第1部分讲述了使用Spring MVC Test应如何进行单元测试的[配置](@/posts/2016-04-09-spring-mvc-testing-unit-testing-configuration.md)，现在可以开始实战一下如何对标准controller编写单元测试。
 
 首先需要明确一下。
 
@@ -733,6 +733,6 @@ public class TodoControllerTest {
 - 如何单元测试一个渲染view的接口
 - 如何单元测试一个处理表单请求的接口
 
-下一篇是介绍[Spring MVC Unit Testing - REST API](./posts/2016-04-09-spring-mvc-testing-unit-testing-rest-api.md)。
+下一篇是介绍[Spring MVC Unit Testing - REST API](@/posts/2016-04-09-spring-mvc-testing-unit-testing-rest-api.md)。
 
 本文使用的代码已经放在了 [Github](https://github.com/pkainulainen/spring-mvc-test-examples/tree/master/controllers-unittest) 上，请自行查阅。

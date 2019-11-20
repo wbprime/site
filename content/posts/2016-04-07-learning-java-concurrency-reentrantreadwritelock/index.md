@@ -433,7 +433,7 @@ static final class FairSync extends Sync {
 读锁是共享锁，条件变量没有意义，所以获取条件变量的方法会抛出`UnsupportedOperationException`异常。
 
 写锁的条件变量的用法同
-[`ReentrantLock`](./posts/2016-04-07-learning-java-concurrency-reentrantlock-condition/index.md) 。
+[`ReentrantLock`](@/posts/2016-04-07-learning-java-concurrency-reentrantlock-condition/index.md) 。
 
 # 总结
 
