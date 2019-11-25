@@ -1,3 +1,7 @@
+dist: bionic
+
+language: generic
+
 # Download and unzip the zola executable
 # Replace the version numbers in the URL by the version you want to use
 before_script:
