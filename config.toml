@@ -2,7 +2,7 @@
 base_url = "https://www.wangbo.im"
 
 # Used in RSS by default
-title = "wangbo’s blog"
+title = "Blog by WangBo"
 description = "wangbo’s home & blog"
 # the default language, used in RSS and coming i18n
 default_language = "en"
