@@ -35,22 +35,22 @@ tags = ["java", "apt", "mapstruct", "autovalue", "freebuilder"]
         </dependency>
 </dependencies>
 <build>
-	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>${maven_plugin_compiler_version}</version>
-			<configuration>
-				<annotationProcessorPaths>
-					<path>
-						<groupId>org.mapstruct</groupId>
-						<artifactId>mapstruct-processor</artifactId>
-						<version>${mapstruct.version}</version>
-					</path>
-				</annotationProcessorPaths>
-			</configuration>
-		</plugin>
-	</plugins>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven_plugin_compiler_version}</version>
+            <configuration>
+                <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.mapstruct</groupId>
+                        <artifactId>mapstruct-processor</artifactId>
+                        <version>${mapstruct.version}</version>
+                    </path>
+                </annotationProcessorPaths>
+            </configuration>
+        </plugin>
+    </plugins>
 </build>
 ```
 
@@ -104,52 +104,52 @@ public interface TypeMapper {
 ```java
 @Override
 public TargetDto convert(SourceEntity from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	TargetDto targetDto = new TargetDto();
+    TargetDto targetDto = new TargetDto();
 
-	targetDto.setIntProperty( from.getIntProperty() );
-	targetDto.setBoolProperty( from.isBoolProperty() );
-	targetDto.setLongProperty( from.getLongProperty() );
-	targetDto.setSrtProperty( from.getSrtProperty() );
-	targetDto.setDateTime( from.getDateTime() );
-	List<BigDecimal> list = from.getNumbers();
-	if ( list != null ) {
-		targetDto.setNumbers( new ArrayList<BigDecimal>( list ) );
-	}
-	Map<String, String> map = from.getTypes();
-	if ( map != null ) {
-		targetDto.setTypes( new HashMap<String, String>( map ) );
-	}
+    targetDto.setIntProperty( from.getIntProperty() );
+    targetDto.setBoolProperty( from.isBoolProperty() );
+    targetDto.setLongProperty( from.getLongProperty() );
+    targetDto.setSrtProperty( from.getSrtProperty() );
+    targetDto.setDateTime( from.getDateTime() );
+    List<BigDecimal> list = from.getNumbers();
+    if ( list != null ) {
+        targetDto.setNumbers( new ArrayList<BigDecimal>( list ) );
+    }
+    Map<String, String> map = from.getTypes();
+    if ( map != null ) {
+        targetDto.setTypes( new HashMap<String, String>( map ) );
+    }
 
-	return targetDto;
+    return targetDto;
 }
 
 @Override
 public SourceEntity convert(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	SourceEntity sourceEntity = new SourceEntity();
+    SourceEntity sourceEntity = new SourceEntity();
 
-	sourceEntity.setIntProperty( from.getIntProperty() );
-	sourceEntity.setBoolProperty( from.isBoolProperty() );
-	sourceEntity.setLongProperty( from.getLongProperty() );
-	sourceEntity.setSrtProperty( from.getSrtProperty() );
-	sourceEntity.setDateTime( from.getDateTime() );
-	List<BigDecimal> list = from.getNumbers();
-	if ( list != null ) {
-		sourceEntity.setNumbers( new ArrayList<BigDecimal>( list ) );
-	}
-	Map<String, String> map = from.getTypes();
-	if ( map != null ) {
-		sourceEntity.setTypes( new HashMap<String, String>( map ) );
-	}
+    sourceEntity.setIntProperty( from.getIntProperty() );
+    sourceEntity.setBoolProperty( from.isBoolProperty() );
+    sourceEntity.setLongProperty( from.getLongProperty() );
+    sourceEntity.setSrtProperty( from.getSrtProperty() );
+    sourceEntity.setDateTime( from.getDateTime() );
+    List<BigDecimal> list = from.getNumbers();
+    if ( list != null ) {
+        sourceEntity.setNumbers( new ArrayList<BigDecimal>( list ) );
+    }
+    Map<String, String> map = from.getTypes();
+    if ( map != null ) {
+        sourceEntity.setTypes( new HashMap<String, String>( map ) );
+    }
 
-	return sourceEntity;
+    return sourceEntity;
 }
 ```
 
@@ -182,30 +182,30 @@ public class TargetDto {
 ```java
 @Override
 public TargetDto convert(SourceEntity from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	TargetDto targetDto = new TargetDto();
+    TargetDto targetDto = new TargetDto();
 
-	targetDto.setIntProperty( from.getIntProperty() );
-	targetDto.setStrProperty( from.getStrProperty() );
+    targetDto.setIntProperty( from.getIntProperty() );
+    targetDto.setStrProperty( from.getStrProperty() );
 
-	return targetDto;
+    return targetDto;
 }
 
 @Override
 public SourceEntity convert(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	SourceEntity sourceEntity = new SourceEntity();
+    SourceEntity sourceEntity = new SourceEntity();
 
-	sourceEntity.setIntProperty( from.getIntProperty() );
-	sourceEntity.setStrProperty( from.getStrProperty() );
+    sourceEntity.setIntProperty( from.getIntProperty() );
+    sourceEntity.setStrProperty( from.getStrProperty() );
 
-	return sourceEntity;
+    return sourceEntity;
 }
 ```
 
@@ -214,7 +214,7 @@ public SourceEntity convert(TargetDto from) {
 ```java
 @Mapper(unmappedSourcePolicy = ReportingPolicy.WARN, unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface TypeMapper {
-	// Omitted
+    // Omitted
 }
 ```
 
@@ -242,32 +242,32 @@ public interface TypeMapper {
 ```java
 @Override
 public TargetDto convert(SourceEntity from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	TargetDto targetDto = new TargetDto();
+    TargetDto targetDto = new TargetDto();
 
-	targetDto.setCreateTime( from.getCreatedAt() );
-	targetDto.setIntProperty( from.getIntProperty() );
-	targetDto.setStrProperty( from.getStrProperty() );
+    targetDto.setCreateTime( from.getCreatedAt() );
+    targetDto.setIntProperty( from.getIntProperty() );
+    targetDto.setStrProperty( from.getStrProperty() );
 
-	return targetDto;
+    return targetDto;
 }
 
 @Override
 public SourceEntity convert(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	SourceEntity sourceEntity = new SourceEntity();
+    SourceEntity sourceEntity = new SourceEntity();
 
-	sourceEntity.setCreatedAt( from.getCreateTime() );
-	sourceEntity.setIntProperty( from.getIntProperty() );
-	sourceEntity.setStrProperty( from.getStrProperty() );
+    sourceEntity.setCreatedAt( from.getCreateTime() );
+    sourceEntity.setIntProperty( from.getIntProperty() );
+    sourceEntity.setStrProperty( from.getStrProperty() );
 
-	return sourceEntity;
+    return sourceEntity;
 }
 ```
 
@@ -335,32 +335,32 @@ public interface TypeMapper {
 ```java
 @Override
 public TargetDto convert(SourceEntity from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	TargetDto targetDto = new TargetDto();
+    TargetDto targetDto = new TargetDto();
 
-	targetDto.setEnumType( TypeMapper.mapType( from.getIntType() ) );
-	targetDto.setCreateTime( from.getCreatedAt() );
-	targetDto.setStrProperty( from.getStrProperty() );
+    targetDto.setEnumType( TypeMapper.mapType( from.getIntType() ) );
+    targetDto.setCreateTime( from.getCreatedAt() );
+    targetDto.setStrProperty( from.getStrProperty() );
 
-	return targetDto;
+    return targetDto;
 }
 
 @Override
 public SourceEntity convert(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	SourceEntity sourceEntity = new SourceEntity();
+    SourceEntity sourceEntity = new SourceEntity();
 
-	sourceEntity.setCreatedAt( from.getCreateTime() );
-	sourceEntity.setIntType( mapType( from.getEnumType() ) );
-	sourceEntity.setStrProperty( from.getStrProperty() );
+    sourceEntity.setCreatedAt( from.getCreateTime() );
+    sourceEntity.setIntType( mapType( from.getEnumType() ) );
+    sourceEntity.setStrProperty( from.getStrProperty() );
 
-	return sourceEntity;
+    return sourceEntity;
 }
 ```
 
@@ -433,53 +433,53 @@ public interface TypeMapper {
 ```java
 @Override
 public TargetDto convert(SourceEntity from, AdditionalEntity additional) {
-	if ( from == null && additional == null ) {
-		return null;
-	}
+    if ( from == null && additional == null ) {
+        return null;
+    }
 
-	TargetDto targetDto = new TargetDto();
+    TargetDto targetDto = new TargetDto();
 
-	if ( from != null ) {
-		targetDto.setEnumType( TypeMapper.mapType( from.getIntType() ) );
-		targetDto.setCreateTime( from.getCreatedAt() );
-		targetDto.setStrProperty( from.getStrProperty() );
-	}
-	if ( additional != null ) {
-		targetDto.setLastUpdateTime( additional.getUpdatedAt() );
-	}
+    if ( from != null ) {
+        targetDto.setEnumType( TypeMapper.mapType( from.getIntType() ) );
+        targetDto.setCreateTime( from.getCreatedAt() );
+        targetDto.setStrProperty( from.getStrProperty() );
+    }
+    if ( additional != null ) {
+        targetDto.setLastUpdateTime( additional.getUpdatedAt() );
+    }
 
-	return targetDto;
+    return targetDto;
 }
 
 @Override
 public SourceEntity convertToSource(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	SourceEntity sourceEntity = new SourceEntity();
+    SourceEntity sourceEntity = new SourceEntity();
 
-	sourceEntity.setCreatedAt( from.getCreateTime() );
-	sourceEntity.setIntType( mapType( from.getEnumType() ) );
-	sourceEntity.setStrProperty( from.getStrProperty() );
+    sourceEntity.setCreatedAt( from.getCreateTime() );
+    sourceEntity.setIntType( mapType( from.getEnumType() ) );
+    sourceEntity.setStrProperty( from.getStrProperty() );
 
-	return sourceEntity;
+    return sourceEntity;
 }
 
 @Override
 public AdditionalEntity convertToAdditional(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	AdditionalEntity additionalEntity = new AdditionalEntity();
+    AdditionalEntity additionalEntity = new AdditionalEntity();
 
-	additionalEntity.setUpdatedAt( from.getLastUpdateTime() );
+    additionalEntity.setUpdatedAt( from.getLastUpdateTime() );
 
-	additionalEntity.setUpdatedBy( "System" );
-	additionalEntity.setContent( "Created at " + java.time.OffsetDateTime.now() );
+    additionalEntity.setUpdatedBy( "System" );
+    additionalEntity.setContent( "Created at " + java.time.OffsetDateTime.now() );
 
-	return additionalEntity;
+    return additionalEntity;
 }
 ```
 
@@ -569,32 +569,32 @@ public interface TypeMapper {
 ```java
 @Override
 public TargetDto convert(SourceEntity from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	TargetDto.Builder targetDto = TargetDto.builder();
+    TargetDto.Builder targetDto = TargetDto.builder();
 
-	targetDto.setEnumType( TypeMapper.mapType( from.getIntType() ) );
-	targetDto.setCreateTime( from.getCreatedAt() );
-	targetDto.setStrProperty( from.getStrProperty() );
+    targetDto.setEnumType( TypeMapper.mapType( from.getIntType() ) );
+    targetDto.setCreateTime( from.getCreatedAt() );
+    targetDto.setStrProperty( from.getStrProperty() );
 
-	return targetDto.build();
+    return targetDto.build();
 }
 
 @Override
 public SourceEntity convert(TargetDto from) {
-	if ( from == null ) {
-		return null;
-	}
+    if ( from == null ) {
+        return null;
+    }
 
-	SourceEntity.Builder sourceEntity = SourceEntity.builder();
+    SourceEntity.Builder sourceEntity = SourceEntity.builder();
 
-	sourceEntity.setCreatedAt( from.getCreateTime() );
-	sourceEntity.setIntType( mapType( from.getEnumType() ) );
-	sourceEntity.setStrProperty( from.getStrProperty() );
+    sourceEntity.setCreatedAt( from.getCreateTime() );
+    sourceEntity.setIntType( mapType( from.getEnumType() ) );
+    sourceEntity.setStrProperty( from.getStrProperty() );
 
-	return sourceEntity.build();
+    return sourceEntity.build();
 }
 ```
 
