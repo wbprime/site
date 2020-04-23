@@ -488,7 +488,7 @@ public AdditionalEntity convertToAdditional(TargetDto from) {
 [MapStruct][mapstruct] 除了对 POJO 的支持外，还提供对基于 Builder 模式的不可变对象的支持，只要满足以下条件：
 
 1. 目标类中必须存在一个公共的静态无参方法可以构造一个 Builder 模式对象 (形如 `public static Builder builder()`)
-2. 目标类的 Builder 模式类中必须存在一个公司的无参方法可以生成一个目标类对象 (形如 `public UserDto build()`)
+2. 目标类的 Builder 模式类中必须存在一个公共的无参方法可以生成一个目标类对象 (形如 `public UserDto build()`)
 
 在上述条件中，方法名可以自定义，但一般都约定为 `public static Builder builder()` 和 `public UserDto build()` 。
 
@@ -628,7 +628,7 @@ public interface TypeMapper {
 
 完整的示例代码可以参见 [MapStruct Usecases](https://github.com/wbprime/java-mods/tree/master/mapstruct-usecases) 。
 
-想了解更多的 [MapStruct][mapstruct] 用法，可以阅读 [官方文档][documentation]，也可以去 [官方仓库][https://github.com/mapstruct/mapstruct-examples] 了解各种用例。
+想了解更多的 [MapStruct][mapstruct] 用法，可以阅读 [官方文档][documentation]，也可以去 [官方仓库](https://github.com/mapstruct/mapstruct-examples) 了解各种用例。
 
 ---
 
