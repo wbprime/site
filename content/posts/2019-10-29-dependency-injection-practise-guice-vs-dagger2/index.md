@@ -298,7 +298,7 @@ public final class SqlUtils {
 
 # DI via Guice
 
-[Guice][guice] 官方编写了一个糊弄人的[入门手册](https://github.com/google/guice/wiki/GettingStarted)，如果对 [Guice][guice] 不熟悉的读完之后还没有入门的需要继续阅读 [WIki](https://github.com/google/guice/wiki) 上的其他文档。
+[Guice][guice] 官方编写了一个糊弄人的[入门手册](https://github.com/google/guice/wiki/GettingStarted)，如果对 [Guice][guice] 不熟悉的读完之后还没有入门的需要继续阅读 [WIKI](https://github.com/google/guice/wiki) 上的其他文档。
 
 简言之，[Guice][guice] 支持 [JSR 330][jsr330] 依赖注入模型，使用反射技术在运行时构建依赖关系图谱并实施依赖注入；对于复杂依赖项或未使用 `@javax.inject.Inject` 注解标识的依赖项可以使用其令人印象深刻的 Binding DSL 或标记了 `@com.google.inject.Provides` 注解的方法来显式指定。
 
